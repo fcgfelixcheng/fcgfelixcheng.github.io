@@ -171,13 +171,26 @@ footer{padding:30px 0 44px;border-top:1px solid var(--line);
   color:var(--ink);margin-top:.5em;display:inline-flex;gap:.5em;align-items:center}
 .door:hover .go{color:var(--copper)}
 
+
+/* logos */
+.nav-brand img{height:26px;width:auto;display:block}
+.nav-brand{display:flex;align-items:center;gap:.7em}
+.cred-logo{height:34px;width:auto;margin-bottom:.2em;opacity:.95}
+.cred-logo.miea{height:44px}
+.foot-marks{display:flex;align-items:center;gap:clamp(18px,2.6vw,32px);flex-wrap:wrap}
+.foot-marks img{width:auto;display:block}
+.foot-marks .m-fcg{height:34px}
+.foot-marks .m-et{height:30px}
+.foot-marks .m-miea{height:34px}
+footer{align-items:center}
+
 </style>
 </head>
 <body>
 
 <header class="nav">
   <div class="nav-in">
-    <a class="nav-brand" href="/"><b>Felix Cheng</b> · FCG</a>
+    <a class="nav-brand" href="/"><img src="img/fcg-dark.png" alt="FCG · E Trend" width="560" height="353"><span style="font-weight:700;font-size:.7rem;letter-spacing:.18em">Felix Cheng</span></a>
     <nav class="nav-links">
       <a href="#about">About</a>
       <a href="#process">How I work</a>
@@ -289,11 +302,13 @@ footer{padding:30px 0 44px;border-top:1px solid var(--line);
         <p>EdgeProp&rsquo;s cross-agency benchmark for Malaysia and Singapore. Judged on commissions actually earned — basic salary excluded — cross-checked against agency records with KPMG as knowledge partner.</p>
       </div>
       <div class="cred">
+        <img class="cred-logo miea" src="img/miea.png" alt="MIEA" width="260" height="290">
         <span class="t">MIEA · REN Group</span>
         <h3>Committee Member</h3>
         <p>Sports &amp; Recreation Committee of the Malaysian Institute of Estate Agents. Which is a formal way of saying I know the negotiators at the other agencies — useful on the day your deal needs one of them.</p>
       </div>
       <div class="cred">
+        <img class="cred-logo" src="img/etrend.png" alt="E Trend Realty" width="180" height="240">
         <span class="t">E Trend Realty Sdn Bhd</span>
         <h3>Prime Leader</h3>
         <p>Registered with BOVAEP / LPPEH. Twelve-plus branches across East and West Malaysia, ERP-tracked files, and commission paid three days after submission.</p>
@@ -339,7 +354,11 @@ footer{padding:30px 0 44px;border-top:1px solid var(--line);
 </section>
 
 <footer class="wrap">
-  <span>FCG · Felix Cheng Group × E Trend Realty Sdn Bhd</span>
+  <div class="foot-marks">
+    <img class="m-fcg" src="img/fcg-dark.png" alt="FCG · E Trend" width="560" height="353">
+    <img class="m-et" src="img/etrend.png" alt="E Trend Realty" width="180" height="240">
+    <img class="m-miea" src="img/miea.png" alt="MIEA member" width="260" height="290">
+  </div>
   <span>Registered REN · BOVAEP / LPPEH</span>
 </footer>
 
