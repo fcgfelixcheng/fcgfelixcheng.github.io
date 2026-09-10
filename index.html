@@ -134,14 +134,67 @@ p{margin:0}
 footer{padding:30px 0 44px;border-top:1px solid var(--line);
   display:flex;flex-wrap:wrap;gap:8px 26px;justify-content:space-between;
   font-family:var(--s);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+
+/* sticky nav */
+.nav{position:sticky;top:0;z-index:60;background:rgba(252,250,245,.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line)}
+.nav-in{max-width:var(--max);margin-inline:auto;padding:13px var(--gut);
+  display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nav-brand{font-family:var(--s);font-weight:700;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;
+  text-decoration:none;color:var(--faint);white-space:nowrap}
+.nav-brand b{color:var(--ink)}
+.nav-links{display:none;align-items:center;gap:clamp(16px,2.2vw,30px)}
+.nav-links a{font-family:var(--s);font-weight:500;font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--soft);text-decoration:none;white-space:nowrap;transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a.on{color:var(--copper);font-weight:600}
+.nav-cta{display:flex;gap:8px;align-items:center}
+.nav-cta a{font-family:var(--s);font-weight:600;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;
+  text-decoration:none;padding:.7em 1.05em;border-radius:2px;white-space:nowrap;transition:.2s}
+.nav-cta .n1{background:var(--ink);color:var(--paper)}
+.nav-cta .n1:hover{background:var(--copper)}
+.nav-cta .n2{border:1px solid var(--line);color:var(--ink)}
+.nav-cta .n2:hover{border-color:var(--ink)}
+@media(min-width:900px){.nav-links{display:flex}}
+@media(max-width:520px){.nav-cta .n2{display:none}}
+
+/* two doors */
+.doors{display:grid;gap:1px;background:var(--line);margin-top:clamp(26px,4vw,40px);border:1px solid var(--line)}
+@media(min-width:780px){.doors{grid-template-columns:1fr 1fr}}
+.door{background:var(--paper);padding:clamp(26px,3.4vw,40px);text-decoration:none;display:grid;gap:.55em;
+  align-content:start;transition:background .25s}
+.door:hover{background:#fff}
+.door .t{font-family:var(--s);font-weight:600;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--copper)}
+.door h3{font-size:clamp(1.5rem,3vw,2.1rem)}
+.door p{font-size:.94rem;color:var(--soft);line-height:1.75}
+.door .go{font-family:var(--s);font-weight:600;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink);margin-top:.5em;display:inline-flex;gap:.5em;align-items:center}
+.door:hover .go{color:var(--copper)}
+
 </style>
 </head>
 <body>
 
+<header class="nav">
+  <div class="nav-in">
+    <a class="nav-brand" href="/"><b>Felix Cheng</b> · FCG</a>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#process">How I work</a>
+      <a href="#areas">Areas</a>
+      <a href="/catalog/">Catalogue</a>
+      <a href="/join/">Join FCG</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="n2" href="/catalog/">Catalogue</a>
+      <a class="n1" href="https://wa.me/60182131314" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
+</header>
+
 <!-- HERO -->
 <section class="hero">
   <div class="wrap">
-    <a class="mark" href="#top"><b>Felix Cheng</b> &nbsp;·&nbsp; FCG</a>
     <div class="hero-grid">
       <div class="hero-copy">
         <p class="eyebrow">Registered Negotiator · E Trend Realty</p>
@@ -168,6 +221,29 @@ footer{padding:30px 0 44px;border-top:1px solid var(--line);
       <div class="fig"><b>RM116M</b><span>Team sales, 2026 to date</span></div>
       <div class="fig"><b>270</b><span>Units transacted this year</span></div>
       <div class="fig"><b>20</b><span>Projects on hand</span></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- TWO DOORS -->
+<section id="start" class="band-sand">
+  <div class="wrap">
+    <p class="eyebrow">Where to start</p>
+    <h2>Two reasons people call me.</h2>
+    <div class="doors">
+      <a class="door" href="/catalog/">
+        <span class="t">If you&rsquo;re buying</span>
+        <h3>The catalogue</h3>
+        <p>Twenty projects on hand, RM243,000 to RM1.5 million. Price, layout, tenure and completion side by side, so you can compare before you ask anyone anything.</p>
+        <span class="go">Browse projects &rarr;</span>
+      </a>
+      <a class="door" href="/join/">
+        <span class="t">If you&rsquo;re joining</span>
+        <h3>Build a career</h3>
+        <p>Zero-cost start, A&ndash;Z training, company leads and commission three days after submission. RM10,000&ndash;30,000 a month, no ceiling, no experience needed.</p>
+        <span class="go">See how FCG works &rarr;</span>
+      </a>
     </div>
   </div>
 </section>
