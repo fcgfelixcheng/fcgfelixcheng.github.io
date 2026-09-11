@@ -17,7 +17,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400&family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --paper:#FCFAF5;
@@ -184,6 +184,22 @@ footer{padding:30px 0 44px;border-top:1px solid var(--line);
 .foot-marks .m-miea{height:34px}
 footer{align-items:center}
 
+
+/* press */
+.press{display:grid;gap:clamp(24px,3.4vw,46px);margin-top:clamp(24px,3.6vw,40px)}
+@media(min-width:900px){.press{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);align-items:start}}
+.press-quote{font-family:var(--d);font-weight:300;font-size:clamp(1.35rem,2.6vw,1.95rem);line-height:1.5;
+  color:var(--ink);margin:0;padding-left:clamp(18px,2.4vw,28px);border-left:2px solid var(--copper);letter-spacing:-.01em}
+.press-quote .zh{display:block;font-family:"Noto Serif SC","Songti SC",serif;font-size:.84em;line-height:1.75;color:var(--soft);margin-top:.9em}
+.press-meta{display:grid;gap:.9em;padding-top:4px}
+.press-meta .src{font-family:var(--s);font-weight:700;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--copper)}
+.press-meta .award{font-family:var(--d);font-weight:400;font-size:clamp(1.3rem,2.2vw,1.6rem);letter-spacing:-.02em;line-height:1.25}
+.press-meta p{font-size:.94rem;color:var(--soft);line-height:1.75}
+.press-meta a.read{font-family:var(--s);font-weight:600;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink);text-decoration:none;border-bottom:1px solid var(--copper);padding-bottom:3px;width:max-content}
+.press-meta a.read:hover{color:var(--copper)}
+.zh-name{font-family:"Noto Serif SC","Songti SC",serif;font-weight:400}
+
 </style>
 </head>
 <body>
@@ -220,7 +236,7 @@ footer{align-items:center}
       </div>
       <figure class="portrait" style="margin:0">
         <img src="img/felix.jpg" alt="Felix Cheng" width="880" height="1100">
-        <figcaption>Felix Cheng · FCG · Prime Leader</figcaption>
+        <figcaption>Felix Cheng <span class="zh-name">曾竞锋</span> · Best Project Head 2025</figcaption>
       </figure>
     </div>
   </div>
@@ -312,6 +328,27 @@ footer{align-items:center}
         <span class="t">E Trend Realty Sdn Bhd</span>
         <h3>Prime Leader</h3>
         <p>Registered with BOVAEP / LPPEH. Twelve-plus branches across East and West Malaysia, ERP-tracked files, and commission paid three days after submission.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- PRESS -->
+<section class="band-sand" id="press">
+  <div class="wrap">
+    <p class="eyebrow">In the press</p>
+    <h2>Named Best Project Head,<em class="q">E Trend 2025.</em></h2>
+    <div class="press">
+      <blockquote class="press-quote">
+        &ldquo;A project sells on precise strategy, teamwork and execution &mdash; from showroom to marketing to closing, every step held tight, until it goes from 0% to 100% sold.&rdquo;
+        <span class="zh">「项目销售成功的关键在于精准策略、团队协作和高效执行&hellip;&hellip;最终实现从 0% 到 100% 售罄的目标。」</span>
+      </blockquote>
+      <div class="press-meta">
+        <span class="src">南洋商报 · Nanyang Siang Pau</span>
+        <span class="award">Felix Cheng <span class="zh-name">曾竞锋</span><br>Best Project Head Award</span>
+        <p>Recognised at E Trend Realty&rsquo;s 2025 annual awards at Nexus @ Bangsar South &mdash; 104 awards across five categories, close to 600 guests. Profiled as leader and head of project sales.</p>
+        <a class="read" href="https://www.enanyang.my/news/20250312/Finance/672814" target="_blank" rel="noopener">Read the feature &rarr;</a>
       </div>
     </div>
   </div>
