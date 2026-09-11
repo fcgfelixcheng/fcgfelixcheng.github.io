@@ -139,6 +139,19 @@ a{text-decoration:none;color:inherit}button,input{font:inherit;color:inherit}.wr
 /* old floating pill nav removed: trim the space that was reserved for it */
 .hero{padding-top:56px!important}
 @media(max-width:900px){.hero{padding-top:40px!important}}
+
+/* mobile menu (native <details>, no JS) */
+.fcgnav-menu{position:relative;display:block}
+.fcgnav-menu summary{list-style:none;cursor:pointer;font:600 11px/1 'Archivo',system-ui,sans-serif;letter-spacing:.14em;
+  text-transform:uppercase;color:#F4F2EE;padding:13px 14px;border:1px solid rgba(255,255,255,.2);border-radius:2px}
+.fcgnav-menu summary::-webkit-details-marker{display:none}
+.fcgnav-menu[open] summary{border-color:#E4BC63;color:#E4BC63}
+.fcgnav-menu .panel{position:absolute;right:0;top:calc(100% + 8px);min-width:210px;background:#0B0B0B;
+  border:1px solid rgba(255,255,255,.14);border-top:2px solid #E3021F;padding:8px 0;box-shadow:0 18px 40px rgba(0,0,0,.5)}
+.fcgnav-menu .panel a{display:block;padding:13px 18px;font:500 12px/1 'Archivo',system-ui,sans-serif;letter-spacing:.14em;
+  text-transform:uppercase;color:#D9D5CE;text-decoration:none}
+.fcgnav-menu .panel a:hover,.fcgnav-menu .panel a[aria-current="page"]{color:#E4BC63;background:rgba(255,255,255,.03)}
+@media(min-width:980px){.fcgnav-menu{display:none}}
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -155,6 +168,7 @@ a{text-decoration:none;color:inherit}button,input{font:inherit;color:inherit}.wr
       <a href="/join/" aria-current="page">Join FCG</a>
     </div>
     <div class="fcgnav-cta">
+      <details class="fcgnav-menu"><summary>Menu</summary><div class="panel"><a href="/">Home</a><a href="/#about">About</a><a href="/#process">How I Work</a><a href="/#areas">Areas</a><a href="/catalog/">Catalogue</a><a href="/join/" aria-current="page">Join FCG</a></div></details>
       <a class="b1" href="/catalog/">Catalogue</a>
       <a class="b2" href="https://wa.me/60182131314" target="_blank" rel="noopener">WhatsApp</a>
     </div>
