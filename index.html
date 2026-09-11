@@ -204,27 +204,52 @@ footer{align-items:center}
 .press-meta a.read:hover{color:var(--copper)}
 .zh-name{font-family:"Noto Serif SC","Songti SC",serif;font-weight:400}
 
+
+/* ===== FCG shared nav (identical on /, /catalog/, /join/) ===== */
+.fcgnav{position:sticky!important;top:0!important;left:auto!important;right:auto!important;transform:none!important;
+  z-index:300;width:100%;margin:0;background:rgba(11,11,11,.92);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:2px solid #E3021F}
+.fcgnav-in{max-width:1180px;margin:0 auto;padding:12px clamp(20px,5vw,72px);
+  display:flex;align-items:center;justify-content:space-between;gap:18px;height:auto}
+.fcgnav-brand{display:flex;align-items:center;gap:.75em;text-decoration:none;flex:none}
+.fcgnav-brand img{height:30px;width:auto;display:block}
+.fcgnav-brand span{font:700 11px/1 'Archivo',system-ui,-apple-system,sans-serif;letter-spacing:.22em;
+  text-transform:uppercase;color:#8A857E;white-space:nowrap}
+.fcgnav-links{display:none;align-items:center;gap:clamp(18px,2.4vw,36px)}
+.fcgnav-links a{font:500 11.5px/1 'Archivo',system-ui,-apple-system,sans-serif;letter-spacing:.17em;
+  text-transform:uppercase;color:#B8B3AB;text-decoration:none;white-space:nowrap;transition:color .2s;padding:6px 0}
+.fcgnav-links a:hover{color:#FFFFFF}
+.fcgnav-links a[aria-current="page"]{color:#E4BC63}
+.fcgnav-cta{display:flex;gap:8px;align-items:center;flex:none}
+.fcgnav-cta a{font:600 11px/1 'Archivo',system-ui,-apple-system,sans-serif;letter-spacing:.13em;text-transform:uppercase;
+  text-decoration:none;padding:13px 17px;border-radius:2px;white-space:nowrap;transition:.2s;display:inline-block}
+.fcgnav-cta .b1{border:1px solid rgba(255,255,255,.2);color:#F4F2EE}
+.fcgnav-cta .b1:hover{border-color:#E4BC63;color:#E4BC63}
+.fcgnav-cta .b2{background:#E4BC63;color:#0B0B0B;border:1px solid #E4BC63}
+.fcgnav-cta .b2:hover{background:#F0CF85;border-color:#F0CF85}
+.fcgnav :focus-visible{outline:2px solid #E4BC63;outline-offset:3px}
+@media(min-width:980px){.fcgnav-links{display:flex}}
+@media(max-width:560px){.fcgnav-cta .b1{display:none}.fcgnav-brand span{display:none}.fcgnav-in{padding:10px 18px}}
 </style>
 </head>
 <body>
 
-<header class="nav">
-  <div class="nav-in">
-    <a class="nav-brand" href="/"><img src="img/fcg-white.png" alt="FCG · E Trend" width="560" height="353"><span style="font-weight:700;font-size:.7rem;letter-spacing:.18em">Felix Cheng</span></a>
-    <nav class="nav-links">
-      <a href="#about">About</a>
-      <a href="#process">How I work</a>
-      <a href="#areas">Areas</a>
+<header class="fcgnav">
+  <div class="fcgnav-in">
+    <a class="fcgnav-brand" href="/"><img src="/img/fcg-white.png" alt="FCG · E Trend" width="560" height="336"><span>Felix Cheng</span></a>
+    <div class="fcgnav-links" role="navigation" aria-label="Site">
+      <a href="/#about">About</a>
+      <a href="/#process">How I Work</a>
+      <a href="/#areas">Areas</a>
       <a href="/catalog/">Catalogue</a>
       <a href="/join/">Join FCG</a>
-    </nav>
-    <div class="nav-cta">
-      <a class="n2" href="/catalog/">Catalogue</a>
-      <a class="n1" href="https://wa.me/60182131314" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+    <div class="fcgnav-cta">
+      <a class="b1" href="/catalog/">Catalogue</a>
+      <a class="b2" href="https://wa.me/60182131314" target="_blank" rel="noopener">WhatsApp</a>
     </div>
   </div>
 </header>
-
 <!-- HERO -->
 <section class="hero">
   <div class="wrap">
