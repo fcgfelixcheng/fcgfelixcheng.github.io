@@ -152,6 +152,13 @@ a{text-decoration:none;color:inherit}button,input{font:inherit;color:inherit}.wr
   text-transform:uppercase;color:#D9D5CE;text-decoration:none}
 .fcgnav-menu .panel a:hover,.fcgnav-menu .panel a[aria-current="page"]{color:#E4BC63;background:rgba(255,255,255,.03)}
 @media(min-width:980px){.fcgnav-menu{display:none}}
+
+/* ===== legal / disclaimer ===== */
+.legal{max-width:1180px;margin:0 auto;padding:34px clamp(20px,5vw,72px) 8px;border-top:1px solid rgba(255,255,255,.1)}
+.legal h5{margin:0 0 12px;font:700 11px/1.4 'Archivo',system-ui,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#E4BC63}
+.legal p{margin:0 0 10px;max-width:92ch;font:400 12px/1.75 'Archivo',system-ui,sans-serif;color:#8A857E}
+.legal p b{color:#B8B3AB;font-weight:600}
+.legal .reg{margin-top:14px;padding-top:12px;border-top:1px dashed rgba(255,255,255,.1);color:#B8B3AB}
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -279,7 +286,14 @@ a{text-decoration:none;color:inherit}button,input{font:inherit;color:inherit}.wr
 
 <section class="wrap cta reveal" id="contact"><div class="cta-box"><div class="kicker">04 / YOUR NEXT MOVE</div><h2 class="cta-title">BRING<br><span class="red">IT ON.</span></h2><p class="cta-copy">Property. Career. Co-broke. Leadership. One message starts the conversation.</p><div class="actions"><a class="btn primary" href="https://wa.me/60182131314" target="_blank">JOB ENQUIRY · WHATSAPP ↗</a><a class="btn" href="#projects">VIEW PROJECTS ↓</a></div></div></section>
 </main>
-<footer class="wrap footer"><span>© 2026 FELIX CHENG · FCG · E TREND REALTY</span><span>FCGFELIXCHENG.COM.MY · BRING IT ON.</span></footer>
+<section class="legal" aria-label="Disclaimer">
+  <h5>Disclaimer</h5>
+  <p><b>Earnings.</b> Income and performance figures on this page &mdash; including the RM10,000&ndash;30,000 monthly range, team sales, units closed and commission payouts &mdash; illustrate past results of the FCG team. They are not a promise or guarantee of earnings. Actual income depends on individual effort, market conditions and the projects available.</p>
+  <p><b>Terms.</b> Commission structures, payout timing, training, leads and incentives follow E Trend Realty&rsquo;s prevailing policies and may change without notice. Practising as a Real Estate Negotiator requires registration with BOVAEP / LPPEH under the Valuers, Appraisers, Estate Agents and Property Managers Act 1981.</p>
+  <p><b>Trademarks.</b> Awards, event names and third-party logos belong to their respective owners and are shown for reference only.</p>
+  <p class="reg"><b>Felix Cheng</b> · Real Estate Negotiator · <b>E Trend Realty Sdn Bhd</b> (1222480-D) · Registered estate agency under BOVAEP / LPPEH</p>
+</section>
+<footer class="wrap footer"><span>© 2026 FELIX CHENG · FCG · E TREND REALTY</span><span>FCGFELIXCHENG.GITHUB.IO · BRING IT ON.</span></footer>
 
 <script>
 const qs=s=>document.querySelector(s), qsa=s=>document.querySelectorAll(s);
@@ -287,21 +301,10 @@ const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.targ
 qsa('.reveal').forEach(e=>obs.observe(e));
 
 function money(n){return 'RM '+Math.round(n).toLocaleString('en-MY')}
-function loanCalc(){
- const p=+qs('#price').value||0,dp=+qs('#dp').value||0,r=+qs('#rate').value||0,y=+qs('#term').value||0;
- const P=p*(1-dp/100), mrate=r/100/12, N=y*12;
- const m=(P>0&&mrate>0&&N>0)?P*mrate*Math.pow(1+mrate,N)/(Math.pow(1+mrate,N)-1):0;
- qs('#monthly').textContent=money(m);
-}
-function roiCalc(){
- const p=+qs('#rprice').value||0,r=+qs('#rent').value||0;
- qs('#roi').textContent=(p?(r*12/p*100):0).toFixed(2)+'%';
-}
-['price','dp','rate','term'].forEach(id=>qs('#'+id).addEventListener('input',loanCalc));
-['rprice','rent'].forEach(id=>qs('#'+id).addEventListener('input',roiCalc)); loanCalc();roiCalc();
 
-function copyLink(){const u="https://fcgfelixcheng.com.my/";navigator.clipboard?navigator.clipboard.writeText(u).then(()=>alert('Link copied.')):prompt('Copy this link:',u)}
-async function sharePage(){const d={title:"Felix Cheng — BRING IT ON.",text:"Projects, tools and FCG — Felix Cheng.",url:"https://fcgfelixcheng.com.my/"};if(navigator.share){try{await navigator.share(d)}catch(e){}}else copyLink()}
+
+function copyLink(){const u="https://fcgfelixcheng.github.io/join/";navigator.clipboard?navigator.clipboard.writeText(u).then(()=>alert('Link copied.')):prompt('Copy this link:',u)}
+async function sharePage(){const d={title:"Felix Cheng — BRING IT ON.",text:"Projects, tools and FCG — Felix Cheng.",url:"https://fcgfelixcheng.github.io/join/"};if(navigator.share){try{await navigator.share(d)}catch(e){}}else copyLink()}
 
 const sc=qs('.feature-scroller');let dragging=false,sx=0,sl=0;
 sc.addEventListener('mousedown',e=>{dragging=true;sx=e.pageX-sc.offsetLeft;sl=sc.scrollLeft});
