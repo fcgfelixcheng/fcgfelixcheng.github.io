@@ -253,7 +253,7 @@ footer{align-items:center}
 </style>
 <link rel="preload" as="image" href="/img/fcg-white.png">
 <script>
-(function(){var r=document.documentElement,off=true;try{off=!!sessionStorage.getItem('fcgIntroSeen')||matchMedia('(prefers-reduced-motion: reduce)').matches;if(/[?&]intro\b/.test(location.search))off=false}catch(e){}if(off)r.classList.add('fi-off')})();
+(function(){var r=document.documentElement,off=true;try{off=!!sessionStorage.getItem('fcgIntroSeen')||matchMedia('(prefers-reduced-motion: reduce)').matches;if(/[?&]intro\b/.test(location.search)){off=false;r.classList.add('fi-force')}}catch(e){}if(off)r.classList.add('fi-off')})();
 </script>
 <style>
 html.fi-off #fcgIntro{display:none}
@@ -310,6 +310,7 @@ html.fi-lock,html.fi-lock body{overflow:hidden}
   box-shadow:0 0 8px 2px rgba(243,212,143,.6);opacity:0;animation:fiDust var(--d,5s) ease-in-out var(--dl,0s) infinite}
 @keyframes fiDust{0%{opacity:0;transform:translateY(0)}30%{opacity:.9}100%{opacity:0;transform:translateY(-60px)}}
 @media (prefers-reduced-motion:reduce){#fcgIntro{display:none}}
+html.fi-force #fcgIntro{display:flex!important}
 </style>
 </head>
 <body>
