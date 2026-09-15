@@ -159,6 +159,19 @@ a{text-decoration:none;color:inherit}button,input{font:inherit;color:inherit}.wr
 .legal p{margin:0 0 10px;max-width:92ch;font:400 12px/1.75 'Archivo',system-ui,sans-serif;color:#8A857E}
 .legal p b{color:#B8B3AB;font-weight:600}
 .legal .reg{margin-top:14px;padding-top:12px;border-top:1px dashed rgba(255,255,255,.1);color:#B8B3AB}
+
+/* team wins */
+.wins-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin:64px 0 18px}
+.wins-head h3{font-size:clamp(30px,4vw,58px);line-height:.9;letter-spacing:-.06em;font-weight:900}
+.wins-head p{max-width:430px;color:#8d867d;font-size:12px;line-height:1.9}
+.wins-head p strong{color:#d7cec2}
+.wins-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.win-card{padding:25px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,#161419,#0d0c0f);display:flex;flex-direction:column;min-height:260px}
+.win-card strong{font-size:48px;letter-spacing:-.06em;line-height:1;color:var(--gold);margin-top:20px}
+.win-card h4{font-size:20px;letter-spacing:-.03em;margin-top:10px;line-height:1.15}
+.win-card p{font-size:11px;line-height:1.7;color:#878077;margin-top:auto;padding-top:16px}
+@media(max-width:980px){.wins-grid{grid-template-columns:1fr 1fr}.wins-head{flex-direction:column;align-items:flex-start}}
+@media(max-width:560px){.wins-grid{grid-template-columns:1fr}.win-card{min-height:0}}
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -204,6 +217,15 @@ a{text-decoration:none;color:inherit}button,input{font:inherit;color:inherit}.wr
 <div class="team">
 <article class="team-photo"><img src="img/team.jpg" alt="FCG team at E Trend Realty Gala Dinner 2024" width="1205" height="727" loading="lazy"><div class="team-label"><div class="kicker" style="color:#d2c8bc">FCG · E TREND GALA DINNER 2024</div><h3>REAL PEOPLE.<br>REAL <span class="red">MOMENTS.</span></h3><p>Team culture is part of the product. The network grows through people who show up, learn and move together.</p></div></article>
 <div class="side"><article class="side-card"><div class="kicker">TEAM PROOF</div><strong>116M</strong><h4>RM team net sales · 2026 YTD</h4><p>Net sales after rebates, across the whole FCG team.</p></article><article class="side-card"><div class="kicker">MARKETING ENGINE</div><strong>37K+</strong><h4>Self-built customer database</h4><p>Supported by self-managed Meta advertising and structured follow-up.</p></article></div>
+</div>
+<div class="wins" id="wins">
+<div class="wins-head reveal"><div><div class="kicker">TEAM WINS</div><h3>THEY STARTED<br><span class="gold">WHERE YOU ARE.</span></h3></div><p><strong>Nobody here joined as a champion.</strong> These are FCG negotiators who came in new &mdash; same training, same system, same room.</p></div>
+<div class="wins-grid">
+<article class="win-card reveal"><div class="kicker">JOINED 2020</div><strong>RM11.3M</strong><h4>Ava Alicia</h4><p>Now an E Trend Supreme Leader. Cumulative GDV since joining FCG.</p></article>
+<article class="win-card reveal"><div class="kicker">JOINED 2018</div><strong>TOP 3</strong><h4>Kelvin Wong</h4><p>National Top 3 &mdash; built from his first year in the team.</p></article>
+<article class="win-card reveal"><div class="kicker">MONTHLY CHAMPIONS</div><strong>4</strong><h4>Rap Yap &middot; Janise &middot; Khai Jet &middot; Rachel</h4><p>Monthly champions who all started as new negotiators.</p></article>
+<article class="win-card reveal"><div class="kicker">APRIL 2026 &middot; MIP</div><strong>10</strong><h4>turn-ups a week &mdash; starting as a caller</h4><p>Now a full-time agent. What changed: consistency, and thinking long term.</p></article>
+</div>
 </div>
 </section>
 
@@ -288,7 +310,7 @@ a{text-decoration:none;color:inherit}button,input{font:inherit;color:inherit}.wr
 </main>
 <section class="legal" aria-label="Disclaimer">
   <h5>Disclaimer</h5>
-  <p><b>Earnings.</b> Income and performance figures on this page &mdash; including the RM10,000&ndash;30,000 monthly range, team sales, units closed and commission payouts &mdash; illustrate past results of the FCG team. They are not a promise or guarantee of earnings. Actual income depends on individual effort, market conditions and the projects available.</p>
+  <p><b>Earnings.</b> Income and performance figures on this page &mdash; including the RM10,000&ndash;30,000 monthly range, team sales, units closed, commission payouts and individual team members&rsquo; results &mdash; illustrate past results of the FCG team. They are not a promise or guarantee of earnings. Actual income depends on individual effort, market conditions and the projects available.</p>
   <p><b>Terms.</b> Commission structures, payout timing, training, leads and incentives follow E Trend Realty&rsquo;s prevailing policies and may change without notice. Practising as a Real Estate Negotiator requires registration with BOVAEP / LPPEH under the Valuers, Appraisers, Estate Agents and Property Managers Act 1981.</p>
   <p><b>Trademarks.</b> Awards, event names and third-party logos belong to their respective owners and are shown for reference only.</p>
   <p class="reg"><b>Felix Cheng Chin Fung</b> (REN 25339) · Real Estate Negotiator · <b>E Trend Realty Sdn Bhd</b> (1222480-D) · LPPEH Reg. No. <b>E (1) 1752/1</b> · Registered estate agency under BOVAEP / LPPEH</p>
