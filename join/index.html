@@ -172,6 +172,22 @@ a{text-decoration:none;color:inherit}button,input{font:inherit;color:inherit}.wr
 .win-card p{font-size:11px;line-height:1.7;color:#878077;margin-top:auto;padding-top:16px}
 @media(max-width:980px){.wins-grid{grid-template-columns:1fr 1fr}.wins-head{flex-direction:column;align-items:flex-start}}
 @media(max-width:560px){.wins-grid{grid-template-columns:1fr}.win-card{min-height:0}}
+
+/* group achievement */
+.awards-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin:64px 0 18px}
+.awards-head h3{font-size:clamp(30px,4vw,58px);line-height:.9;letter-spacing:-.06em;font-weight:900}
+.awards-head p{max-width:440px;color:#8d867d;font-size:12px;line-height:1.9}
+.awards-head p strong{color:#d7cec2}
+.awards-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.award{margin:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:linear-gradient(145deg,#161419,#0d0c0f);transition:border-color .25s,transform .25s}
+.award:hover{border-color:rgba(228,188,99,.45);transform:translateY(-3px)}
+.award img{width:100%;height:auto;display:block;aspect-ratio:760/950;object-fit:cover}
+.award figcaption{padding:13px 14px 15px}
+.award b{display:block;font-size:13.5px;letter-spacing:-.02em}
+.award span{display:block;margin-top:5px;font:500 8.5px/1.6 var(--mono);letter-spacing:.12em;color:#8d867d;text-transform:uppercase}
+.awards-note{margin-top:14px;font-size:10px;color:#6f6961;line-height:1.7;max-width:80ch}
+@media(max-width:1180px){.awards-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:680px){.awards-grid{grid-template-columns:repeat(2,1fr)}.awards-head{flex-direction:column;align-items:flex-start;margin-top:48px}}
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -226,6 +242,22 @@ a{text-decoration:none;color:inherit}button,input{font:inherit;color:inherit}.wr
 <article class="win-card reveal"><div class="kicker">MONTHLY CHAMPIONS</div><strong>2</strong><h4>Janise Koo &middot; Rachel Law</h4><p>Monthly champions who both started as new negotiators.</p></article>
 <article class="win-card reveal"><div class="kicker">APRIL 2026 &middot; MIP</div><strong>10</strong><h4>turn-ups a week &mdash; starting as a caller</h4><p>Now a full-time agent. What changed: consistency, and thinking long term.</p></article>
 </div>
+</div>
+<div class="awards" id="awards">
+<div class="awards-head reveal"><div><div class="kicker">GROUP ACHIEVEMENT &middot; E TREND 2026</div><h3>OFFICIAL<br><span class="gold">RESULTS.</span></h3></div><p><strong>不是自己讲的数字。</strong>这些是 E Trend Realty 官方公布的月度成绩与奖励，FCG 成员上榜的部分。</p></div>
+<div class="awards-grid">
+<figure class="award reveal"><img src="img/awards/felix-top-prime-leader-jul.jpg" alt="Felix Cheng named Top Prime Leader champion, July 2026" width="760" height="950" loading="lazy"><figcaption><b>Felix Cheng</b><span>Top Prime Leader 冠军 · 2026年7月</span></figcaption></figure>
+<figure class="award reveal"><img src="img/awards/felix-group-sales-aug.jpg" alt="Felix Cheng named Exceptional Group Sales champion, August 2026" width="760" height="950" loading="lazy"><figcaption><b>Felix Cheng</b><span>Exceptional Group Sales 冠军 · 2026年8月</span></figcaption></figure>
+<figure class="award reveal"><img src="img/awards/ava-outstanding-prime-leader-aug.jpg" alt="Ava Alicia named Outstanding Prime Leader, August 2026" width="760" height="950" loading="lazy"><figcaption><b>Ava Alicia</b><span>Outstanding Prime Leader · 2026年8月</span></figcaption></figure>
+<figure class="award reveal"><img src="img/awards/ava-prime-leader-champion-aug.jpg" alt="Ava Alicia named Prime Leader Personal Sales champion, August 2026" width="760" height="950" loading="lazy"><figcaption><b>Ava Alicia</b><span>Prime Leader Personal Sales 冠军 · 2026年8月</span></figcaption></figure>
+<figure class="award reveal"><img src="img/awards/kelvin-leader-champion-jul.jpg" alt="Kelvin Wong named Leader Personal Sales champion, July 2026" width="760" height="950" loading="lazy"><figcaption><b>Kelvin Wong</b><span>Leader Personal Sales 冠军 · 2026年7月</span></figcaption></figure>
+<figure class="award reveal"><img src="img/awards/cj-pre-leader-champion-aug.jpg" alt="CJ Koh named Pre-Leader Personal Sales champion, August 2026" width="760" height="950" loading="lazy"><figcaption><b>CJ Koh</b><span>Pre-Leader Personal Sales 冠军 · 2026年8月</span></figcaption></figure>
+<figure class="award reveal"><img src="img/awards/cj-promoted-leader-sep.jpg" alt="CJ Koh promoted to Leader, September 2026" width="760" height="950" loading="lazy"><figcaption><b>CJ Koh</b><span>正式升 Leader · 2026年9月</span></figcaption></figure>
+<figure class="award reveal"><img src="img/awards/janise-pre-leader-runnerup-aug.jpg" alt="Janise Koo named Pre-Leader Personal Sales first runner up, August 2026" width="760" height="950" loading="lazy"><figcaption><b>Janise Koo</b><span>Pre-Leader Personal Sales 亚军 · 2026年8月</span></figcaption></figure>
+<figure class="award reveal"><img src="img/awards/kelvin-asia-trip.jpg" alt="Kelvin Wong earned the RM2.5 million GDV Asia Trip incentive" width="760" height="950" loading="lazy"><figcaption><b>Kelvin Wong</b><span>RM2.5MIL GDV · Asia Trip 奖励</span></figcaption></figure>
+<figure class="award reveal"><img src="img/awards/cj-gadget-incentive.jpg" alt="CJ Koh earned the RM5 million GDV gadget incentive" width="760" height="950" loading="lazy"><figcaption><b>CJ Koh</b><span>RM5MIL GDV · Gadget Incentive 奖励</span></figcaption></figure>
+</div>
+<p class="awards-note">成绩与奖励由 E Trend Realty Sdn Bhd 官方公布（海报版权属 E Trend Realty）。所列为过往成绩，不代表未来收入或业绩保证；个人结果因努力、市场和项目而异。</p>
 </div>
 </section>
 
