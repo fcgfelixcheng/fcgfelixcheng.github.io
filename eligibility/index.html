@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Loan Eligibility Check · Felix Cheng</title>
+<meta name="description" content="Free 30-second home loan eligibility check for Malaysia. Key in your income and monthly commitments to see how much you can borrow and what property price fits your budget.">
+<meta name="theme-color" content="#0B0B0B">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Felix Cheng · FCG">
+<meta property="og:url" content="https://fcgfelixcheng.com/eligibility/">
+<meta property="og:title" content="How much house can you afford? — Free check">
+<meta property="og:description" content="Key in your income & commitments. See your loan amount and property budget in 30 seconds. Free, no sign-up.">
+<meta property="og:image" content="https://fcgfelixcheng.com/img/share.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#0B0B0B; --card:#141414; --card-2:#1B1B1B; --ink:#F4F2EE; --soft:#B8B3AB; --faint:#807B74;
+  --gold:#E4BC63; --gold-hi:#F0CF85; --gold-deep:#9C7A2E; --red:#E3021F; --wa:#25D366;
+  --ok:#7FC8A0; --warn:#E9A15B;
+  --line:rgba(255,255,255,.12);
+  --d:"Newsreader",Georgia,serif; --s:"Archivo","Helvetica Neue",Arial,"PingFang SC","Microsoft YaHei",sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:radial-gradient(ellipse 60rem 30rem at 85% -5%,rgba(228,188,99,.10),transparent 70%),var(--paper);
+  color:var(--ink);font-family:var(--s);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+a{color:inherit}
+
+/* ===== FCG shared nav ===== */
+.fcgnav{position:sticky;top:0;z-index:300;background:rgba(11,11,11,.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:2px solid var(--red)}
+.fcgnav-in{max-width:1180px;margin:0 auto;padding:12px clamp(16px,5vw,72px);display:flex;align-items:center;justify-content:space-between;gap:14px}
+.fcgnav-brand{display:flex;align-items:center;gap:.75em;text-decoration:none}
+.fcgnav-brand img{height:30px;width:auto;display:block}
+.fcgnav-brand span{font:700 11px/1 var(--s);letter-spacing:.22em;text-transform:uppercase;color:#8A857E;white-space:nowrap}
+.fcgnav-cta{display:flex;gap:8px;align-items:center}
+.fcgnav-cta a{font:600 11px/1 var(--s);letter-spacing:.13em;text-transform:uppercase;text-decoration:none;padding:12px 15px;border-radius:2px;white-space:nowrap}
+.fcgnav-cta .b1{border:1px solid rgba(255,255,255,.2);color:var(--ink)}
+.fcgnav-cta .b1:hover{border-color:var(--gold);color:var(--gold)}
+.fcgnav-cta .b2{background:var(--gold);color:#0B0B0B}
+.fcgnav-cta .b2:hover{background:var(--gold-hi)}
+@media(max-width:560px){.fcgnav-cta .b1,.fcgnav-brand span{display:none}}
+
+.wrap{max-width:1080px;margin:0 auto;padding:0 clamp(16px,5vw,56px)}
+
+/* hero */
+.hero{padding:clamp(34px,6vw,64px) 0 clamp(20px,3vw,32px);display:flex;flex-wrap:wrap;gap:18px 30px;align-items:flex-end;justify-content:space-between}
+.eyebrow{font:600 10.5px/1.4 var(--s);letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin:0 0 14px}
+h1{font-family:var(--d);font-weight:300;font-size:clamp(2.1rem,5.6vw,3.6rem);letter-spacing:-.035em;line-height:1.04;margin:0;text-wrap:balance}
+h1 em{font-style:normal;color:var(--gold)}
+.lead{margin:14px 0 0;color:var(--soft);max-width:52ch;font-size:15.5px}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;padding:3px;gap:2px}
+.lang button{border:0;background:none;color:var(--soft);font:600 12px/1 var(--s);padding:8px 13px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--gold);color:#0B0B0B}
+
+/* layout */
+.app{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;padding-bottom:30px}
+@media(min-width:900px){.app{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:start}.result{position:sticky;top:84px}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:clamp(18px,3vw,26px)}
+.step{display:flex;align-items:center;gap:10px;font:600 11px/1 var(--s);letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin:0 0 14px}
+.step b{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;border:1px solid var(--gold-deep);font-size:11px;letter-spacing:0}
+.step + .step,.block + .step{margin-top:26px}
+.lbl{display:block;font-size:13px;font-weight:500;color:var(--soft);margin-bottom:6px}
+.field{display:flex;align-items:center;gap:8px;background:var(--card-2);border:1px solid var(--line);border-radius:10px;padding:0 13px;transition:border-color .15s,box-shadow .15s}
+.field:focus-within{border-color:var(--gold);box-shadow:0 0 0 3px rgba(228,188,99,.15)}
+.field span{color:var(--faint);font-size:13px;font-weight:600}
+.field input{flex:1;min-width:0;border:0;background:none;color:var(--ink);font:600 17px/1 var(--s);padding:13px 0;font-variant-numeric:tabular-nums}
+.field input:focus{outline:none}
+.field.big input{font-size:22px;padding:15px 0}
+.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+.hint{font-size:12px;color:var(--faint);margin-top:6px}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.pills button{border:1px solid var(--line);background:var(--card-2);color:var(--soft);font:500 13px/1.2 var(--s);padding:9px 12px;border-radius:8px;cursor:pointer}
+.pills button[aria-pressed="true"]{border-color:var(--gold);color:var(--gold);background:rgba(228,188,99,.08)}
+.total{display:flex;justify-content:space-between;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);font-size:13px;color:var(--soft)}
+.total b{color:var(--ink);font-variant-numeric:tabular-nums}
+.toggle{display:flex;gap:10px;align-items:center;margin-top:22px;cursor:pointer;font-size:14px}
+.toggle input{accent-color:var(--gold);width:18px;height:18px;margin:0}
+.joint{display:none;margin-top:14px;padding:16px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.015)}
+.joint.on{display:block}
+details.adv{margin-top:22px;border-top:1px solid var(--line);padding-top:14px}
+details.adv summary{cursor:pointer;font-size:13px;color:var(--soft);list-style:none}
+details.adv summary::before{content:"+ ";color:var(--gold)}
+details.adv[open] summary::before{content:"– "}
+details.adv .grid2{margin-top:12px}
+
+/* result */
+.result{scroll-margin-top:76px;background:linear-gradient(160deg,#1A1610,#121212 55%);border-color:rgba(228,188,99,.28)}
+.r-lbl{font:600 11px/1.4 var(--s);letter-spacing:.18em;text-transform:uppercase;color:var(--soft)}
+.r-big{font-family:var(--d);font-weight:300;font-size:clamp(2.6rem,7vw,3.7rem);letter-spacing:-.03em;line-height:1.05;color:var(--gold);margin:8px 0 4px;font-variant-numeric:tabular-nums}
+.r-sub{font-size:13px;color:var(--soft)}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:20px 0 18px}
+.stats > div{background:#141414;padding:13px 14px}
+.stats .k{font-size:11.5px;color:var(--faint)}
+.stats .v{font-size:17px;font-weight:600;margin-top:3px;font-variant-numeric:tabular-nums}
+.meter{margin:4px 0 6px}
+.meter-top{display:flex;justify-content:space-between;font-size:12.5px;color:var(--soft);margin-bottom:7px}
+.meter-top b{font-variant-numeric:tabular-nums}
+.bar{position:relative;height:10px;border-radius:99px;background:#262626;overflow:hidden}
+.bar i{position:absolute;inset:0 auto 0 0;border-radius:99px;transition:width .35s ease}
+.bar .used{background:var(--warn)}
+.bar .free{background:var(--gold)}
+.legend{display:flex;gap:14px;font-size:11.5px;color:var(--faint);margin-top:7px}
+.legend span::before{content:"";display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px;vertical-align:0}
+.legend .l1::before{background:var(--warn)}
+.legend .l2::before{background:var(--gold)}
+.legend .l3::before{background:#262626}
+.verdict{margin-top:16px;padding:13px 14px;border-radius:10px;font-size:13.5px;line-height:1.55;background:rgba(127,200,160,.08);border:1px solid rgba(127,200,160,.25);color:#CFEBDB}
+.verdict.mid{background:rgba(228,188,99,.07);border-color:rgba(228,188,99,.25);color:#EEDDB5}
+.verdict.low{background:rgba(233,161,91,.08);border-color:rgba(233,161,91,.3);color:#F2CDA8}
+.wa{margin-top:18px;display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:var(--wa);color:#fff;text-decoration:none;
+  font:700 15.5px/1.2 var(--s);padding:16px 18px;border-radius:12px;box-shadow:0 10px 26px rgba(37,211,102,.22);transition:transform .15s}
+.wa:hover{transform:translateY(-1px)}
+.wa svg{width:21px;height:21px;flex:none}
+.wa-sub{text-align:center;font-size:12px;color:var(--faint);margin-top:9px}
+.cat{display:block;text-align:center;margin-top:12px;font-size:13px;color:var(--gold);text-decoration:none}
+.cat:hover{text-decoration:underline}
+.empty{color:var(--faint);font-size:14px;padding:6px 0 2px}
+
+.mbar{position:fixed;left:12px;right:12px;bottom:12px;z-index:200;display:none;align-items:center;justify-content:space-between;gap:10px;
+  padding:12px 16px;border-radius:12px;background:rgba(20,20,20,.94);border:1px solid rgba(228,188,99,.4);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  color:var(--ink);text-decoration:none;font-size:13px;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+.mbar b{color:var(--gold);font-size:17px;font-variant-numeric:tabular-nums}
+@media(max-width:899px){.mbar.on{display:flex}.res-vis .mbar{display:none}}
+/* trust + legal */
+.trust{display:flex;flex-wrap:wrap;gap:10px 26px;padding:6px 0 34px;font-size:12.5px;color:var(--soft)}
+.trust span::before{content:"✓ ";color:var(--gold)}
+.legal{border-top:1px solid var(--line);padding:26px 0 40px}
+.legal p{margin:0 0 10px;font-size:12px;line-height:1.75;color:#8A857E;max-width:95ch}
+.legal b{color:var(--soft);font-weight:600}
+</style>
+</head>
+<body>
+
+<header class="fcgnav">
+  <div class="fcgnav-in">
+    <a class="fcgnav-brand" href="/"><img src="/img/fcg-white.png" alt="FCG · E Trend" width="560" height="336"><span>Felix Cheng</span></a>
+    <div class="fcgnav-cta">
+      <a class="b1" href="/catalog/">Catalogue</a>
+      <a class="b2" href="https://wa.me/60182131314" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div>
+      <p class="eyebrow" data-i="eyebrow">Free tool · 30 seconds</p>
+      <h1 data-i="h1">How much house can you <em>afford?</em></h1>
+      <p class="lead" data-i="lead">Key in your income and monthly commitments. See your estimated loan and property budget instantly — no sign-up.</p>
+    </div>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="bm" aria-pressed="false">BM</button>
+      <button type="button" data-lang="zh" aria-pressed="false">中文</button>
+    </div>
+  </section>
+
+  <div class="app">
+    <section class="card" aria-label="Your details">
+      <p class="step"><b>1</b><span data-i="s1">Your income</span></p>
+      <div class="pills" id="type1" role="group"></div>
+      <div class="grid2">
+        <div>
+          <label class="lbl" for="inc1" data-i="incLbl">Net monthly income</label>
+          <div class="field big"><span>RM</span><input id="inc1" inputmode="numeric" autocomplete="off" placeholder="5,000"></div>
+        </div>
+        <div>
+          <label class="lbl" for="age" data-i="ageLbl">Your age</label>
+          <div class="field big"><input id="age" inputmode="numeric" autocomplete="off" value="30"><span data-i="yrs">yrs</span></div>
+        </div>
+      </div>
+      <p class="hint" data-i="incHint">Take-home pay after EPF, SOCSO &amp; tax.</p>
+
+      <p class="step block"><b>2</b><span data-i="s2">Monthly commitments</span></p>
+      <div class="grid2">
+        <div><label class="lbl" for="c_car" data-i="cCar">Car loan</label><div class="field"><span>RM</span><input id="c_car" class="c1" inputmode="numeric" placeholder="0"></div></div>
+        <div><label class="lbl" for="c_pl" data-i="cPl">Personal loan</label><div class="field"><span>RM</span><input id="c_pl" class="c1" inputmode="numeric" placeholder="0"></div></div>
+        <div><label class="lbl" for="c_cc" data-i="cCc">Credit card</label><div class="field"><span>RM</span><input id="c_cc" class="c1" inputmode="numeric" placeholder="0"></div></div>
+        <div><label class="lbl" for="c_ptptn" data-i="cPtptn">PTPTN</label><div class="field"><span>RM</span><input id="c_ptptn" class="c1" inputmode="numeric" placeholder="0"></div></div>
+        <div><label class="lbl" for="c_house" data-i="cHouse">Existing housing loan</label><div class="field"><span>RM</span><input id="c_house" class="c1" inputmode="numeric" placeholder="0"></div></div>
+        <div><label class="lbl" for="c_other" data-i="cOther">Others (BNPL etc.)</label><div class="field"><span>RM</span><input id="c_other" class="c1" inputmode="numeric" placeholder="0"></div></div>
+      </div>
+      <p class="hint" data-i="ccHint">Credit card: put 5% of your outstanding balance.</p>
+      <div class="total"><span data-i="tot">Total commitments</span><b id="tot1">RM 0</b></div>
+
+      <label class="toggle"><input type="checkbox" id="jointOn"><span data-i="jointT">Add joint applicant (spouse / family) — boosts eligibility</span></label>
+      <div class="joint" id="jointBox">
+        <div class="pills" id="type2" role="group"></div>
+        <div class="grid2">
+          <div><label class="lbl" for="inc2" data-i="inc2Lbl">Their net income</label><div class="field"><span>RM</span><input id="inc2" inputmode="numeric" placeholder="0"></div></div>
+          <div><label class="lbl" for="c2" data-i="c2Lbl">Their total commitments</label><div class="field"><span>RM</span><input id="c2" inputmode="numeric" placeholder="0"></div></div>
+        </div>
+      </div>
+
+      <details class="adv">
+        <summary data-i="adv">Adjust interest rate &amp; margin</summary>
+        <div class="grid2">
+          <div><label class="lbl" for="rate" data-i="rateLbl">Interest rate</label><div class="field"><input id="rate" inputmode="decimal" value="4.0"><span>% p.a.</span></div></div>
+          <div><label class="lbl" for="margin" data-i="marginLbl">Loan margin</label><div class="field"><input id="margin" inputmode="numeric" value="90"><span>%</span></div></div>
+        </div>
+      </details>
+    </section>
+
+    <section class="card result" id="result" aria-live="polite" aria-label="Your result">
+      <p class="r-lbl" data-i="rBudget">You could afford a property up to</p>
+      <div class="r-big" id="rPrice">RM —</div>
+      <p class="r-sub" id="rPriceSub"></p>
+
+      <div class="stats">
+        <div><div class="k" data-i="kLoan">Max loan</div><div class="v" id="rLoan">—</div></div>
+        <div><div class="k" data-i="kInst">Max monthly instalment</div><div class="v" id="rInst">—</div></div>
+        <div><div class="k" data-i="kTenure">Loan tenure</div><div class="v" id="rTen">—</div></div>
+        <div><div class="k" data-i="kDsr">Current DSR</div><div class="v" id="rDsr">—</div></div>
+      </div>
+
+      <div class="meter">
+        <div class="meter-top"><span data-i="mTitle">How banks see your income</span><b id="mCounted"></b></div>
+        <div class="bar"><i class="used" id="bUsed" style="width:0"></i><i class="free" id="bFree" style="width:0"></i></div>
+        <div class="legend"><span class="l1" data-i="lg1">Existing debts</span><span class="l2" data-i="lg2">New home loan</span><span class="l3" data-i="lg3">Buffer</span></div>
+      </div>
+
+      <div class="verdict" id="verdict" hidden></div>
+
+      <a class="wa" id="waBtn" href="https://wa.me/60182131314" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.78 14.13c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.12.11-1.81-.11-.42-.13-.95-.31-1.64-.6-2.88-1.24-4.76-4.14-4.9-4.33-.14-.19-1.17-1.55-1.17-2.96 0-1.4.74-2.09 1-2.38.26-.28.57-.35.76-.35.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.58.81 2 .88 2.14.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.29.37-.41.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.6-.07.16-.19.69-.8.87-1.08.18-.28.36-.23.6-.14.24.09 1.53.72 1.79.85.26.13.43.19.5.3.07.11.07.63-.17 1.3z"/></svg>
+        <span data-i="waBtn">Ask Felix which project fits</span>
+      </a>
+      <p class="wa-sub" data-i="waSub">Your numbers are sent along — free advice, no obligation.</p>
+      <a class="cat" href="/catalog/" data-i="catLink">Browse 20+ projects from RM230K →</a>
+    </section>
+  </div>
+
+  <div class="trust">
+    <span data-i="t1">100% free</span><span data-i="t2">No sign-up, nothing stored</span><span data-i="t3">REN 25339 · E Trend Realty</span><span data-i="t4">Help with loan submission to multiple banks</span>
+  </div>
+
+  <section class="legal" aria-label="Disclaimer">
+    <p data-i="legal">Estimate only, based on common Malaysian bank practice: variable income is discounted (commission ~80%, own business ~70%, gig ~65% counted) and total debt-service ratio (DSR) is kept around 45–70% depending on income. Tenure runs to age 70, max 35 years. Each bank has its own rules — this is not a loan approval. Your figures stay on your device and are only shared if you tap WhatsApp.</p>
+    <p><b>Felix Cheng Chin Fung</b> (REN 25339) · Real Estate Negotiator · <b>E Trend Realty Sdn Bhd</b> (1222480-D) · LPPEH Reg. No. <b>E (1) 1752/1</b></p>
+  </section>
+</main>
+
+<a class="mbar" id="mbar" href="#result"><span data-i="mbar">Your budget</span><b id="mbarV"></b></a>
+
+<script>
+(function(){
+"use strict";
+var WA = "60182131314";
+var $ = function(id){ return document.getElementById(id); };
+
+var T = {
+  en:{
+    eyebrow:"Free tool · 30 seconds", h1:"How much house can you <em>afford?</em>",
+    lead:"Key in your income and monthly commitments. See your estimated loan and property budget instantly — no sign-up.",
+    s1:"Your income", incLbl:"Net monthly income", ageLbl:"Your age", yrs:"yrs", incHint:"Take-home pay after EPF, SOCSO & tax.",
+    s2:"Monthly commitments", cCar:"Car loan", cPl:"Personal loan", cCc:"Credit card", cPtptn:"PTPTN", cHouse:"Existing housing loan", cOther:"Others (BNPL etc.)",
+    ccHint:"Credit card: put 5% of your outstanding balance.", tot:"Total commitments",
+    jointT:"Add joint applicant (spouse / family) — boosts eligibility", inc2Lbl:"Their net income", c2Lbl:"Their total commitments",
+    adv:"Adjust interest rate & margin", rateLbl:"Interest rate", marginLbl:"Loan margin",
+    mbar:"Your budget ↓", rBudget:"You could afford a property up to", kLoan:"Max loan", kInst:"Max monthly instalment", kTenure:"Loan tenure", kDsr:"Current DSR",
+    mTitle:"How banks see your income", lg1:"Existing debts", lg2:"New home loan", lg3:"Buffer",
+    waBtn:"Ask Felix which project fits", waSub:"Your numbers are sent along — free advice, no obligation.", catLink:"Browse 20+ projects from RM230K →",
+    t1:"100% free", t2:"No sign-up, nothing stored", t3:"REN 25339 · E Trend Realty", t4:"Help with loan submission to multiple banks",
+    legal:"Estimate only, based on common Malaysian bank practice: variable income is discounted (commission ~80%, own business ~70%, gig ~65% counted) and total debt-service ratio (DSR) is kept around 45–70% depending on income. Tenure runs to age 70, max 35 years. Each bank has its own rules — this is not a loan approval. Your figures stay on your device and are only shared if you tap WhatsApp.",
+    types:{basic:"Salaried",commission:"Commission",business:"Own business",gig:"Gig / Grab"},
+    empty:"Key in your income to see your result.",
+    priceSub:function(m){ return "with "+m+"% loan · "+(100-m)+"% down payment"; },
+    counted:function(v){ return v+" counted"; },
+    yrsV:function(y){ return y+" years"; },
+    vHigh:"Strong position. You have room for most new launches in Subang 2, Kwasa Damansara & Shah Alam — WhatsApp Felix for the shortlist that fits.",
+    vMid:"Good budget for entry-level homes. Some launches come with rebates / zero down payment that stretch this further — ask Felix which ones.",
+    vLow:"A bit tight for now — but fixable. Adding a joint name, settling a credit card or personal loan, or a longer tenure can lift this. Felix can show you how.",
+    vNone:"Your commitments are using up most of your income right now. Don't give up — WhatsApp Felix, there are usually ways (joint name, restructuring, clearing small debts).",
+    wa:function(d){ return ["Hi Felix! I used your Loan Eligibility Check.",
+      "Income: "+d.inc+" ("+d.type+")"+(d.joint?" + joint "+d.inc2:""),
+      "Commitments: "+d.debts+"/month",
+      "Age: "+d.age,
+      "Est. max loan: "+d.loan,
+      "Property budget: up to "+d.price,
+      "Which project suits me?"].join("\n"); }
+  },
+  bm:{
+    eyebrow:"Alat percuma · 30 saat", h1:"Berapa harga rumah yang anda <em>mampu?</em>",
+    lead:"Masukkan pendapatan dan komitmen bulanan anda. Terus nampak anggaran pinjaman & bajet rumah — tak perlu daftar.",
+    s1:"Pendapatan anda", incLbl:"Gaji bersih sebulan", ageLbl:"Umur anda", yrs:"thn", incHint:"Gaji masuk akaun selepas KWSP, PERKESO & cukai.",
+    s2:"Komitmen bulanan", cCar:"Pinjaman kereta", cPl:"Pinjaman peribadi", cCc:"Kad kredit", cPtptn:"PTPTN", cHouse:"Pinjaman rumah sedia ada", cOther:"Lain-lain (BNPL dll.)",
+    ccHint:"Kad kredit: masukkan 5% daripada baki tertunggak.", tot:"Jumlah komitmen",
+    jointT:"Tambah pemohon bersama (suami/isteri/keluarga) — naikkan kelayakan", inc2Lbl:"Gaji bersih mereka", c2Lbl:"Jumlah komitmen mereka",
+    adv:"Ubah kadar faedah & margin", rateLbl:"Kadar faedah", marginLbl:"Margin pinjaman",
+    mbar:"Bajet anda ↓", rBudget:"Anda mampu beli rumah sehingga", kLoan:"Pinjaman maksimum", kInst:"Ansuran bulanan maks.", kTenure:"Tempoh pinjaman", kDsr:"DSR semasa",
+    mTitle:"Cara bank kira pendapatan anda", lg1:"Hutang sedia ada", lg2:"Pinjaman rumah baru", lg3:"Baki",
+    waBtn:"Tanya Felix projek yang sesuai", waSub:"Angka anda dihantar sekali — nasihat percuma, tiada komitmen.", catLink:"Lihat 20+ projek dari RM230K →",
+    t1:"100% percuma", t2:"Tak perlu daftar, data tak disimpan", t3:"REN 25339 · E Trend Realty", t4:"Bantu hantar loan ke beberapa bank",
+    legal:"Anggaran sahaja, berdasarkan amalan biasa bank di Malaysia: pendapatan berubah dikira sebahagian (komisen ~80%, bisnes sendiri ~70%, gig ~65%) dan nisbah DSR dikekalkan sekitar 45–70% ikut pendapatan. Tempoh sehingga umur 70, maks 35 tahun. Setiap bank ada syarat sendiri — ini bukan kelulusan pinjaman. Angka anda kekal dalam peranti anda dan hanya dikongsi jika anda tekan WhatsApp.",
+    types:{basic:"Gaji tetap",commission:"Komisen",business:"Bisnes sendiri",gig:"Gig / Grab"},
+    empty:"Masukkan gaji anda untuk lihat keputusan.",
+    priceSub:function(m){ return "pinjaman "+m+"% · deposit "+(100-m)+"%"; },
+    counted:function(v){ return v+" dikira"; },
+    yrsV:function(y){ return y+" tahun"; },
+    vHigh:"Kedudukan kukuh. Anda layak untuk kebanyakan projek baru di Subang 2, Kwasa Damansara & Shah Alam — WhatsApp Felix untuk senarai yang sesuai.",
+    vMid:"Bajet yang baik untuk rumah pertama. Ada projek dengan rebat / deposit sifar yang boleh pergi lebih jauh — tanya Felix projek mana.",
+    vLow:"Agak ketat buat masa ini — tapi boleh diperbaiki. Tambah nama bersama, langsaikan kad kredit / pinjaman peribadi, atau tempoh lebih panjang boleh bantu. Felix boleh tunjuk caranya.",
+    vNone:"Komitmen anda guna hampir semua pendapatan sekarang. Jangan putus asa — WhatsApp Felix, biasanya ada jalan (nama bersama, susun semula hutang, langsaikan hutang kecil).",
+    wa:function(d){ return ["Hi Felix! Saya guna Semakan Kelayakan Pinjaman anda.",
+      "Gaji: "+d.inc+" ("+d.type+")"+(d.joint?" + bersama "+d.inc2:""),
+      "Komitmen: "+d.debts+"/bulan",
+      "Umur: "+d.age,
+      "Anggaran pinjaman maks: "+d.loan,
+      "Bajet rumah: sehingga "+d.price,
+      "Projek mana yang sesuai untuk saya?"].join("\n"); }
+  },
+  zh:{
+    eyebrow:"免费工具 · 30 秒", h1:"你可以买多少钱的<em>房子？</em>",
+    lead:"输入你的收入和每月供款，马上看到你大概能贷多少、能买什么价位的房子 —— 不需注册。",
+    s1:"你的收入", incLbl:"每月净收入", ageLbl:"你的年龄", yrs:"岁", incHint:"扣除公积金、社险和税后的实拿薪水。",
+    s2:"每月供款", cCar:"车贷", cPl:"个人贷款", cCc:"信用卡", cPtptn:"PTPTN 学贷", cHouse:"现有房贷", cOther:"其他（BNPL 等）",
+    ccHint:"信用卡：填欠款余额的 5%。", tot:"每月供款总额",
+    jointT:"加联名申请人（配偶 / 家人）—— 提高贷款额", inc2Lbl:"对方净收入", c2Lbl:"对方每月供款总额",
+    adv:"调整利率与贷款成数", rateLbl:"利率", marginLbl:"贷款成数",
+    mbar:"你的预算 ↓", rBudget:"你可以负担的房价最高约", kLoan:"最高贷款额", kInst:"每月最高供期", kTenure:"贷款年限", kDsr:"目前 DSR",
+    mTitle:"银行怎么看你的收入", lg1:"现有债务", lg2:"新房贷", lg3:"缓冲",
+    waBtn:"问 Felix 哪个项目适合我", waSub:"会附上你算出的数字 —— 免费咨询，不用承诺。", catLink:"看 20+ 个项目，RM230K 起 →",
+    t1:"100% 免费", t2:"不用注册，不保存资料", t3:"REN 25339 · E Trend Realty", t4:"协助同时向多家银行申请贷款",
+    legal:"仅为估算，依照马来西亚银行常见做法：浮动收入只算一部分（佣金约 80%、自营生意约 70%、Gig 约 65%），总债务比率（DSR）按收入维持在约 45–70%。贷款年限算到 70 岁，最长 35 年。各银行规定不同 —— 这不是贷款批准。你的数字只留在你的手机，只有按 WhatsApp 才会发出。",
+    types:{basic:"受薪",commission:"佣金收入",business:"自己做生意",gig:"Gig / Grab"},
+    empty:"输入收入就能看到结果。",
+    priceSub:function(m){ return "贷 "+m+"% · 首付 "+(100-m)+"%"; },
+    counted:function(v){ return "银行算 "+v; },
+    yrsV:function(y){ return y+" 年"; },
+    vHigh:"条件很好。Subang 2、Kwasa Damansara、莎阿南大部分新盘都在你的范围内 —— WhatsApp Felix 拿适合你的名单。",
+    vMid:"首购的好预算。有些项目有回扣 / 零首付，能让预算再拉高 —— 问 Felix 是哪几个。",
+    vLow:"现在有点紧，但可以改善：加联名、还清信用卡或个人贷款、拉长年限都能提高。Felix 可以教你怎么做。",
+    vNone:"目前供款几乎用掉了全部收入。别放弃 —— WhatsApp Felix，通常还有办法（联名、债务重组、先清小债）。",
+    wa:function(d){ return ["Hi Felix！我用了你的贷款资格计算器。",
+      "收入："+d.inc+"（"+d.type+"）"+(d.joint?" + 联名 "+d.inc2:""),
+      "每月供款："+d.debts,
+      "年龄："+d.age,
+      "预计最高贷款："+d.loan,
+      "房价预算：最高 "+d.price,
+      "哪个项目适合我？"].join("\n"); }
+  }
+};
+
+var HAIR = {basic:1, commission:.8, business:.7, gig:.65};
+var lang = "en", type1 = "basic", type2 = "basic";
+var sl = null;
+try{ sl = localStorage.getItem("fcg-elig-lang"); }catch(e){}
+var qp = (location.search.match(/[?&]lang=(en|bm|zh)/)||[])[1];
+if(qp) lang = qp;
+else if(T[sl]) lang = sl;
+else { var nl = (navigator.language||"").toLowerCase(); if(nl.indexOf("zh")===0) lang = "zh"; else if(nl.indexOf("ms")===0) lang = "bm"; }
+
+function val(id){ var v = parseFloat(String($(id).value).replace(/[^0-9.]/g,"")); return isFinite(v)&&v>0 ? v : 0; }
+function RM(v){ return "RM " + Math.round(v).toLocaleString("en-US"); }
+function pv(M, rate, n){ if(M<=0) return 0; var i = rate/1200; return i===0 ? M*n : M*(1-Math.pow(1+i,-n))/i; }
+// DSR ceiling rises with income: ~45% at RM2k, 60% at RM5k, 70% from RM10k (linear in between)
+function dsrCap(c){
+  if(c <= 2000) return .45;
+  if(c <= 5000) return .45 + (c-2000)/3000*.15;
+  if(c <= 10000) return .6 + (c-5000)/5000*.1;
+  return .7;
+}
+
+function buildPills(box, current, onPick){
+  box.innerHTML = "";
+  Object.keys(HAIR).forEach(function(k){
+    var b = document.createElement("button");
+    b.type = "button"; b.textContent = T[lang].types[k];
+    b.setAttribute("aria-pressed", k===current ? "true" : "false");
+    b.addEventListener("click", function(){ onPick(k); });
+    box.appendChild(b);
+  });
+}
+function pills(){
+  buildPills($("type1"), type1, function(k){ type1 = k; pills(); calc(); });
+  buildPills($("type2"), type2, function(k){ type2 = k; pills(); calc(); });
+}
+
+function applyLang(){
+  var L = T[lang];
+  document.documentElement.lang = lang==="zh" ? "zh" : lang==="bm" ? "ms" : "en";
+  document.querySelectorAll("[data-i]").forEach(function(el){
+    var k = el.getAttribute("data-i");
+    if(typeof L[k] === "string") el.innerHTML = L[k];
+  });
+  document.querySelectorAll(".lang button").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.lang===lang ? "true" : "false"); });
+  pills(); calc();
+}
+
+function calc(){
+  var L = T[lang];
+  var debts1 = 0;
+  document.querySelectorAll(".c1").forEach(function(el){ debts1 += val(el.id); });
+  $("tot1").textContent = RM(debts1);
+
+  var joint = $("jointOn").checked;
+  var inc1 = val("inc1"), inc2 = joint ? val("inc2") : 0, debts2 = joint ? val("c2") : 0;
+  var counted = inc1*HAIR[type1] + inc2*HAIR[type2];
+  var debts = debts1 + debts2;
+  var age = Math.min(70, Math.max(18, val("age") || 30));
+  var yrs = Math.max(5, Math.min(35, 70 - age));
+  var rate = Math.min(15, val("rate") || 4);
+  var margin = Math.min(100, Math.max(10, val("margin") || 90));
+
+  var verdict = $("verdict");
+  if(counted <= 0){
+    $("rPrice").textContent = "RM —";
+    $("rPriceSub").textContent = L.empty;
+    ["rLoan","rInst","rTen","rDsr","mCounted"].forEach(function(id){ $(id).textContent = id==="mCounted" ? "" : "—"; });
+    $("bUsed").style.width = $("bFree").style.width = "0";
+    verdict.hidden = true;
+    $("mbar").classList.remove("on");
+    $("waBtn").href = "https://wa.me/" + WA;
+    return;
+  }
+
+  var cap = dsrCap(counted);
+  var inst = Math.max(0, counted*cap - debts);
+  var loan = pv(inst, rate, yrs*12);
+  var price = Math.floor(loan / (margin/100) / 1000) * 1000;
+  var dsrNow = debts / counted * 100;
+
+  $("rPrice").textContent = RM(price);
+  $("mbarV").textContent = RM(price);
+  $("mbar").classList.add("on");
+  $("rPriceSub").textContent = L.priceSub(Math.round(margin));
+  $("rLoan").textContent = RM(loan);
+  $("rInst").textContent = RM(inst);
+  $("rTen").textContent = L.yrsV(yrs);
+  $("rDsr").textContent = dsrNow.toFixed(0) + "%";
+  $("mCounted").textContent = L.counted(RM(counted));
+  var usedPct = Math.min(100, dsrNow), freePct = Math.max(0, Math.min(100 - usedPct, inst/counted*100));
+  $("bUsed").style.width = usedPct + "%";
+  $("bFree").style.left = usedPct + "%";
+  $("bFree").style.width = freePct + "%";
+
+  verdict.hidden = false;
+  verdict.className = "verdict";
+  if(inst <= 0 || price < 100000){ verdict.className += " low"; verdict.textContent = L.vNone; }
+  else if(price < 230000){ verdict.className += " low"; verdict.textContent = L.vLow; }
+  else if(price < 450000){ verdict.className += " mid"; verdict.textContent = L.vMid; }
+  else verdict.textContent = L.vHigh;
+
+  var d = {inc:RM(inc1), type:L.types[type1], joint:joint && inc2>0, inc2:RM(inc2), debts:RM(debts), age:age, loan:RM(loan), price:RM(price)};
+  $("waBtn").href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(L.wa(d));
+}
+
+// money inputs: keep digits only, show thousands separators
+document.querySelectorAll("#inc1,#inc2,#c2,.c1").forEach(function(el){
+  el.addEventListener("input", function(){
+    var raw = el.value.replace(/[^0-9]/g,"").slice(0,8);
+    el.value = raw ? Number(raw).toLocaleString("en-US") : "";
+  });
+});
+document.addEventListener("input", calc);
+$("jointOn").addEventListener("change", function(){ $("jointBox").classList.toggle("on", this.checked); calc(); });
+document.querySelectorAll(".lang button").forEach(function(b){
+  b.addEventListener("click", function(){
+    lang = b.dataset.lang;
+    try{ localStorage.setItem("fcg-elig-lang", lang); }catch(e){}
+    applyLang();
+  });
+});
+$("waBtn").addEventListener("click", function(){ if(window.fbq) fbq("track","Lead",{content_name:"loan_eligibility"}); });
+
+if("IntersectionObserver" in window){
+  new IntersectionObserver(function(es){ document.body.classList.toggle("res-vis", es[0].isIntersecting); }).observe($("result"));
+}
+applyLang();
+})();
+</script>
+</body>
+</html>
