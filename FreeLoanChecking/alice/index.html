@@ -466,8 +466,8 @@
 
   var calculated = false;
   // Agent mode (?agent): shows the full result on-page instead of opening WhatsApp
-  var AGENT = /[?&]agent\b/.test(location.search);
-  if(AGENT){ var cb = $("calcBtn"); cb.lastChild.textContent = " Agent: show result"; }
+  var AGENT = /[?&]agent\b/.test(location.search) || /\/advisor\/?$/.test(location.pathname);
+  if(AGENT){ var cb = $("calcBtn"); cb.lastChild.textContent = " Show eligibility result"; document.title = "Advisor View · " + document.title; }
   var last = null;
 
   function updateLive(){
