@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>How Much Home Can I Afford? · FCG</title>
+<title>Check Kelayakan Loan · FCG</title>
 <meta name="description" content="Free Malaysia home loan eligibility check — key in your income and monthly commitments, see the max loan and property price you could qualify for in 30 seconds.">
-<meta property="og:title" content="How much home can you afford? — Free 30-second check">
-<meta property="og:description" content="Key in your income & commitments. See your max loan, max property price and DSR instantly. Free, no sign-up.">
+<meta property="og:title" content="Check Kelayakan Loan Rumah — Free">
+<meta property="og:description" content="Key in your income & commitments, get your home loan eligibility on WhatsApp. Free, 30 seconds.">
 <meta name="theme-color" content="#F7F8F5">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -228,9 +228,9 @@
 
   <section class="hero">
     <span class="tag">Free · 30 seconds · no sign-up</span>
-    <h1>How much home can you <em>really</em> afford?</h1>
-    <p>Key in your income and monthly commitments. See the max loan and property price banks could likely approve — then ask Felix which projects fit.</p>
-    <div class="steps"><span><b>1</b> Income</span><span><b>2</b> Commitments</span><span><b>3</b> Your budget</span></div>
+    <h1>Check your home loan <em>kelayakan</em> — free</h1>
+    <p>Key in your income and monthly commitments, tap <b>Check Kelayakan</b> — Felix will reply on WhatsApp with how much loan you qualify for and which projects fit.</p>
+    <div class="steps"><span><b>1</b> Income</span><span><b>2</b> Commitments</span><span><b>3</b> Get result on WhatsApp</span></div>
   </section>
 
   <section class="card">
@@ -312,21 +312,16 @@
       </div>
     </div>
 
-    <details class="adv">
-      <summary>Adjust interest rate &amp; down payment</summary>
-      <div class="grid g2">
-        <label class="f">Interest rate (p.a.)
-          <span class="field"><input id="rate" type="number" inputmode="decimal" value="3.9" min="0" max="12" step="0.05"><span>%</span></span>
-        </label>
-        <label class="f">Down payment
-          <span class="field"><input id="down" type="number" inputmode="decimal" value="10" min="0" max="90" step="1"><span>%</span></span>
-        </label>
-      </div>
-    </details>
+    <input type="hidden" id="rate" value="3.9"><input type="hidden" id="down" value="10">
+    <div class="grid g2" style="margin-top:14px">
+      <label class="f">Property price you're eyeing (optional)
+        <span class="field"><span>RM</span><input id="eyePrice" type="number" inputmode="decimal" placeholder="e.g. 450000" min="0" step="10000"></span>
+      </label>
+    </div>
 
     <button class="wa-btn" id="calcBtn" type="button"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.870 9.870 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.010A9.82 9.82 0 0 0 12.04 2zm5.78 14.13c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.12.11-1.81-.11-.42-.13-.95-.31-1.64-.6-2.88-1.24-4.76-4.140-4.9-4.33-.14-.19-1.17-1.55-1.17-2.96 0-1.4.74-2.09 1-2.38.26-.28.57-.35.76-.35.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.58.81 2 .88 2.14.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.29.37-.41.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.6-.07.16-.19.69-.8.87-1.08.18-.28.36-.23.6-.14.24.09 1.53.72 1.79.85.26.13.43.19.5.3.07.11.07.63-.17 1.3z"/></svg>
-      Show my budget &amp; send to WhatsApp</button>
-    <p class="wa-sub">Your result appears below and WhatsApp opens with your numbers ready to send to Felix.</p>
+      Check Kelayakan</button>
+    <p class="wa-sub">Opens WhatsApp with your details filled in — just tap send. Felix will reply with your result. Free, no obligation.</p>
     <div class="err" id="err">Please key in your monthly income first.</div>
   </section>
 
@@ -471,6 +466,9 @@
   }
 
   var calculated = false;
+  // Agent mode (?agent): shows the full result on-page instead of opening WhatsApp
+  var AGENT = /[?&]agent\b/.test(location.search);
+  if(AGENT){ var cb = $("calcBtn"); cb.lastChild.textContent = " Agent: show result"; }
   var last = null;
 
   function updateLive(){
@@ -613,6 +611,26 @@
     $("jointBlock").classList.toggle("on", this.checked);
   });
 
+  function inputMsg(){
+    var h1 = HAIRCUTS[selectedType("type1")];
+    var items = [["Car loan","d1_car"],["Personal loan","d1_personal"],["Credit card","d1_cc"],["PTPTN","d1_ptptn"],["House loan","d1_mortgage"],["Others","d1_other"]];
+    var parts = [];
+    items.forEach(function(it){ var v = num(it[1]); if(v) parts.push(it[0] + " " + RM(v)); });
+    var lines = ["Hi Felix! Nak check kelayakan loan rumah 🏠", ""];
+    if(num("age")) lines.push("• Age: " + Math.round(num("age")));
+    lines.push("• Income: " + RM(num("income1")) + "/mth (" + h1.label + ")");
+    if(num("bonus1")) lines.push("• Bonus: " + RM(num("bonus1")) + "/mth avg");
+    lines.push("• Commitments: " + (parts.length ? parts.join(", ") + " = " + RM(debts1()) + "/mth" : "None"));
+    if($("firstTime").checked) lines.push("• First home: Yes");
+    if($("joint").checked){
+      var h2 = HAIRCUTS[selectedType("type2")];
+      lines.push("• Joint applicant: " + RM(num("income2")) + "/mth (" + h2.label + "), commitments " + RM(num("debts2")) + "/mth");
+    }
+    if(num("eyePrice")) lines.push("• Property in mind: ~" + RM(num("eyePrice")));
+    lines.push("", "Boleh check saya layak loan berapa & projek mana sesuai?");
+    return lines.join("\n");
+  }
+
   $("calcBtn").addEventListener("click", function(){
     if(!num("income1")){
       $("err").classList.add("on");
@@ -620,15 +638,18 @@
       return;
     }
     $("err").classList.remove("on");
-    calculated = true;
-    $("resultsCard").classList.add("on");
-    render();
-    if(window.fcgTrack) window.fcgTrack("Lead", {content_name:"loan_eligibility_calculated", value: Math.round(last.price), currency:"MYR"});
-    $("resultsCard").scrollIntoView({behavior:"smooth", block:"start"});
-    var waUrl = $("waBtn").href;
+    if(AGENT){
+      calculated = true;
+      $("resultsCard").classList.add("on");
+      render();
+      $("resultsCard").scrollIntoView({behavior:"smooth", block:"start"});
+      return;
+    }
+    if(window.fcgTrack) window.fcgTrack("Lead", {content_name:"loan_kelayakan_whatsapp"});
+    var waUrl = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(inputMsg());
     var w = window.open(waUrl, "_blank");
     if(w) w.opener = null;
-    if(!w) setTimeout(function(){ location.href = waUrl; }, 400);
+    else location.href = waUrl;
   });
 
   $("waBtn").addEventListener("click", function(){
