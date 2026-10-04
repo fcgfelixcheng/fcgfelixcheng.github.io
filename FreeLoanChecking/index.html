@@ -616,24 +616,24 @@
     var items = [["Car loan","d1_car"],["Personal loan","d1_personal"],["Credit card","d1_cc"],["PTPTN","d1_ptptn"],["House loan","d1_mortgage"],["Others","d1_other"]];
     var parts = [];
     items.forEach(function(it){ var v = num(it[1]); if(v) parts.push(it[0] + " " + RM(v)); });
-    var lines = ["Hi Felix! Nak check kelayakan loan rumah.", ""];
-    if(num("age")) lines.push("- Age: " + Math.round(num("age")));
-    lines.push("- Income: " + RM(num("income1")) + "/mth (" + h1.label + ")");
-    if(num("bonus1")) lines.push("- Bonus: " + RM(num("bonus1")) + "/mth avg");
-    lines.push("- Commitments: " + (parts.length ? parts.join(", ") + " = " + RM(debts1()) + "/mth" : "None"));
-    if($("firstTime").checked) lines.push("- First home: Yes");
+    function k(v){ return RM(Math.round(v/1000)*1000); }
+    var r = compute();
+    var lines = ["Hi Felix, I would like to check my home loan eligibility.", "", "My details:"];
+    if(num("age")) lines.push("Age: " + Math.round(num("age")));
+    lines.push("Income: " + RM(num("income1")) + " per month (" + h1.label + ")");
+    if(num("bonus1")) lines.push("Bonus: " + RM(num("bonus1")) + " per month (average)");
+    lines.push("Commitments: " + (parts.length ? RM(debts1()) + " per month (" + parts.join(", ") + ")" : "None"));
+    if($("firstTime").checked) lines.push("First home: Yes");
     if($("joint").checked){
       var h2 = HAIRCUTS[selectedType("type2")];
-      lines.push("- Joint applicant: " + RM(num("income2")) + "/mth (" + h2.label + "), commitments " + RM(num("debts2")) + "/mth");
+      lines.push("Joint applicant: " + RM(num("income2")) + " per month (" + h2.label + "), commitments " + RM(num("debts2")) + " per month");
     }
-    if(num("eyePrice")) lines.push("- Property in mind: ~" + RM(num("eyePrice")));
-    var r = compute();
-    lines.push("", "KELAYAKAN (anggaran):");
-    lines.push("- Max loan: " + RM(r.loan));
-    lines.push("- Max harga rumah: ~" + RM(r.price) + " (" + r.downPct + "% downpayment)");
-    lines.push("- Max instalment: " + RM(r.inst) + "/mth (" + r.yrs + " thn @ " + r.rate.toFixed(2) + "%)");
-    lines.push("- DSR sekarang: " + r.dsrNow.toFixed(0) + "%");
-    lines.push("", "Boleh check & cadangkan projek yang sesuai?");
+    if(num("eyePrice")) lines.push("Property in mind: " + RM(num("eyePrice")));
+    lines.push("", "Estimated eligibility:");
+    lines.push("Loan amount: up to " + k(r.loan));
+    lines.push("Property price: up to " + k(r.price));
+    lines.push("Monthly instalment: up to " + RM(r.inst));
+    lines.push("", "Please advise. Thank you.");
     return lines.join("\n");
   }
 
