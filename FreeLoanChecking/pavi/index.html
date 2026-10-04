@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Check Kelayakan Loan · Pavi Property Solutions</title>
+<meta name="description" content="Free Malaysia home loan eligibility check — key in your income and monthly commitments, see the max loan and property price you could qualify for in 30 seconds.">
+<meta property="og:title" content="Check Kelayakan Loan Rumah — Free">
+<meta property="og:description" content="Key in your income & commitments, get your home loan eligibility on WhatsApp. Free, 30 seconds.">
+<meta name="theme-color" content="#F7F8F5">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Pavi Property">
+<link rel="apple-touch-icon" href="/img/loancheckfree-180.png">
+<link rel="icon" href="/img/loancheckfree-180.png">
+<meta property="og:image" content="https://fcgfelixcheng.com/img/loancheckfree-512.png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta property="og:url" content="https://fcgfelixcheng.com/FreeLoanChecking/pavi/">
+</head>
+<body>
+<style>
+  :root{
+    --bg:#F7F8F5; --surface:#FFFFFF; --ink:#29322E; --muted:#6E7C75; --line:#E3E9E4;
+    --accent:#537D6D; --accent-2:#7197AB; --on-accent:#FFFFFF; --accent-soft:#E8F1EC;
+    --gold-bg:#EAF2F6; --gold-ink:#4F7181;
+    --bad-bg:#F7E7E4; --bad-ink:#A24A34;
+    --wa:#1FAF55;
+    --shadow:0 12px 32px rgba(35,56,46,.07),0 2px 6px rgba(35,56,46,.035);
+    --radius:18px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#111514; --surface:#1A211E; --ink:#F0F5F1; --muted:#A8B6AD; --line:#2C3731;
+      --accent:#85AA99; --accent-2:#91B4C7; --on-accent:#142019; --accent-soft:#223129;
+      --gold-bg:#1D2D35; --gold-ink:#A8CBDC;
+      --bad-bg:#332019; --bad-ink:#E6A084;
+      --shadow:0 4px 14px rgba(0,0,0,.52);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#111514; --surface:#1A211E; --ink:#F0F5F1; --muted:#A8B6AD; --line:#2C3731;
+    --accent:#85AA99; --accent-2:#91B4C7; --on-accent:#142019; --accent-soft:#223129;
+    --gold-bg:#1D2D35; --gold-ink:#A8CBDC;
+    --bad-bg:#332019; --bad-ink:#E6A084;
+    --shadow:0 4px 14px rgba(0,0,0,.52);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:
+      radial-gradient(900px 420px at 100% -10%,color-mix(in srgb,var(--accent-2) 12%,transparent),transparent 60%),
+      radial-gradient(700px 380px at -10% 0%,color-mix(in srgb,var(--accent) 12%,transparent),transparent 60%),
+      var(--bg);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;line-height:1.45;min-height:100vh;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:22px 16px 48px}
+  .top{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+  .brand{
+    width:46px;height:46px;flex:0 0 auto;border-radius:12px;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));color:var(--on-accent);
+    display:flex;align-items:center;justify-content:center;
+    font-weight:850;font-size:15px;letter-spacing:.02em;box-shadow:0 8px 16px rgba(83,125,109,.16);
+  }
+  .top .who{font-size:13px;font-weight:700;line-height:1.25}
+  .top .who small{display:block;font-weight:500;color:var(--muted);font-size:12px}
+  .top .who .tel{display:inline-block;margin-top:2px;font-size:12.5px;font-weight:700;color:var(--accent);text-decoration:none;font-variant-numeric:tabular-nums}
+  .top .who .tel:hover{text-decoration:underline}
+  .top-actions{margin-left:auto;display:flex;gap:8px}
+  .icon-btn{width:38px;height:38px;border-radius:12px;border:1px solid var(--line);background:color-mix(in srgb,var(--surface) 86%,transparent);color:var(--ink);font-size:17px;cursor:pointer;display:grid;place-items:center;transition:transform .18s,background-color .18s,border-color .18s}
+  .icon-btn:hover{transform:translateY(-1px);border-color:var(--accent);background:var(--accent-soft)}
+
+  .hero{margin:22px 2px 4px}
+  .hero .tag{display:inline-block;padding:4px 10px;border-radius:99px;background:var(--accent-soft);color:var(--accent);font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+  .hero h1{margin:10px 0 6px;font-size:clamp(27px,5.6vw,38px);font-weight:850;letter-spacing:-.04em;line-height:1.08;text-wrap:balance}
+  .hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p{margin:0;color:var(--muted);font-size:14.5px;max-width:560px}
+  .steps{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+  .steps span{font-size:12px;font-weight:650;color:var(--muted);padding:6px 10px;border:1px solid var(--line);border-radius:99px;background:color-mix(in srgb,var(--surface) 80%,transparent)}
+  .steps b{color:var(--accent)}
+
+  .card{background:color-mix(in srgb,var(--surface) 94%,transparent);border:1px solid var(--line);border-radius:var(--radius);padding:20px;margin-top:16px;box-shadow:var(--shadow)}
+  .eyebrow{font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+  .eyebrow .n{width:20px;height:20px;border-radius:50%;background:var(--accent);color:var(--on-accent);display:grid;place-items:center;font-size:11px;letter-spacing:0}
+  .grid{display:grid;gap:12px}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  @media (max-width:640px){ .g3,.g2{grid-template-columns:1fr 1fr} }
+  label.f{display:block;font-size:12.5px;font-weight:600;color:var(--muted)}
+  .field{
+    display:flex;align-items:center;gap:6px;margin-top:6px;
+    background:color-mix(in srgb,var(--bg) 76%,var(--surface));border:1px solid var(--line);border-radius:11px;padding:10px 12px;transition:border-color .18s,box-shadow .18s,background-color .18s;
+  }
+  .field.big{padding:13px 14px}
+  .field.big input{font-size:20px}
+  .field:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+  .field input{
+    border:0;background:none;color:var(--ink);
+    font-family:inherit;font-size:16px;font-weight:650;
+    width:100%;min-width:0;padding:0;
+    font-variant-numeric:tabular-nums;
+  }
+  .field input::placeholder{color:color-mix(in srgb,var(--muted) 55%,transparent);font-weight:500}
+  .field input:focus{outline:none}
+  .field span{color:var(--muted);font-size:12.5px;font-weight:600;flex:0 0 auto}
+  .hint{display:block;font-size:11.5px;color:var(--muted);font-weight:400;margin-top:6px}
+
+  .pills{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+  .pill{position:relative}
+  .pill input{position:absolute;opacity:0;pointer-events:none}
+  .pill label{
+    display:block;cursor:pointer;padding:9px 13px;border-radius:10px;border:1px solid var(--line);
+    background:color-mix(in srgb,var(--bg) 76%,var(--surface));font-size:12.5px;font-weight:650;color:var(--muted);
+    transition:background-color .15s,border-color .15s,color .15s;
+  }
+  .pill input:checked + label{background:linear-gradient(135deg,var(--accent),var(--accent-2));border-color:transparent;color:var(--on-accent)}
+  .pill input:focus-visible + label{outline:2px solid var(--accent);outline-offset:2px}
+  .pill label:hover{border-color:var(--accent)}
+  .haircut-note{margin-top:8px;font-size:12px;color:var(--muted)}
+
+  .chk{display:flex;gap:8px;align-items:flex-start;font-size:13.5px;margin:8px 0;cursor:pointer}
+  input[type="checkbox"]{accent-color:var(--accent);width:17px;height:17px;margin:1px 0 0;flex:0 0 auto}
+
+  .joint-block{margin-top:16px;padding-top:16px;border-top:1px dashed var(--line);display:none}
+  .joint-block.on{display:block}
+  .sub-h{font-size:13px;font-weight:750;color:var(--ink);margin:18px 0 0}
+
+  details.adv{margin-top:14px;border-top:1px dashed var(--line);padding-top:12px}
+  details.adv summary{cursor:pointer;font-size:12.5px;font-weight:700;color:var(--accent);list-style:none}
+  details.adv summary::-webkit-details-marker{display:none}
+  details.adv summary::before{content:"＋ "}
+  details.adv[open] summary::before{content:"－ "}
+  details.adv .grid{margin-top:12px}
+
+  .cta-btn{
+    margin-top:18px;width:100%;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:var(--on-accent);
+    border:0;border-radius:14px;padding:16px 18px;font-family:inherit;font-size:16px;font-weight:780;cursor:pointer;
+    box-shadow:0 10px 22px rgba(83,125,109,.24);transition:transform .15s,box-shadow .15s;
+  }
+  .cta-btn:hover{transform:translateY(-1px);box-shadow:0 14px 28px rgba(83,125,109,.3)}
+  .err{display:none;margin-top:10px;font-size:13px;color:var(--bad-ink);font-weight:600}
+  .err.on{display:block}
+
+  .results{display:none}
+  .results.on{display:block}
+
+  .answer{
+    text-align:center;padding:24px 16px 20px;border-radius:16px;
+    background:linear-gradient(145deg,var(--accent-soft),color-mix(in srgb,var(--gold-bg) 70%,var(--surface)));
+    border:1px solid color-mix(in srgb,var(--accent) 16%,var(--line));
+  }
+  .answer .al{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .answer .av{font-size:clamp(36px,9vw,52px);font-weight:880;letter-spacing:-.04em;line-height:1.05;margin-top:8px;color:var(--accent);font-variant-numeric:tabular-nums}
+  .answer .as{font-size:13px;color:var(--muted);margin-top:8px}
+  .answer .range{display:inline-block;margin-top:12px;padding:6px 12px;border-radius:99px;background:var(--surface);border:1px solid var(--line);font-size:13px;font-weight:700}
+
+  .tiles{display:grid;gap:12px;grid-template-columns:repeat(3,1fr);margin-top:14px}
+  @media (max-width:640px){ .tiles{grid-template-columns:1fr 1fr} .tiles .tile:last-child{grid-column:1 / -1} }
+  .tile{background:color-mix(in srgb,var(--bg) 60%,var(--surface));border:1px solid var(--line);border-radius:14px;padding:14px}
+  .tile .tl{font-size:10.5px;font-weight:750;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+  .tile .tv{margin-top:5px;font-size:clamp(17px,4.6vw,21px);white-space:nowrap;font-weight:820;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.15}
+  .tile .ts{margin-top:4px;font-size:11.5px;color:var(--muted)}
+  .band{display:inline-block;margin-top:6px;padding:2px 9px;border-radius:99px;font-size:11px;font-weight:750}
+  .band.good{background:var(--accent-soft);color:var(--accent)}
+  .band.ok{background:var(--gold-bg);color:var(--gold-ink)}
+  .band.bad{background:var(--bad-bg);color:var(--bad-ink)}
+
+  .check{margin-top:16px;padding:16px;border:1px solid var(--line);border-radius:14px}
+  .check .ch{font-size:13.5px;font-weight:750}
+  .check .cs{font-size:12px;color:var(--muted);margin-top:2px}
+  .check .row{display:flex;gap:10px;align-items:flex-end;margin-top:10px}
+  .check .row label{flex:1}
+  .verdict{margin-top:12px;padding:12px 13px;border-radius:10px;font-size:13.5px;display:none}
+  .verdict.on{display:block}
+  .verdict.good{background:var(--accent-soft);color:var(--ink)}
+  .verdict.ok{background:var(--gold-bg);color:var(--gold-ink)}
+  .verdict.bad{background:var(--bad-bg);color:var(--bad-ink)}
+  .verdict b{font-variant-numeric:tabular-nums}
+
+  .notice{margin-top:14px;padding:11px 13px;border-radius:10px;font-size:13px;background:var(--accent-soft);color:var(--ink)}
+  .notice.warn{background:var(--bad-bg);color:var(--bad-ink)}
+  .notice.scheme{background:var(--gold-bg);color:var(--gold-ink)}
+  .tips{margin:8px 0 0;padding-left:18px}
+  .tips li{margin:3px 0}
+
+  .wa-box{margin-top:18px;padding:18px;border-radius:16px;background:color-mix(in srgb,var(--wa) 9%,var(--surface));border:1px solid color-mix(in srgb,var(--wa) 30%,var(--line))}
+  .wa-box .wh{font-size:16px;font-weight:800;letter-spacing:-.01em}
+  .wa-box ul{margin:8px 0 0;padding-left:18px;font-size:13px;color:var(--muted)}
+  .wa-box li{margin:3px 0}
+  .wa-btn{
+    margin-top:14px;width:100%;display:flex;align-items:center;justify-content:center;gap:10px;
+    background:var(--wa);color:#fff;border:0;border-radius:14px;padding:16px 18px;
+    font-family:inherit;font-size:16px;font-weight:780;cursor:pointer;text-decoration:none;
+    box-shadow:0 10px 22px rgba(31,175,85,.28);transition:transform .15s,box-shadow .15s;
+  }
+  .wa-btn:hover{transform:translateY(-1px);box-shadow:0 14px 28px rgba(31,175,85,.34)}
+  .wa-btn svg{width:21px;height:21px;flex:0 0 auto}
+  .wa-sub{text-align:center;font-size:12px;color:var(--muted);margin-top:8px}
+
+  details.breakdown{margin-top:16px}
+  details.breakdown summary{cursor:pointer;font-size:12.5px;font-weight:700;color:var(--muted)}
+  .tablewrap{overflow-x:auto;margin-top:8px}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th{text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:700;padding:8px 10px;border-bottom:1px solid var(--line)}
+  th.r,td.r{text-align:right}
+  td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;font-variant-numeric:tabular-nums}
+  tr.total td{border-bottom:0;border-top:2px solid var(--ink);font-weight:800}
+
+  .nav-link{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:650;color:var(--accent);text-decoration:none;margin-top:18px}
+  .nav-link:hover{text-decoration:underline}
+  .note{font-size:12px;color:var(--muted);margin-top:14px;line-height:1.55}
+  footer{margin:24px 4px 0;padding-top:16px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);line-height:1.6}
+  .visit-badge{font-size:11.5px;color:var(--muted)}
+  @media (prefers-reduced-motion: reduce){ *{transition:none !important;scroll-behavior:auto !important} }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">P</div>
+    <div class="who">Pavi<small>Pavi Property Solutions</small><a class="tel" href="tel:+60182594841">📞 018-259 4841</a></div>
+    <div class="top-actions">
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle colour theme" title="Toggle colour theme">◐</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <span class="tag">Free · 30 seconds · no sign-up</span>
+    <h1>Check your home loan <em>kelayakan</em> — free</h1>
+    <p>Key in your income and monthly commitments, tap <b>Check Kelayakan</b> — Pavi will reply on WhatsApp with how much loan you qualify for and which projects fit.</p>
+    <div class="steps"><span><b>1</b> Income</span><span><b>2</b> Commitments</span><span><b>3</b> Get result on WhatsApp</span></div>
+  </section>
+
+  <section class="card">
+    <div class="eyebrow"><span class="n">1</span> Your income</div>
+
+    <div class="grid g2">
+      <label class="f">Net monthly income (take-home)
+        <span class="field big"><span>RM</span><input id="income1" type="number" inputmode="decimal" placeholder="e.g. 5000" min="0" step="100"></span>
+      </label>
+      <label class="f">Your age
+        <span class="field big"><input id="age" type="number" inputmode="numeric" placeholder="e.g. 30" min="18" max="69" step="1"><span>yrs</span></span>
+      </label>
+    </div>
+    <span class="hint">Age decides how long a loan tenure banks will give you (up to 35 years, ending by age 70).</span>
+
+    <label class="f" style="margin-top:16px">How do you earn it?</label>
+    <div class="pills" id="type1Pills">
+      <div class="pill"><input type="radio" name="type1" id="t1basic" value="basic" checked><label for="t1basic">Salaried</label></div>
+      <div class="pill"><input type="radio" name="type1" id="t1comm" value="commission"><label for="t1comm">Commission</label></div>
+      <div class="pill"><input type="radio" name="type1" id="t1biz" value="business"><label for="t1biz">Own business</label></div>
+      <div class="pill"><input type="radio" name="type1" id="t1gig" value="gig"><label for="t1gig">Gig / e-hailing</label></div>
+    </div>
+    <div class="haircut-note" id="haircut1Note"></div>
+
+    <details class="adv">
+      <summary>Have a yearly bonus or allowance?</summary>
+      <div class="grid g2">
+        <label class="f">Average monthly bonus
+          <span class="field"><span>RM</span><input id="bonus1" type="number" inputmode="decimal" placeholder="0" min="0" step="50"></span>
+        </label>
+      </div>
+      <span class="hint">Yearly bonus ÷ 12. Banks usually count about half of it.</span>
+    </details>
+  </section>
+
+  <section class="card">
+    <div class="eyebrow"><span class="n">2</span> Your monthly commitments</div>
+    <div class="grid g3">
+      <label class="f">Car loan
+        <span class="field"><span>RM</span><input id="d1_car" type="number" inputmode="decimal" placeholder="0" min="0" step="50"></span>
+      </label>
+      <label class="f">Personal loan
+        <span class="field"><span>RM</span><input id="d1_personal" type="number" inputmode="decimal" placeholder="0" min="0" step="50"></span>
+      </label>
+      <label class="f">Credit card (5% of balance)
+        <span class="field"><span>RM</span><input id="d1_cc" type="number" inputmode="decimal" placeholder="0" min="0" step="50"></span>
+      </label>
+      <label class="f">PTPTN / study loan
+        <span class="field"><span>RM</span><input id="d1_ptptn" type="number" inputmode="decimal" placeholder="0" min="0" step="50"></span>
+      </label>
+      <label class="f">Existing house loan
+        <span class="field"><span>RM</span><input id="d1_mortgage" type="number" inputmode="decimal" placeholder="0" min="0" step="50"></span>
+      </label>
+      <label class="f">Others (BNPL, etc.)
+        <span class="field"><span>RM</span><input id="d1_other" type="number" inputmode="decimal" placeholder="0" min="0" step="50"></span>
+      </label>
+    </div>
+    <span class="hint">Total: <strong id="d1Total">RM 0</strong> / month. No commitments? Leave blank. Banks check CCRIS, so include everything that appears there.</span>
+
+    <label class="chk" style="margin-top:16px"><input type="checkbox" id="firstTime" checked> This will be my first home</label>
+    <label class="chk"><input type="checkbox" id="joint"> Buying together with spouse / family (joint loan)</label>
+
+    <div class="joint-block" id="jointBlock">
+      <div class="eyebrow" style="margin-bottom:10px">Joint applicant</div>
+      <div class="grid g2">
+        <label class="f">Their net monthly income
+          <span class="field"><span>RM</span><input id="income2" type="number" inputmode="decimal" placeholder="e.g. 4000" min="0" step="100"></span>
+        </label>
+        <label class="f">Their total monthly commitments
+          <span class="field"><span>RM</span><input id="debts2" type="number" inputmode="decimal" placeholder="0" min="0" step="50"></span>
+        </label>
+      </div>
+      <label class="f" style="margin-top:12px">How do they earn it?</label>
+      <div class="pills" id="type2Pills">
+        <div class="pill"><input type="radio" name="type2" id="t2basic" value="basic" checked><label for="t2basic">Salaried</label></div>
+        <div class="pill"><input type="radio" name="type2" id="t2comm" value="commission"><label for="t2comm">Commission</label></div>
+        <div class="pill"><input type="radio" name="type2" id="t2biz" value="business"><label for="t2biz">Own business</label></div>
+        <div class="pill"><input type="radio" name="type2" id="t2gig" value="gig"><label for="t2gig">Gig / e-hailing</label></div>
+      </div>
+    </div>
+
+    <input type="hidden" id="rate" value="3.9"><input type="hidden" id="down" value="10">
+    <div class="grid g2" style="margin-top:14px">
+      <label class="f">Property price you're eyeing (optional)
+        <span class="field"><span>RM</span><input id="eyePrice" type="number" inputmode="decimal" placeholder="e.g. 450000" min="0" step="10000"></span>
+      </label>
+    </div>
+
+    <button class="wa-btn" id="calcBtn" type="button"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.870 9.870 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.010A9.82 9.82 0 0 0 12.04 2zm5.78 14.13c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.12.11-1.81-.11-.42-.13-.95-.31-1.64-.6-2.88-1.24-4.76-4.140-4.9-4.33-.14-.19-1.17-1.55-1.17-2.96 0-1.4.74-2.09 1-2.38.26-.28.57-.35.76-.35.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.58.81 2 .88 2.14.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.29.37-.41.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.6-.07.16-.19.69-.8.87-1.08.18-.28.36-.23.6-.14.24.09 1.53.72 1.79.85.26.13.43.19.5.3.07.11.07.63-.17 1.3z"/></svg>
+      Check Kelayakan</button>
+    <p class="wa-sub">Opens WhatsApp with your details filled in — just tap send. Pavi will reply with your result. Free, no obligation.</p>
+    <div class="err" id="err">Please key in your monthly income first.</div>
+  </section>
+
+  <section class="card results" id="resultsCard" aria-live="polite">
+    <div class="eyebrow"><span class="n">3</span> Your budget</div>
+
+    <div class="answer">
+      <div class="al">You could likely afford a home up to</div>
+      <div class="av" id="maxPrice">—</div>
+      <div class="as" id="maxPriceSub">—</div>
+      <div class="range" id="rangeTag">—</div>
+    </div>
+
+    <div class="tiles">
+      <div class="tile">
+        <div class="tl">Max loan</div>
+        <div class="tv" id="maxLoan">—</div>
+        <div class="ts" id="tenureLine">—</div>
+      </div>
+      <div class="tile">
+        <div class="tl">Max instalment</div>
+        <div class="tv" id="maxInst">—</div>
+        <div class="ts">per month</div>
+      </div>
+      <div class="tile">
+        <div class="tl">Current DSR</div>
+        <div class="tv" id="dsrNow">—</div>
+        <span class="band" id="dsrNowBand">—</span>
+      </div>
+    </div>
+
+    <div id="schemeNote" class="notice scheme" hidden></div>
+    <div id="riskNote" class="notice warn" hidden></div>
+
+    <div class="wa-box">
+      <div class="wh">Want projects that fit this budget?</div>
+      <ul>
+        <li>Shortlist of new launches within your range</li>
+        <li>Which banks are friendlier for your income type</li>
+        <li>Packages with low / zero down payment if available</li>
+      </ul>
+      <a class="wa-btn" id="waBtn" href="https://wa.me/60182594841" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.870 9.870 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.010A9.82 9.82 0 0 0 12.04 2zm5.78 14.13c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.12.11-1.81-.11-.42-.13-.95-.31-1.64-.6-2.88-1.24-4.76-4.140-4.9-4.33-.14-.19-1.17-1.55-1.17-2.96 0-1.4.74-2.09 1-2.38.26-.28.57-.35.76-.35.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.58.81 2 .88 2.14.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.29.37-.41.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.6-.07.16-.19.69-.8.87-1.08.18-.28.36-.23.6-.14.24.09 1.53.72 1.79.85.26.13.43.19.5.3.07.11.07.63-.17 1.3z"/></svg>
+        Ask Pavi which projects fit
+      </a>
+      <p class="wa-sub">Opens WhatsApp with your numbers already filled in. Free advice, no obligation.<br>Prefer to call? <a href="tel:+60182594841" style="color:var(--accent);font-weight:700;text-decoration:none">018-259 4841</a></p>
+    </div>
+
+    <div class="check">
+      <div class="ch">Already eyeing a property?</div>
+      <div class="cs">Key in its price to see if your numbers work.</div>
+      <div class="row">
+        <label class="f">Property price
+          <span class="field"><span>RM</span><input id="price" type="number" inputmode="decimal" placeholder="e.g. 450000" min="0" step="10000"></span>
+        </label>
+      </div>
+      <div class="verdict" id="verdict"></div>
+    </div>
+
+    <details class="breakdown">
+      <summary>See the full calculation</summary>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Applicant</th><th class="r">Income</th><th class="r">Counted by bank</th><th class="r">Commitments</th></tr></thead>
+          <tbody id="dsrTableBody"></tbody>
+        </table>
+      </div>
+      <p class="note" id="calcNote"></p>
+    </details>
+  </section>
+
+
+  <p class="note">Illustrative estimate only, based on general 2026 Malaysian bank practice: variable income is usually discounted (commission ~20%, own business ~30%, gig/platform work ~30–40% without a filed tax return), bonus/allowance is usually counted at ~50%, and approvals typically need DSR under 60% (around 65% under SJKP / SJKP MADANI for first-time buyers of homes up to RM500,000). Every bank has its own rules — this is a starting point, not a loan approval. Confirm with Pavi and your bank.</p>
+
+  <footer>
+    DSR = all monthly commitments (incl. new instalment) ÷ income counted by the bank.<br>
+    Pavi Property Solutions · <a href="tel:+60182594841" style="color:inherit">018-259 4841</a>
+    <div class="visit-badge" hidden><span id="visitCount"></span></div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var $ = function(id){ return document.getElementById(id); };
+  var WA_NUMBER = "60182594841";
+  var BONUS_PCT = 0.5;
+  var DSR_CAP = 0.60, SJKP_CAP = 0.65, SJKP_MAX_PRICE = 500000;
+
+  var HAIRCUTS = {
+    basic:      {pct:1.00, label:"Salaried",        note:"Fixed salary is usually counted in full by banks."},
+    commission: {pct:0.80, label:"Commission",      note:"Banks usually average 6–12 months of commission and count about 80%."},
+    business:   {pct:0.70, label:"Own business",    note:"Assessed on Form B / accounts; banks usually count about 70% (more with 2+ years of filings)."},
+    gig:        {pct:0.65, label:"Gig / e-hailing", note:"Platform income is usually counted ~60–70% without a tax return. 12 months of bank statements + EPF i-Saraan help. SJKP MADANI is built for this group."}
+  };
+
+  function num(id){
+    var el = $(id);
+    if(!el) return 0;
+    var v = parseFloat(el.value);
+    return (isFinite(v) && v >= 0) ? v : 0;
+  }
+  function RM(v){
+    if(!isFinite(v)) return "—";
+    return "RM " + Math.round(v).toLocaleString("en-US");
+  }
+  function RMk(v){
+    if(v >= 1000000) return "RM " + (v/1000000).toFixed(2).replace(/\.?0+$/,"") + "M";
+    return "RM " + Math.round(v/1000) + "k";
+  }
+  function pmt(L, rate, n){
+    if(L <= 0 || n <= 0) return 0;
+    var i = rate/1200;
+    if(i === 0) return L/n;
+    return L * i / (1 - Math.pow(1+i, -n));
+  }
+  function loanForInstalment(M, rate, n){
+    if(M <= 0 || n <= 0) return 0;
+    var i = rate/1200;
+    if(i === 0) return M*n;
+    return M * (1 - Math.pow(1+i, -n)) / i;
+  }
+  function dsrBand(pct){
+    if(pct < 40) return {label:"Healthy", cls:"good"};
+    if(pct < 60) return {label:"Moderate", cls:"ok"};
+    if(pct <= 70) return {label:"High", cls:"bad"};
+    return {label:"Too high", cls:"bad"};
+  }
+  function selectedType(name){
+    var els = document.getElementsByName(name);
+    for(var i=0;i<els.length;i++){ if(els[i].checked) return els[i].value; }
+    return "basic";
+  }
+  function debts1(){
+    return num("d1_car") + num("d1_personal") + num("d1_cc") + num("d1_ptptn") + num("d1_mortgage") + num("d1_other");
+  }
+  function tenureYears(){
+    var age = num("age");
+    if(!age) return 35;
+    return Math.max(5, Math.min(35, 70 - Math.round(age)));
+  }
+
+  var calculated = false;
+  // Agent mode (?agent): shows the full result on-page instead of opening WhatsApp
+  var AGENT = /[?&]agent\b/.test(location.search);
+  if(AGENT){ var cb = $("calcBtn"); cb.lastChild.textContent = " Agent: show result"; }
+  var last = null;
+
+  function updateLive(){
+    var t1 = HAIRCUTS[selectedType("type1")];
+    $("haircut1Note").textContent = t1.note + " (≈" + Math.round(t1.pct*100) + "% counted)";
+    $("d1Total").textContent = RM(debts1());
+  }
+
+  function compute(){
+    var jointOn = $("joint").checked;
+    var firstTime = $("firstTime").checked;
+    var rate = num("rate");
+    var downPct = Math.min(90, num("down"));
+    var yrs = tenureYears();
+    var n = yrs * 12;
+
+    var h1 = HAIRCUTS[selectedType("type1")];
+    var inc1 = num("income1"), bon1 = num("bonus1"), d1 = debts1();
+    var counted = inc1 * h1.pct + bon1 * BONUS_PCT;
+    var debts = d1;
+    var rows = [{label:"You (" + h1.label + ")", income:inc1 + bon1, counted:counted, debts:d1}];
+
+    if(jointOn){
+      var h2 = HAIRCUTS[selectedType("type2")];
+      var inc2 = num("income2"), d2 = num("debts2");
+      var c2 = inc2 * h2.pct;
+      rows.push({label:"Joint (" + h2.label + ")", income:inc2, counted:c2, debts:d2});
+      counted += c2; debts += d2;
+    }
+
+    var ltv = 1 - downPct/100;
+    // Standard: DSR ≤ 60%
+    var inst = Math.max(0, counted * DSR_CAP - debts);
+    var loan = loanForInstalment(inst, rate, n);
+    var price = ltv > 0 ? loan / ltv : 0;
+    var sjkp = false;
+    // First home: SJKP lets DSR go ~65% for homes ≤ RM500k
+    if(firstTime){
+      var instS = Math.max(0, counted * SJKP_CAP - debts);
+      var loanS = loanForInstalment(instS, rate, n);
+      var priceS = Math.min(ltv > 0 ? loanS / ltv : 0, SJKP_MAX_PRICE);
+      if(priceS > price){
+        price = priceS; loan = priceS * ltv; inst = pmt(loan, rate, n); sjkp = true;
+      }
+    }
+    var dsrNow = counted > 0 ? debts / counted * 100 : 0;
+
+    return {jointOn:jointOn, firstTime:firstTime, rate:rate, downPct:downPct, yrs:yrs, n:n,
+            h1:h1, counted:counted, debts:debts, rows:rows, inst:inst, loan:loan, price:price,
+            sjkp:sjkp, dsrNow:dsrNow, income:rows.reduce(function(s,r){return s+r.income;},0)};
+  }
+
+  function rangeLabel(p){
+    if(p < 150000) return "Below most new-launch prices";
+    var lo = Math.floor(p * 0.8 / 50000) * 50000;
+    var hi = Math.floor(p / 10000) * 10000;
+    return "Comfortable range: " + RMk(lo) + " – " + RMk(hi);
+  }
+
+  function checkPrice(r){
+    var v = $("verdict");
+    var p = num("price");
+    if(!p){ v.className = "verdict"; v.innerHTML = ""; return null; }
+    var loan = p * (1 - r.downPct/100);
+    var M = pmt(loan, r.rate, r.n);
+    var dsr = r.counted > 0 ? (r.debts + M) / r.counted * 100 : 999;
+    var cap = (r.firstTime && p <= SJKP_MAX_PRICE) ? SJKP_CAP*100 : DSR_CAP*100;
+    var cls, msg;
+    if(dsr <= cap - 10){ cls = "good"; msg = "✅ <b>Looks comfortable.</b> "; }
+    else if(dsr <= cap){ cls = "ok"; msg = "👍 <b>Within range, but tight.</b> "; }
+    else if(dsr <= cap + 10){ cls = "bad"; msg = "⚠️ <b>A bit stretched.</b> A joint name, longer tenure or clearing a small loan could make it work — ask Pavi. "; }
+    else { cls = "bad"; msg = "❌ <b>Likely too high right now.</b> Pavi can suggest projects closer to your budget. "; }
+    msg += "Instalment ≈ <b>" + RM(M) + "</b>/month · DSR ≈ <b>" + dsr.toFixed(0) + "%</b> (" + RM(p) + ", " + r.downPct + "% down, " + r.yrs + " yrs).";
+    v.className = "verdict on " + cls;
+    v.innerHTML = msg;
+    return {price:p, dsr:dsr, inst:M};
+  }
+
+  function render(){
+    updateLive();
+    if(!calculated) return;
+    var r = compute();
+    last = r;
+
+    $("maxPrice").textContent = r.price > 0 ? RM(r.price) : "RM 0";
+    $("maxPriceSub").textContent = r.price > 0
+      ? "with " + r.downPct + "% down payment (" + RM(r.price * r.downPct/100) + ")" + (r.sjkp ? " · using SJKP first-home limit" : "")
+      : "Your current commitments already use up the bank's limit.";
+    $("rangeTag").textContent = r.price > 0 ? rangeLabel(r.price) : "Let Pavi help you restructure";
+    $("maxLoan").textContent = RM(r.loan);
+    $("tenureLine").textContent = r.yrs + " yrs @ " + r.rate.toFixed(2) + "%";
+    $("maxInst").textContent = RM(r.inst);
+    $("dsrNow").textContent = r.dsrNow.toFixed(0) + "%";
+    var b = dsrBand(r.dsrNow);
+    $("dsrNowBand").textContent = b.label;
+    $("dsrNowBand").className = "band " + b.cls;
+
+    var sn = $("schemeNote");
+    if(r.firstTime){
+      sn.hidden = false;
+      sn.textContent = r.sjkp
+        ? "First home ≤ RM500k: SJKP / SJKP MADANI government guarantee lets banks approve up to ~65% DSR, sometimes with very low or zero down payment — already counted above. Ask Pavi which projects & panel banks support it."
+        : "First home: SJKP / SJKP MADANI may help for homes priced up to RM500k (higher DSR limit, low/zero down payment). Ask Pavi which projects qualify.";
+    } else sn.hidden = true;
+
+    var rn = $("riskNote");
+    if(r.price <= 0 || r.dsrNow >= 45){
+      rn.hidden = false;
+      rn.innerHTML = "Your existing commitments are taking a big share of your income (DSR " + r.dsrNow.toFixed(0) + "%). Ways to raise your budget:<ul class='tips'><li>Add a joint applicant</li><li>Settle a small personal / credit card loan first</li><li>Choose a project with a rebate or low down-payment package</li></ul>";
+    } else rn.hidden = true;
+
+    var tb = "";
+    r.rows.forEach(function(x){
+      tb += '<tr><td>'+x.label+'</td><td class="r">'+RM(x.income)+'</td><td class="r">'+RM(x.counted)+'</td><td class="r">'+RM(x.debts)+'</td></tr>';
+    });
+    tb += '<tr class="total"><td>Total</td><td class="r">'+RM(r.income)+'</td><td class="r">'+RM(r.counted)+'</td><td class="r">'+RM(r.debts)+'</td></tr>';
+    $("dsrTableBody").innerHTML = tb;
+    var cap = r.sjkp ? SJKP_CAP : DSR_CAP;
+    $("calcNote").textContent = "Max instalment = " + RM(r.counted) + " × " + Math.round(cap*100) + "% − " + RM(r.debts) + " existing = " + RM(r.inst) +
+      ". Max loan = that instalment over " + r.yrs + " years at " + r.rate.toFixed(2) + "%. Max price = loan ÷ " + (100 - r.downPct) + "%.";
+
+    var chk = checkPrice(r);
+    updateWa(r, chk);
+  }
+
+  function updateWa(r, chk){
+    var lines = [
+      "Hi Pavi! I used your Home Budget Calculator 🏠",
+      "• Income: " + RM(r.income) + "/mth (" + r.h1.label + (r.jointOn ? ", joint loan" : "") + ")",
+      "• Commitments: " + RM(r.debts) + "/mth",
+      "• Max budget: ~" + RM(r.price) + " (loan " + RM(r.loan) + ")"
+    ];
+    if(r.firstTime) lines.push("• First home buyer");
+    if(chk) lines.push("• Looking at a property around " + RM(chk.price));
+    lines.push("", "Which projects suit my budget?");
+    $("waBtn").href = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(lines.join("\n"));
+  }
+
+  $("joint").addEventListener("change", function(){
+    $("jointBlock").classList.toggle("on", this.checked);
+  });
+
+  function inputMsg(){
+    var h1 = HAIRCUTS[selectedType("type1")];
+    var items = [["Car loan","d1_car"],["Personal loan","d1_personal"],["Credit card","d1_cc"],["PTPTN","d1_ptptn"],["House loan","d1_mortgage"],["Others","d1_other"]];
+    var parts = [];
+    items.forEach(function(it){ var v = num(it[1]); if(v) parts.push(it[0] + " " + RM(v)); });
+    function k(v){ return RM(Math.round(v/1000)*1000); }
+    var r = compute();
+    var lines = ["Hi Pavi, I would like to check my home loan eligibility.", "", "My details:"];
+    if(num("age")) lines.push("Age: " + Math.round(num("age")));
+    lines.push("Income: " + RM(num("income1")) + " per month (" + h1.label + ")");
+    if(num("bonus1")) lines.push("Bonus: " + RM(num("bonus1")) + " per month (average)");
+    lines.push("Commitments: " + (parts.length ? RM(debts1()) + " per month (" + parts.join(", ") + ")" : "None"));
+    if($("firstTime").checked) lines.push("First home: Yes");
+    if($("joint").checked){
+      var h2 = HAIRCUTS[selectedType("type2")];
+      lines.push("Joint applicant: " + RM(num("income2")) + " per month (" + h2.label + "), commitments " + RM(num("debts2")) + " per month");
+    }
+    if(num("eyePrice")) lines.push("Property in mind: " + RM(num("eyePrice")));
+    lines.push("", "Estimated eligibility:");
+    lines.push("Loan amount: up to " + k(r.loan));
+    lines.push("Property price: up to " + k(r.price));
+    lines.push("Monthly instalment: up to " + RM(r.inst));
+    lines.push("", "Please advise. Thank you.");
+    return lines.join("\n");
+  }
+
+  $("calcBtn").addEventListener("click", function(){
+    if(!num("income1")){
+      $("err").classList.add("on");
+      $("income1").focus();
+      return;
+    }
+    $("err").classList.remove("on");
+    if(AGENT){
+      calculated = true;
+      $("resultsCard").classList.add("on");
+      render();
+      $("resultsCard").scrollIntoView({behavior:"smooth", block:"start"});
+      return;
+    }
+    if(window.fcgTrack) window.fcgTrack("Lead", {content_name:"loan_kelayakan_whatsapp"});
+    var waUrl = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(inputMsg());
+    var w = window.open(waUrl, "_blank");
+    if(w) w.opener = null;
+    else location.href = waUrl;
+  });
+
+  $("waBtn").addEventListener("click", function(){
+    if(window.fcgTrack) window.fcgTrack("Contact", {content_name:"loan_eligibility_whatsapp"});
+  });
+
+  var themeToggle = $("themeToggle");
+  var storedTheme = null;
+  try{ storedTheme = localStorage.getItem("fcg-loan-theme"); }catch(e){}
+  if(storedTheme === "light" || storedTheme === "dark") document.documentElement.dataset.theme = storedTheme;
+  function isDark(){
+    var t = document.documentElement.dataset.theme;
+    if(t) return t === "dark";
+    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  }
+  function syncThemeButton(){
+    var dark = isDark();
+    themeToggle.textContent = dark ? "☀" : "◐";
+    themeToggle.setAttribute("aria-label", dark ? "Use light colour theme" : "Use dark colour theme");
+  }
+  themeToggle.addEventListener("click", function(){
+    document.documentElement.dataset.theme = isDark() ? "light" : "dark";
+    try{ localStorage.setItem("fcg-loan-theme", document.documentElement.dataset.theme); }catch(e){}
+    syncThemeButton();
+  });
+  syncThemeButton();
+
+  document.addEventListener("input", render);
+  document.addEventListener("change", render);
+  updateLive();
+})();
+</script>
+</body>
+</html>
