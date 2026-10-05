@@ -556,7 +556,29 @@ html.fi-lock,html.fi-lock body{overflow:hidden}
     <img class="m-miea" src="img/miea.png" alt="MIEA member" width="260" height="290">
   </div>
   <span>Registered REN · BOVAEP / LPPEH</span>
+  <span id="visitor-geo" style="opacity:0;transition:opacity .4s">
+    <span id="visit-flag"></span><span id="visit-country"></span>
+  </span>
+  <a href="https://hits.seeyoufarm.com" target="_blank" rel="noopener" style="line-height:1;opacity:.55;display:flex;align-items:center">
+    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Ffcgfelixcheng.com&count_bg=%23E4BC63&title_bg=%230B0B0B&title=visits&edge_flat=true" alt="visitor count" style="height:18px;width:auto;display:block">
+  </a>
 </footer>
 
+<script>
+(function(){
+  fetch('https://ipapi.co/json/')
+    .then(function(r){return r.json();})
+    .then(function(d){
+      var cc=(d.country_code||'').toUpperCase();
+      var cn=d.country_name||'';
+      if(!cc)return;
+      var flag=cc.replace(/./g,function(c){return String.fromCodePoint(0x1F1E0-65+c.charCodeAt(0));});
+      document.getElementById('visit-flag').textContent=flag+' ';
+      document.getElementById('visit-country').textContent=cn;
+      document.getElementById('visitor-geo').style.opacity='1';
+    })
+    .catch(function(){});
+})();
+</script>
 </body>
 </html>
