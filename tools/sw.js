@@ -1,5 +1,5 @@
 // Agent Tools offline cache. Bump CACHE when the core files change.
-const CACHE = 'agent-tools-v3';
+const CACHE = 'agent-tools-v4';
 const CORE = [
   '/tools/',
   '/tools/manifest.webmanifest',

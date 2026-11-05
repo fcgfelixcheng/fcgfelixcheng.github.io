@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ProCalculator · Free Home Loan Calculator for Agents</title>
-<meta name="description" content="Free Malaysia home loan calculator for property agents. Monthly instalment, legal fees and stamp duty, cash upfront, pay early, flexi loans, MRTA vs MLTA. Free app for iPhone, Android and iPad, works offline.">
+<meta name="description" content="Free Malaysia home loan calculator for property agents. Monthly instalment, legal fees and stamp duty, cash upfront, pay early, flexi loans, MRTA vs MLTA. Works on iPhone, Android and iPad, even offline.">
 <link rel="canonical" href="https://fcgfelixcheng.com/tools/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Felix Cheng">
 <meta property="og:url" content="https://fcgfelixcheng.com/tools/">
 <meta property="og:title" content="ProCalculator: free home loan calculator for every agent">
-<meta property="og:description" content="Instalment, legal fees and stamp duty, cash upfront, pay early, flexi, MRTA. Free app for iPhone, Android and iPad.">
+<meta property="og:description" content="Instalment, legal fees and stamp duty, cash upfront, pay early, flexi, MRTA. Works on iPhone, Android and iPad.">
 <meta property="og:image" content="https://fcgfelixcheng.com/tools/icons/share.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -244,17 +244,6 @@
   .tab.on{box-shadow:0 5px 14px rgba(228,188,99,.22)}
   .notice.warn{background:rgba(227,2,31,.12);color:#F4C2C8;border-left:3px solid var(--red)}
   .made{margin-top:8px;color:var(--ink);font-weight:600}
-  .app-bar{display:flex;align-items:center;gap:10px;padding:12px 14px;margin:0 0 14px;border-radius:16px;border:1px solid rgba(228,188,99,.35);background:linear-gradient(120deg,rgba(228,188,99,.14),rgba(228,188,99,.03))}
-  .app-tx{flex:1;min-width:0;line-height:1.3}
-  .app-tx b{display:block;font-size:14px;color:var(--ink)}
-  .app-tx span{font-size:12px;color:var(--muted)}
-  .app-btn{flex:0 0 auto;border:1px solid var(--accent);background:var(--accent);color:#0B0B0B;font:700 13px/1 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding:11px 16px;border-radius:999px;cursor:pointer;-webkit-appearance:none;appearance:none}
-  .app-btn.ghost{background:transparent;color:var(--accent)}
-  .app-btn:active{transform:scale(.97)}
-  .app-help{margin:-4px 0 14px;padding:12px 14px;border-radius:12px;background:var(--surface);border:1px solid var(--line);font-size:13.5px;color:var(--ink);line-height:1.6}
-  .app-help b{color:var(--accent)}
-  .app-help svg{width:16px;height:16px;vertical-align:-3px;color:var(--accent)}
-  html.standalone .app-bar,html.standalone .app-help{display:none!important}
 </style>
 
 <div class="wrap">
@@ -269,12 +258,6 @@
     </div>
   </header>
 
-  <div class="app-bar" id="appBar">
-    <div class="app-tx"><b>Free app</b><span>iPhone · Android · iPad · offline</span></div>
-    <button type="button" class="app-btn ghost" id="shareBtn" aria-label="Share this calculator">Share</button>
-    <button type="button" class="app-btn" id="installBtn">Download</button>
-  </div>
-  <div class="app-help" id="appHelp" role="status" hidden></div>
 
   <!-- shared loan details -->
   <section class="card">
@@ -933,29 +916,8 @@ if (("serviceWorker" in navigator) && (location.protocol === "https:" || locatio
 <script>
 (function(){
   var standalone=window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true;
-  if(standalone){document.documentElement.classList.add('standalone');try{fbq('trackCustom','AppOpen')}catch(e){}}
+  if(standalone){try{fbq('trackCustom','AppOpen')}catch(e){}}
   if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/tools/sw.js',{scope:'/tools/'}).catch(function(){})})}
-  var ua=navigator.userAgent,ios=/iPad|iPhone|iPod/.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1),android=/Android/i.test(ua);
-  var help=document.getElementById('appHelp'),deferred=null;
-  var shareIco='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7.5 7.5 12 3l4.5 4.5M6 11H5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1h-1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-  function say(h){help.innerHTML=h;help.hidden=false}
-  window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();deferred=e});
-  window.addEventListener('appinstalled',function(){deferred=null;say('Installed. Find <b>ProCalculator</b> on your home screen.');try{fbq('trackCustom','AppInstalled')}catch(e){}});
-  document.getElementById('installBtn').addEventListener('click',function(){
-    try{fbq('trackCustom','AppInstallClick',{os:ios?'ios':android?'android':'desktop'})}catch(e){}
-    if(deferred){deferred.prompt();deferred.userChoice.then(function(c){if(c.outcome!=='accepted')say('No problem. Tap <b>Download</b> again any time.')});deferred=null;return}
-    if(ios)say('<b>iPhone / iPad:</b> 1. Tap the Share button '+shareIco+' &nbsp;2. Tap <b>Add to Home Screen</b> &nbsp;3. Tap <b>Add</b>');
-    else if(android)say('<b>Android:</b> open the <b>&#8942;</b> menu in Chrome, then tap <b>Install app</b> or <b>Add to Home screen</b>');
-    else say('<b>Laptop:</b> click the install icon at the right of the address bar, or open the browser menu and choose <b>Install</b>');
-  });
-  var link='https://fcgfelixcheng.com/tools/';
-  document.getElementById('shareBtn').addEventListener('click',function(){
-    try{fbq('trackCustom','ShareTools')}catch(e){}
-    var data={title:'ProCalculator',text:'ProCalculator: free home loan calculator for agents. Works on iPhone, Android and iPad.',url:link};
-    if(navigator.share){navigator.share(data).catch(function(){});return}
-    var done=function(){say('Link copied. Paste it in your team group.')};
-    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(link).then(done,function(){say(link)})}else{say(link)}
-  });
 })();
 </script>
 </body>
