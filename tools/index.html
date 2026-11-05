@@ -4,14 +4,22 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Agent Tools: Free Home Loan Calculator for Agents · Felix Cheng</title>
-<meta name="description" content="Free tools for property agents in Malaysia. Monthly instalment, legal fees and stamp duty, cash upfront, pay-early savings, flexi loans and MRTA vs MLTA in one screen. Share the numbers to your client on WhatsApp.">
+<meta name="description" content="Free tools for property agents in Malaysia. Monthly instalment, legal fees and stamp duty, cash upfront, pay-early savings, flexi loans and MRTA vs MLTA in one screen. Share the numbers to your client on WhatsApp. Free app for iPhone, Android and iPad.">
 <meta name="theme-color" content="#0B0B0B">
+<link rel="manifest" href="/tools/manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="/tools/icons/icon-192.png">
+<link rel="apple-touch-icon" href="/tools/icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Agent Tools">
+<meta name="application-name" content="Agent Tools">
 <link rel="canonical" href="https://fcgfelixcheng.com/tools/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Felix Cheng · FCG">
 <meta property="og:url" content="https://fcgfelixcheng.com/tools/">
 <meta property="og:title" content="Agent Tools: free home loan calculator for agents">
-<meta property="og:description" content="Answer &ldquo;how much per month?&rdquo; in 10 seconds. Instalment, fees, cash upfront, flexi, MRTA. Share to your client on WhatsApp.">
+<meta property="og:description" content="Answer &ldquo;how much per month?&rdquo; in 10 seconds. Instalment, fees, cash upfront, flexi, MRTA. Free app for iPhone, Android and iPad.">
 <meta property="og:image" content="https://fcgfelixcheng.com/img/tools-share.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -141,6 +149,25 @@ h1 em,h2 em{font-style:italic;color:var(--gold);font-weight:300}
 .lc-cta button.lc-ghost:hover{background:rgba(228,188,99,.1)}
 
 
+/* app download */
+.app{padding-block:clamp(48px,8vw,96px);border-top:1px solid var(--line);background:var(--sand);scroll-margin-top:60px}
+.app-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,6vw,72px);align-items:center}
+.app h2{font-size:clamp(2rem,4.4vw,3.2rem)}
+.app button.btn{cursor:pointer;font-family:var(--s);-webkit-appearance:none;appearance:none}
+.app button.btn-b{background:transparent}
+.app-status{margin:1.2em 0 0;padding:12px 16px;border-radius:12px;background:rgba(228,188,99,.1);border:1px solid rgba(228,188,99,.3);color:var(--ink);font-size:.92rem}
+.plat{display:grid;gap:12px}
+.pcard{background:linear-gradient(150deg,#161412,#0d0c0b);border:1px solid var(--line);border-radius:18px;padding:18px 20px}
+.pcard.me{border-color:rgba(228,188,99,.6);box-shadow:0 0 0 3px rgba(228,188,99,.12);order:-1}
+.pcard .ph{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:8px}
+.pcard .ph b{font-size:1.02rem}
+.pcard .ph span{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+.pcard.me .ph span::after{content:" · your device";color:var(--gold)}
+.pcard ol{margin:0;padding-left:1.2em;color:var(--soft);font-size:.92rem;line-height:1.65}
+.pcard ol b{color:var(--ink);font-weight:600}
+.ico{width:18px;height:18px;vertical-align:-3px;color:var(--gold);margin-left:2px}
+html.standalone .app{display:none}
+
 /* legal + footer */
 .legal{padding:34px var(--gut);border-top:1px solid var(--line);max-width:var(--max);margin:0 auto}
 .legal p{font-size:.76rem;color:var(--faint);line-height:1.65;margin:0 0 .8em}
@@ -153,6 +180,7 @@ footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-betw
 
 @media(max-width:900px){
   .tgrid{grid-template-columns:1fr}
+  .app-grid{grid-template-columns:1fr}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
@@ -290,12 +318,12 @@ footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-betw
     <p class="lead">The tools my team uses on every viewing, now open to any negotiator in Malaysia. No sign-up, no app to download. Works on your phone, and sends the numbers straight to your client&rsquo;s WhatsApp.</p>
     <div class="cta-row">
       <a class="btn btn-a" href="#calc" data-track="hero-calc">Open the calculator</a>
-      <a class="btn btn-b" href="/FreeLoanChecking/advisor/" data-track="hero-eligibility">Check loan eligibility</a>
+      <a class="btn btn-b" href="#app" data-track="hero-app">Download free app</a>
     </div>
     <div class="hero-stats">
       <div><b>6 in 1</b><span>instalment, fees, cash, pay early, flexi, MRTA</span></div>
       <div><b>RM 0</b><span>free to use, no login</span></div>
-      <div><b>1 tap</b><span>share to client on WhatsApp</span></div>
+      <div><b>Any phone</b><span>iPhone, Android, iPad</span></div>
     </div>
   </div>
 </section>
@@ -317,6 +345,46 @@ footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-betw
         <p class="when"><b>Use it when</b> you need to know the client&rsquo;s real budget before you waste a weekend on the wrong unit.</p>
         <span class="go">Open eligibility check</span>
       </a>
+    </div>
+  </div>
+</section>
+
+<section class="app" id="app">
+  <div class="wrap app-grid">
+    <div>
+      <p class="eyebrow">Free app · iPhone · Android · iPad</p>
+      <h2>Put it on your home screen.<br><em>Open it like an app.</em></h2>
+      <p class="lead">No App Store, no sign-up. Install once and it sits next to your WhatsApp. After the first open, the calculator works even with no signal at the showroom.</p>
+      <div class="cta-row">
+        <button type="button" class="btn btn-a" id="installBtn">Download free app</button>
+        <button type="button" class="btn btn-b" id="shareBtn">Share with your team</button>
+      </div>
+      <p class="app-status" id="appStatus" role="status" hidden></p>
+    </div>
+    <div class="plat">
+      <div class="pcard" data-os="ios">
+        <div class="ph"><b>iPhone &amp; iPad</b><span>Safari</span></div>
+        <ol>
+          <li>Tap the <b>Share</b> button <svg class="ico" viewBox="0 0 24 24" aria-label="Share icon"><path d="M12 3v12M7.5 7.5 12 3l4.5 4.5M6 11H5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1h-1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></li>
+          <li>Scroll down, tap <b>Add to Home Screen</b></li>
+          <li>Tap <b>Add</b>. Done.</li>
+        </ol>
+      </div>
+      <div class="pcard" data-os="android">
+        <div class="ph"><b>Android</b><span>Chrome</span></div>
+        <ol>
+          <li>Tap <b>Download free app</b></li>
+          <li>Tap <b>Install</b>. Done.</li>
+          <li>No pop-up? Open the <b>&#8942;</b> menu, tap <b>Install app</b> or <b>Add to Home screen</b></li>
+        </ol>
+      </div>
+      <div class="pcard" data-os="desktop">
+        <div class="ph"><b>Laptop</b><span>Chrome or Edge</span></div>
+        <ol>
+          <li>Click <b>Download free app</b>, or the install icon in the address bar</li>
+          <li>Click <b>Install</b></li>
+        </ol>
+      </div>
     </div>
   </div>
 </section>
@@ -659,6 +727,36 @@ footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-betw
     function fallback(){var t=document.createElement("textarea");t.value=LAST_MSG;t.setAttribute("readonly","");t.style.position="fixed";t.style.opacity="0";document.body.appendChild(t);t.select();try{document.execCommand("copy");done()}catch(e){}document.body.removeChild(t)}
   });
   recalc();
+})();
+</script>
+<script>
+(function(){
+  var standalone=window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true;
+  if(standalone){document.documentElement.classList.add('standalone');try{fbq('trackCustom','AppOpen')}catch(e){}}
+  if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/tools/sw.js',{scope:'/tools/'}).catch(function(){})})}
+  var ua=navigator.userAgent,ios=/iPad|iPhone|iPod/.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1),android=/Android/i.test(ua);
+  var os=ios?'ios':android?'android':'desktop';
+  var card=document.querySelector('.pcard[data-os="'+os+'"]');if(card)card.classList.add('me');
+  var btn=document.getElementById('installBtn'),st=document.getElementById('appStatus'),deferred=null;
+  function say(t){st.textContent=t;st.hidden=false}
+  window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();deferred=e});
+  window.addEventListener('appinstalled',function(){deferred=null;say('Installed. Find Agent Tools on your home screen.');try{fbq('trackCustom','AppInstalled')}catch(e){}});
+  btn.addEventListener('click',function(){
+    try{fbq('trackCustom','AppInstallClick',{os:os})}catch(e){}
+    if(deferred){deferred.prompt();deferred.userChoice.then(function(c){if(c.outcome!=='accepted')say('No problem. You can install it any time from this page.')});deferred=null;return}
+    if(card){card.scrollIntoView({behavior:'smooth',block:'center'})}
+    if(ios)say('On iPhone or iPad: tap the Share button, then Add to Home Screen, then Add.');
+    else if(android)say('Open the \u22EE menu in Chrome, then tap Install app or Add to Home screen.');
+    else say('Click the install icon at the right end of the address bar, or open the browser menu and choose Install.');
+  });
+  var share=document.getElementById('shareBtn'),link='https://fcgfelixcheng.com/tools/';
+  share.addEventListener('click',function(){
+    try{fbq('trackCustom','ShareTools')}catch(e){}
+    var data={title:'Agent Tools',text:'Free home loan calculator for agents. Works on iPhone, Android and iPad.',url:link};
+    if(navigator.share){navigator.share(data).catch(function(){});return}
+    var done=function(){say('Link copied. Paste it in your team group.')};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(link).then(done,function(){say(link)})}else{say(link)}
+  });
 })();
 </script>
 </body>

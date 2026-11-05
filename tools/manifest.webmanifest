@@ -1,0 +1,18 @@
+{
+  "id": "/tools/",
+  "name": "Agent Tools · Home Loan Calculator",
+  "short_name": "Agent Tools",
+  "description": "Free home loan calculator for property agents in Malaysia. Monthly instalment, legal fees and stamp duty, cash upfront, pay early, flexi loans, MRTA vs MLTA.",
+  "start_url": "/tools/?source=app",
+  "scope": "/tools/",
+  "display": "standalone",
+  "background_color": "#0B0B0B",
+  "theme_color": "#0B0B0B",
+  "lang": "en-MY",
+  "categories": ["finance", "business", "productivity"],
+  "icons": [
+    { "src": "/tools/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/tools/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/tools/icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
