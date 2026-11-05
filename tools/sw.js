@@ -1,5 +1,5 @@
 // Agent Tools offline cache. Bump CACHE when the core files change.
-const CACHE = 'agent-tools-v7';
+const CACHE = 'agent-tools-v8';
 const CORE = [
   '/tools/',
   '/tools/manifest.webmanifest',
@@ -7,8 +7,7 @@ const CORE = [
   '/tools/icons/icon-512.png',
   '/tools/icons/apple-touch-icon.png',
   '/tools/icons/favicon-32.png',
-  '/tools/icons/favicon.ico',
-  '/img/fcg-white.png'
+  '/tools/icons/favicon.ico'
 ];
 
 self.addEventListener('install', e => {
