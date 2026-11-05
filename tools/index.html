@@ -122,7 +122,7 @@ h1 em,h2 em{font-style:italic;color:var(--gold);font-weight:300}
 
 /* tool index */
 .tools{padding-block:clamp(20px,4vw,40px) clamp(40px,6vw,72px)}
-.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.tgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
 .tcard{position:relative;display:flex;flex-direction:column;background:linear-gradient(150deg,#161412,#0d0c0b);border:1px solid var(--line);border-radius:20px;padding:26px 24px 22px;text-decoration:none;color:var(--ink);transition:border-color .2s,transform .2s}
 .tcard:hover{border-color:rgba(228,188,99,.5);transform:translateY(-3px)}
 .tnum{font:600 .68rem/1 var(--s);letter-spacing:.22em;color:var(--gold);text-transform:uppercase}
@@ -131,8 +131,6 @@ h1 em,h2 em{font-style:italic;color:var(--gold);font-weight:300}
 .tcard .when{font-size:.82rem;color:var(--faint);border-top:1px solid var(--line);padding-top:1em;margin-top:auto}
 .tcard .when b{color:var(--ink);font-weight:600}
 .tcard .go{margin-top:1.1em;font:600 .72rem/1 var(--s);letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
-.tcard.feat{border-color:rgba(228,188,99,.35);background:linear-gradient(150deg,rgba(228,188,99,.12),#0d0c0b 70%)}
-.tag-new{position:absolute;top:18px;right:18px;font:700 .6rem/1 var(--s);letter-spacing:.16em;text-transform:uppercase;background:var(--gold);color:#0B0B0B;padding:6px 9px;border-radius:999px}
 
 /* calculator wrapper overrides */
 .lc{background:transparent!important;padding:clamp(48px,8vw,96px) 5% !important;border-top:1px solid var(--line)}
@@ -142,21 +140,6 @@ h1 em,h2 em{font-style:italic;color:var(--gold);font-weight:300}
 .lc-cta button.lc-ghost{display:inline-flex;align-items:center;justify-content:center;background:transparent;border:1px solid rgba(228,188,99,.5);color:var(--gold);padding:15px 22px;border-radius:999px;font:700 15px var(--s);cursor:pointer;white-space:nowrap}
 .lc-cta button.lc-ghost:hover{background:rgba(228,188,99,.1)}
 
-/* own page */
-.own{padding-block:clamp(56px,9vw,112px);border-top:1px solid var(--line);background:var(--sand);scroll-margin-top:60px}
-.own-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,6vw,80px);align-items:center}
-.own h2{font-size:clamp(2.1rem,4.6vw,3.4rem)}
-.steps{list-style:none;padding:0;margin:2em 0 0;display:grid;gap:14px}
-.steps li{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start}
-.steps .n{width:44px;height:44px;border-radius:50%;border:1px solid rgba(228,188,99,.45);display:grid;place-items:center;font-family:var(--d);font-size:1.25rem;color:var(--gold)}
-.steps b{display:block;font-weight:600;color:var(--ink)}
-.steps span{color:var(--soft);font-size:.93rem}
-.fine{font-size:.8rem;color:var(--faint);margin-top:1.2em}
-.phone{justify-self:center;width:min(320px,100%);aspect-ratio:9/18.5;border-radius:44px;padding:12px;background:#1b1916;border:1px solid rgba(255,255,255,.14);box-shadow:0 40px 80px rgba(0,0,0,.55),inset 0 0 0 2px #000;position:relative}
-.phone-screen{width:100%;height:100%;border-radius:34px;overflow:hidden;background:#fff;position:relative}
-.phone-screen iframe{border:0;width:375px;height:812px;transform-origin:0 0;position:absolute;top:0;left:0}
-.phone-cap{text-align:center;font-size:.78rem;color:var(--faint);margin-top:14px}
-.phone-cap a{color:var(--gold)}
 
 /* legal + footer */
 .legal{padding:34px var(--gut);border-top:1px solid var(--line);max-width:var(--max);margin:0 auto}
@@ -170,8 +153,6 @@ footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-betw
 
 @media(max-width:900px){
   .tgrid{grid-template-columns:1fr}
-  .own-grid{grid-template-columns:1fr}
-  .phone{width:min(290px,86vw)}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
@@ -309,7 +290,7 @@ footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-betw
     <p class="lead">The tools my team uses on every viewing, now open to any negotiator in Malaysia. No sign-up, no app to download. Works on your phone, and sends the numbers straight to your client&rsquo;s WhatsApp.</p>
     <div class="cta-row">
       <a class="btn btn-a" href="#calc" data-track="hero-calc">Open the calculator</a>
-      <a class="btn btn-b" href="#own" data-track="hero-own">Get your own client page</a>
+      <a class="btn btn-b" href="/FreeLoanChecking/advisor/" data-track="hero-eligibility">Check loan eligibility</a>
     </div>
     <div class="hero-stats">
       <div><b>6 in 1</b><span>instalment, fees, cash, pay early, flexi, MRTA</span></div>
@@ -335,14 +316,6 @@ footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-betw
         <p>Key in age, income and commitments. See the max loan, the max price and the monthly before you bring the client to view.</p>
         <p class="when"><b>Use it when</b> you need to know the client&rsquo;s real budget before you waste a weekend on the wrong unit.</p>
         <span class="go">Open eligibility check</span>
-      </a>
-      <a class="tcard feat" href="#own" data-track="card-own">
-        <span class="tag-new">For you</span>
-        <span class="tnum">Tool 03</span>
-        <h3>Your Own Client Page</h3>
-        <p>A Free Loan Check page with your name and your WhatsApp. Clients fill in their details, it lands in your WhatsApp as a ready lead.</p>
-        <p class="when"><b>Use it when</b> leads go quiet. Send the link, the client checks their loan, and you get their numbers.</p>
-        <span class="go">See how it works</span>
       </a>
     </div>
   </div>
@@ -523,29 +496,6 @@ footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-betw
  </div>
 </section>
 
-<section class="own" id="own">
-  <div class="wrap own-grid">
-    <div>
-      <p class="eyebrow">Tool 03 · Your own client page</p>
-      <h2>Your name. Your WhatsApp.<br><em>Your leads.</em></h2>
-      <p class="lead">Most buyers won&rsquo;t tell an agent their salary. They will key it into a free loan check. This page does that for you, with your name on top.</p>
-      <ol class="steps">
-        <li><span class="n">1</span><div><b>You send the link</b><span>To new leads, quiet leads, or put it in your TikTok and IG bio.</span></div></li>
-        <li><span class="n">2</span><div><b>Client checks their loan</b><span>Age, income, commitments, the price they want. Takes about one minute.</span></div></li>
-        <li><span class="n">3</span><div><b>Their details land in your WhatsApp</b><span>You reply with the eligibility, like a pro. Conversation started.</span></div></li>
-      </ol>
-      <div class="cta-row">
-        <a class="btn btn-a" href="https://wa.me/60182131314?text=Hi%20Felix%2C%20I%27m%20an%20agent.%20I%20saw%20your%20Agent%20Tools%20page%20and%20I%27d%20like%20my%20own%20Free%20Loan%20Check%20page." target="_blank" rel="noopener" data-track="own-pm">PM Felix to get yours</a>
-        <a class="btn btn-b" href="/FreeLoanChecking/" target="_blank" rel="noopener" data-track="own-demo">Try mine live</a>
-      </div>
-      <p class="fine">For registered negotiators. Your page shows your name and your WhatsApp only.</p>
-    </div>
-    <div>
-      <div class="phone" aria-hidden="true"><div class="phone-screen"><iframe id="demoFrame" src="/FreeLoanChecking/" title="Free Loan Check demo" loading="lazy" tabindex="-1"></iframe></div></div>
-      <p class="phone-cap">Live demo, this one is mine. <a href="/FreeLoanChecking/" target="_blank" rel="noopener">Open full screen</a></p>
-    </div>
-  </div>
-</section>
 </main>
 
 <section class="legal" aria-label="Disclaimer">
@@ -709,14 +659,6 @@ footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-betw
     function fallback(){var t=document.createElement("textarea");t.value=LAST_MSG;t.setAttribute("readonly","");t.style.position="fixed";t.style.opacity="0";document.body.appendChild(t);t.select();try{document.execCommand("copy");done()}catch(e){}document.body.removeChild(t)}
   });
   recalc();
-})();
-</script>
-<script>
-(function(){
-  var f=document.getElementById('demoFrame');
-  if(!f)return;
-  function fit(){var w=f.parentElement.clientWidth;if(!w)return;var s=w/375;f.style.transform='scale('+s+')';f.style.height=(f.parentElement.clientHeight/s)+'px'}
-  fit();window.addEventListener('resize',fit);
 })();
 </script>
 </body>
