@@ -1,5 +1,5 @@
 // Agent Tools offline cache. Bump CACHE when the core files change.
-const CACHE = 'agent-tools-v5';
+const CACHE = 'agent-tools-v6';
 const CORE = [
   '/tools/',
   '/tools/manifest.webmanifest',
@@ -29,10 +29,12 @@ self.addEventListener('fetch', e => {
   const url = new URL(req.url);
   if (/facebook|fbevents|ipapi|visitor-badge/.test(url.href)) return;
 
-  // pages: network first so updates show up, cached copy when offline
+  // pages: always the newest version when online (skip the browser's 10-minute page cache),
+  // cached copy when offline
   if (req.mode === 'navigate') {
     e.respondWith(
-      fetch(req).then(res => {
+      fetch(req.url, { cache: 'no-store', credentials: 'same-origin' }).then(res => {
+        if (res.redirected) return fetch(req);
         if (res.ok && url.pathname === '/tools/') {
           const copy = res.clone();
           caches.open(CACHE).then(c => c.put('/tools/', copy));
