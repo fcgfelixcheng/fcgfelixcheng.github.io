@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ProCalculator · Free Home Loan Calculator for Agents</title>
-<meta name="description" content="Free Malaysia home loan calculator for property agents. Monthly instalment, legal fees and stamp duty, cash upfront, pay early, flexi loans, MRTA vs MLTA. Works on iPhone, Android and iPad, even offline.">
+<meta name="description" content="Free Malaysia home loan calculator for property agents. Monthly instalment, legal fees and stamp duty, cash upfront, flexi loans, MRTA vs MLTA. Works on iPhone, Android and iPad, even offline.">
 <link rel="canonical" href="https://fcgfelixcheng.com/tools/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Felix Cheng">
 <meta property="og:url" content="https://fcgfelixcheng.com/tools/">
 <meta property="og:title" content="ProCalculator: free home loan calculator for every agent">
-<meta property="og:description" content="Instalment, legal fees and stamp duty, cash upfront, pay early, flexi, MRTA. Works on iPhone, Android and iPad.">
+<meta property="og:description" content="Instalment, legal fees and stamp duty, cash upfront, flexi, MRTA. Works on iPhone, Android and iPad.">
 <meta property="og:image" content="https://fcgfelixcheng.com/tools/icons/share.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -26,6 +26,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="apple-mobile-web-app-title" content="ProCalculator">
 <meta name="application-name" content="ProCalculator">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 <style>
@@ -238,13 +241,68 @@
   }
   body{background:radial-gradient(circle at 10% 0%,rgba(228,188,99,.10),transparent 26rem),radial-gradient(circle at 95% 8%,rgba(228,188,99,.06),transparent 22rem),var(--bg)}
   .top-actions{display:none!important}
-  .top{border-bottom:2px solid var(--red);margin-bottom:16px;padding-bottom:16px}
+  .top{border-bottom:1px solid var(--line);margin-bottom:16px;padding-bottom:16px}
+  .tabs{top:calc(var(--navh,58px) + 8px)}
   .brand-img{width:46px;height:46px;flex:0 0 auto;border-radius:12px;border:1px solid rgba(228,188,99,.45);box-shadow:0 0 0 3px rgba(228,188,99,.10);display:block}
   @media (max-width:520px){.brand-img{width:42px;height:42px}}
   .tab.on{box-shadow:0 5px 14px rgba(228,188,99,.22)}
   .notice.warn{background:rgba(227,2,31,.12);color:#F4C2C8;border-left:3px solid var(--red)}
   .made{margin-top:8px;color:var(--ink);font-weight:600}
+.fcgnav{position:sticky!important;top:0!important;left:auto!important;right:auto!important;transform:none!important;
+  z-index:300;width:100%;margin:0;background:rgba(11,11,11,.92);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:2px solid #E3021F}
+.fcgnav-in{max-width:1180px;margin:0 auto;padding:12px clamp(20px,5vw,72px);
+  display:flex;align-items:center;justify-content:space-between;gap:18px;height:auto}
+.fcgnav-brand{display:flex;align-items:center;gap:.75em;text-decoration:none;flex:none}
+.fcgnav-brand img{height:30px;width:auto;display:block}
+.fcgnav-brand span{font:700 11px/1 'Archivo',system-ui,-apple-system,sans-serif;letter-spacing:.22em;
+  text-transform:uppercase;color:#8A857E;white-space:nowrap}
+.fcgnav-links{display:none;align-items:center;gap:clamp(18px,2.4vw,36px)}
+.fcgnav-links a{font:500 11.5px/1 'Archivo',system-ui,-apple-system,sans-serif;letter-spacing:.17em;
+  text-transform:uppercase;color:#B8B3AB;text-decoration:none;white-space:nowrap;transition:color .2s;padding:6px 0}
+.fcgnav-links a:hover{color:#FFFFFF}
+.fcgnav-links a[aria-current="page"]{color:#E4BC63}
+.fcgnav-cta{display:flex;gap:8px;align-items:center;flex:none}
+.fcgnav-cta a{font:600 11px/1 'Archivo',system-ui,-apple-system,sans-serif;letter-spacing:.13em;text-transform:uppercase;
+  text-decoration:none;padding:13px 17px;border-radius:2px;white-space:nowrap;transition:.2s;display:inline-block}
+.fcgnav-cta .b1{border:1px solid rgba(255,255,255,.2);color:#F4F2EE}
+.fcgnav-cta .b1:hover{border-color:#E4BC63;color:#E4BC63}
+.fcgnav-cta .b2{background:#E4BC63;color:#0B0B0B;border:1px solid #E4BC63}
+.fcgnav-cta .b2:hover{background:#F0CF85;border-color:#F0CF85}
+.fcgnav :focus-visible{outline:2px solid #E4BC63;outline-offset:3px}
+@media(min-width:980px){.fcgnav-links{display:flex}}
+@media(max-width:560px){.fcgnav-cta .b1{display:none}.fcgnav-brand span{display:none}.fcgnav-in{padding:10px 18px}}
+
+/* mobile menu (native <details>, no JS) */
+.fcgnav-menu{position:relative;display:block}
+.fcgnav-menu summary{list-style:none;cursor:pointer;font:600 11px/1 'Archivo',system-ui,sans-serif;letter-spacing:.14em;
+  text-transform:uppercase;color:#F4F2EE;padding:13px 14px;border:1px solid rgba(255,255,255,.2);border-radius:2px}
+.fcgnav-menu summary::-webkit-details-marker{display:none}
+.fcgnav-menu[open] summary{border-color:#E4BC63;color:#E4BC63}
+.fcgnav-menu .fcgnav-panel{position:absolute;right:0;top:calc(100% + 8px);min-width:210px;background:#0B0B0B;
+  border:1px solid rgba(255,255,255,.14);border-top:2px solid #E3021F;padding:8px 0;box-shadow:0 18px 40px rgba(0,0,0,.5)}
+.fcgnav-menu .fcgnav-panel a{display:block;padding:13px 18px;font:500 12px/1 'Archivo',system-ui,sans-serif;letter-spacing:.14em;
+  text-transform:uppercase;color:#D9D5CE;text-decoration:none}
+.fcgnav-menu .fcgnav-panel a:hover,.fcgnav-menu .fcgnav-panel a[aria-current="page"]{color:#E4BC63;background:rgba(255,255,255,.03)}
+@media(min-width:980px){.fcgnav-menu{display:none}}
 </style>
+
+<header class="fcgnav">
+  <div class="fcgnav-in">
+    <a class="fcgnav-brand" href="/"><img src="/img/fcg-white.png" alt="FCG · E Trend" width="560" height="336"><span>Felix Cheng</span></a>
+    <div class="fcgnav-links" role="navigation" aria-label="Site">
+      <a href="/#about">About</a>
+      <a href="/catalog/">Catalogue</a>
+      <a href="/tools/" aria-current="page">Agent Tools</a>
+      <a href="/join/">Join FCG</a>
+    </div>
+    <div class="fcgnav-cta">
+      <details class="fcgnav-menu"><summary>Menu</summary><div class="fcgnav-panel"><a href="/">Home</a><a href="/#about">About</a><a href="/catalog/">Catalogue</a><a href="/tools/" aria-current="page">Agent Tools</a><a href="/join/">Join FCG</a></div></details>
+      <a class="b1" href="/catalog/">Catalogue</a>
+      <a class="b2" href="https://wa.me/60182131314" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
+</header>
 
 <div class="wrap">
   <header class="top">
@@ -282,7 +340,6 @@
   <!-- tabs -->
   <nav class="tabs" role="tablist" aria-label="Calculator sections">
     <button class="tab on" data-tab="t1" role="tab" aria-selected="true">Loan + fees</button>
-    <button class="tab" data-tab="t2" role="tab" aria-selected="false">Pay early</button>
     <button class="tab" data-tab="t3" role="tab" aria-selected="false">Flexi loans</button>
     <button class="tab" data-tab="t4" role="tab" aria-selected="false">MRTA vs MLTA</button>
   </nav>
@@ -329,54 +386,6 @@
     </div>
   </section>
 
-  <!-- TAB 2 : early settlement -->
-  <section class="panel" id="t2">
-    <div class="card">
-      <div class="eyebrow">Extra payments</div>
-      <div class="grid g3">
-        <label class="f">Extra paid every month
-          <span class="field"><span>RM</span><input id="xMonthly" type="number" inputmode="decimal" value="300" min="0" step="50"></span>
-        </label>
-        <label class="f">One-time lump sum
-          <span class="field"><span>RM</span><input id="xLump" type="number" inputmode="decimal" value="0" min="0" step="1000"></span>
-        </label>
-        <label class="f">Lump sum paid in year
-          <span class="field"><input id="xYear" type="number" inputmode="numeric" value="5" min="1" step="1"><span>yr</span></span>
-        </label>
-      </div>
-    </div>
-
-    <div class="tiles">
-      <div class="tile hero gold">
-        <div class="tl">Interest saved</div>
-        <div class="tv" id="xSaved">-</div>
-        <div class="ts" id="xSavedSub">-</div>
-      </div>
-      <div class="tile">
-        <div class="tl">Finish earlier by</div>
-        <div class="tv sm" id="xFaster">-</div>
-        <div class="ts" id="xFasterSub">-</div>
-      </div>
-      <div class="tile">
-        <div class="tl">Debt-free by</div>
-        <div class="tv sm" id="xDate">-</div>
-        <div class="ts" id="xDateSub">-</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="eyebrow">Loan balance over time</div>
-      <div class="legend">
-        <span><span class="sw" style="background:var(--c-base)"></span>Normal instalment</span>
-        <span><span class="sw" style="background:var(--c-save)"></span>With extra payments</span>
-      </div>
-      <div class="chartwrap">
-        <svg id="chart" role="img" aria-label="Loan balance over time, comparing normal instalment against paying extra"></svg>
-        <div id="tip"></div>
-      </div>
-      <p class="note">Most loans have a lock-in period (typically the first 3 to 5 years): full settlement during lock-in usually triggers a 2 to 3% penalty, but normal extra payments like these are fine with almost every bank.</p>
-    </div>
-  </section>
 
   <!-- TAB 3 : flexi comparison -->
   <section class="panel" id="t3">
@@ -777,23 +786,6 @@ try{fbq('init','1818471292624398');fbq('track','PageView');fbq('trackCustom','Ag
     $("cFees").textContent = RM(totalFees);
     $("cTotal").textContent = RM(downRM + totalFees);
 
-    // Tab 2, early settlement
-    var xm = num("xMonthly"), xl = num("xLump");
-    var xy = Math.max(1, Math.min(yrs, num("xYear") || 1));
-    var sc = simulate(loan, rate, n, {extra:xm, lump:xl, lumpMonth:Math.round(xy*12)});
-    var saved = base.interest - sc.interest;
-    var moSaved = base.months - sc.months;
-
-    $("xSaved").textContent = RM(saved);
-    $("xSavedSub").textContent = "Total interest becomes " + RM(sc.interest) + " (was " + RM(base.interest) + ")";
-    $("xFaster").textContent = dur(moSaved);
-    $("xFasterSub").textContent = "Loan done in " + dur(sc.months) + " instead of " + dur(base.months);
-    $("xDate").textContent = dateAfter(sc.months);
-    $("xDateSub").textContent = "instead of " + dateAfter(base.months);
-
-    if(loan > 0){ drawChart(base, sc, loan); } else { $("chart").innerHTML = ""; CH = null; }
-    hideTip();
-
     // Tab 3, flexi comparison
     var cash = num("fxCash"), mSave = num("fxMonthly"), fee = num("fxFee");
     var semi = simulate(loan, rate, n, {lump:cash, lumpMonth:1, extra:mSave});
@@ -899,10 +891,6 @@ try{fbq('init','1818471292624398');fbq('track','PageView');fbq('trackCustom','Ag
     });
   });
 
-  var svg = $("chart");
-  svg.addEventListener("pointermove", onMove);
-  svg.addEventListener("pointerdown", onMove);
-  svg.addEventListener("pointerleave", hideTip);
 
   recalc();
 })();
@@ -917,6 +905,9 @@ if (("serviceWorker" in navigator) && (location.protocol === "https:" || locatio
 (function(){
   var standalone=window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true;
   if(standalone){try{fbq('trackCustom','AppOpen')}catch(e){}}
+  var nav=document.querySelector('.fcgnav');
+  function navh(){if(nav)document.documentElement.style.setProperty('--navh',nav.offsetHeight+'px')}
+  navh();window.addEventListener('resize',navh);
   if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/tools/sw.js',{scope:'/tools/'}).catch(function(){})})}
 })();
 </script>
