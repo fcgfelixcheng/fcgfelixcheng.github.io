@@ -2,509 +2,491 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Agent Tools: Free Home Loan Calculator for Agents · Felix Cheng</title>
-<meta name="description" content="Free tools for property agents in Malaysia. Monthly instalment, legal fees and stamp duty, cash upfront, pay-early savings, flexi loans and MRTA vs MLTA in one screen. Free app for iPhone, Android and iPad.">
-<meta name="theme-color" content="#0B0B0B">
-<link rel="manifest" href="/tools/manifest.webmanifest">
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16.png">
-<link rel="apple-touch-icon" href="/tools/icons/apple-touch-icon.png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
-<meta name="apple-mobile-web-app-title" content="Agent Tools">
-<meta name="application-name" content="Agent Tools">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ProCalculator · Free Home Loan Calculator for Agents</title>
+<meta name="description" content="Free Malaysia home loan calculator for property agents. Monthly instalment, legal fees and stamp duty, cash upfront, pay early, flexi loans, MRTA vs MLTA. Free app for iPhone, Android and iPad, works offline.">
 <link rel="canonical" href="https://fcgfelixcheng.com/tools/">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Felix Cheng · FCG">
+<meta property="og:site_name" content="Felix Cheng">
 <meta property="og:url" content="https://fcgfelixcheng.com/tools/">
-<meta property="og:title" content="Agent Tools: free home loan calculator for agents">
-<meta property="og:description" content="Answer &ldquo;how much per month?&rdquo; in 10 seconds. Instalment, fees, cash upfront, flexi, MRTA. Free app for iPhone, Android and iPad.">
-<meta property="og:image" content="https://fcgfelixcheng.com/img/tools-share.jpg">
+<meta property="og:title" content="ProCalculator: free home loan calculator for every agent">
+<meta property="og:description" content="Instalment, legal fees and stamp duty, cash upfront, pay early, flexi, MRTA. Free app for iPhone, Android and iPad.">
+<meta property="og:image" content="https://fcgfelixcheng.com/tools/icons/share.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
-<!-- Meta Pixel Code (FCG RECRUIT, same as /join/) -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1818471292624398');
-fbq('track', 'PageView');
-fbq('trackCustom', 'AgentToolsView');
-document.addEventListener('click',function(e){
-  var a=e.target.closest('a');
-  if(!a)return;
-  var h=a.getAttribute('href')||'';
-  try{
-    if(h.indexOf('wa.me/60182131314')>-1) fbq('track','Lead',{content_name:a.dataset.track||'agent-tools'});
-    else if(a.dataset.track) fbq('trackCustom','ToolOpen',{tool:a.dataset.track});
-  }catch(err){}
-});
-</script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1818471292624398&ev=PageView&noscript=1" alt=""></noscript>
-<!-- End Meta Pixel Code -->
-<style>
-:root{
-  --paper:#0B0B0B;
-  --sand:#141414;
-  --ink:#F4F2EE;
-  --soft:#B8B3AB;
-  --faint:#807B74;
-  --gold:#E4BC63;
-  --gold-lt:#F0CF85;
-  --brand-red:#E3021F;
-  --line:rgba(255,255,255,.12);
-  --d:"Newsreader",Georgia,"Times New Roman",serif;
-  --f:"Newsreader",Georgia,"Times New Roman",serif;
-  --s:"Archivo","Helvetica Neue",Arial,sans-serif;
-  --gut:clamp(18px,6vw,90px);
-  --max:1180px;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--s);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{color:inherit}
-img{display:block;max-width:100%}
-:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
-.wrap{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:var(--gut)}
-.eyebrow{font-family:var(--s);font-weight:600;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin:0 0 1.4em}
-h1,h2,h3{font-family:var(--d);font-weight:400;margin:0;letter-spacing:-.03em;line-height:1.05;text-wrap:balance}
-h1{font-size:clamp(2.4rem,6vw,4.4rem)}
-h1 em,h2 em{font-style:italic;color:var(--gold);font-weight:300}
-.lead{color:var(--soft);font-size:clamp(1rem,1.6vw,1.12rem);max-width:640px;margin:1.4em 0 0}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;font:600 .78rem/1 var(--s);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;padding:16px 24px;border-radius:999px;transition:transform .2s,background-color .2s,border-color .2s,color .2s}
-.btn-a{background:var(--gold);color:#0B0B0B;border:1px solid var(--gold)}
-.btn-a:hover{background:var(--gold-lt);border-color:var(--gold-lt);transform:translateY(-2px)}
-.btn-b{border:1px solid rgba(255,255,255,.22);color:var(--ink)}
-.btn-b:hover{border-color:var(--gold);color:var(--gold)}
-.cta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:2em}
-
-/* shared nav (same as home / join / catalog) */
-.fcgnav{position:sticky!important;top:0!important;left:auto!important;right:auto!important;transform:none!important;z-index:1000!important;background:rgba(11,11,11,.92)!important;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:2px solid #E3021F;width:100%}
-.fcgnav-in{max-width:1180px;margin:0 auto;padding:12px clamp(20px,5vw,72px);display:flex;align-items:center;justify-content:space-between;gap:20px}
-.fcgnav-brand{display:flex;align-items:center;gap:.75em;text-decoration:none;flex:none}
-.fcgnav-brand img{height:30px;width:auto;display:block}
-.fcgnav-brand span{font:700 11px/1 'Archivo',system-ui,-apple-system,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#F4F2EE}
-.fcgnav-links{display:none;align-items:center;gap:clamp(18px,2.4vw,36px)}
-.fcgnav-links a{font:500 11.5px/1 'Archivo',system-ui,-apple-system,sans-serif;letter-spacing:.17em;text-transform:uppercase;color:#B8B3AB;text-decoration:none;transition:color .2s}
-.fcgnav-links a:hover{color:#FFFFFF}
-.fcgnav-links a[aria-current="page"]{color:#E4BC63}
-.fcgnav-cta{display:flex;gap:8px;align-items:center;flex:none}
-.fcgnav-cta a{font:600 11px/1 'Archivo',system-ui,-apple-system,sans-serif;letter-spacing:.13em;text-transform:uppercase;text-decoration:none;padding:11px 16px;border-radius:999px;transition:all .2s}
-.fcgnav-cta .b1{border:1px solid rgba(255,255,255,.2);color:#F4F2EE}
-.fcgnav-cta .b1:hover{border-color:#E4BC63;color:#E4BC63}
-.fcgnav-cta .b2{background:#E4BC63;color:#0B0B0B;border:1px solid #E4BC63}
-.fcgnav-cta .b2:hover{background:#F0CF85;border-color:#F0CF85}
-.fcgnav :focus-visible{outline:2px solid #E4BC63;outline-offset:3px}
-@media(min-width:980px){.fcgnav-links{display:flex}}
-@media(max-width:560px){.fcgnav-cta .b1{display:none}.fcgnav-brand span{display:none}.fcgnav-in{padding:10px 18px}}
-.fcgnav-menu{position:relative;display:block}
-.fcgnav-menu summary{list-style:none;cursor:pointer;font:600 11px/1 'Archivo',system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:11px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.2);color:#F4F2EE}
-.fcgnav-menu summary::-webkit-details-marker{display:none}
-.fcgnav-menu[open] summary{border-color:#E4BC63;color:#E4BC63}
-.fcgnav-menu .panel{position:absolute;right:0;top:calc(100% + 8px);min-width:210px;background:#0B0B0B;border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:6px 0;box-shadow:0 18px 40px rgba(0,0,0,.6)}
-.fcgnav-menu .panel a{display:block;padding:13px 18px;font:500 12px/1 'Archivo',system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#B8B3AB;text-decoration:none}
-.fcgnav-menu .panel a:hover,.fcgnav-menu .panel a[aria-current="page"]{color:#E4BC63;background:rgba(255,255,255,.03)}
-@media(min-width:980px){.fcgnav-menu{display:none}}
-
-/* hero */
-.hero{padding-block:clamp(56px,9vw,112px) clamp(36px,6vw,64px);position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;inset:-30% -10% auto auto;width:min(720px,90vw);height:min(720px,90vw);background:radial-gradient(closest-side,rgba(228,188,99,.13),transparent 70%);pointer-events:none}
-.hero .wrap{position:relative}
-.free-pill{display:inline-flex;align-items:center;gap:.6em;border:1px solid rgba(228,188,99,.35);background:rgba(228,188,99,.08);color:var(--gold);font:600 .68rem/1 var(--s);letter-spacing:.2em;text-transform:uppercase;padding:9px 14px;border-radius:999px;margin-bottom:1.6em}
-.free-pill i{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(228,188,99,.2)}
-.hero-stats{display:flex;flex-wrap:wrap;gap:clamp(18px,4vw,48px);margin-top:2.6em;padding-top:1.8em;border-top:1px solid var(--line)}
-.hero-stats div{min-width:120px}
-.hero-stats b{display:block;font-family:var(--d);font-weight:400;font-size:clamp(1.7rem,3vw,2.3rem);color:var(--ink);letter-spacing:-.02em;line-height:1.1}
-.hero-stats span{font-size:.8rem;color:var(--faint)}
-
-
-/* calculator wrapper overrides */
-.lc{background:transparent!important;padding:clamp(48px,8vw,96px) 5% !important;border-top:1px solid var(--line)}
-.lc-head .eyebrow{margin-bottom:1em}
-
-
-/* app download */
-.app{padding-block:clamp(48px,8vw,96px);border-top:1px solid var(--line);background:var(--sand);scroll-margin-top:60px}
-.app-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,6vw,72px);align-items:center}
-.app h2{font-size:clamp(2rem,4.4vw,3.2rem)}
-.app button.btn{cursor:pointer;font-family:var(--s);-webkit-appearance:none;appearance:none}
-.app button.btn-b{background:transparent}
-.app-status{margin:1.2em 0 0;padding:12px 16px;border-radius:12px;background:rgba(228,188,99,.1);border:1px solid rgba(228,188,99,.3);color:var(--ink);font-size:.92rem}
-.plat{display:grid;gap:12px}
-.pcard{background:linear-gradient(150deg,#161412,#0d0c0b);border:1px solid var(--line);border-radius:18px;padding:18px 20px}
-.pcard.me{border-color:rgba(228,188,99,.6);box-shadow:0 0 0 3px rgba(228,188,99,.12);order:-1}
-.pcard .ph{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:8px}
-.pcard .ph b{font-size:1.02rem}
-.pcard .ph span{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
-.pcard.me .ph span::after{content:" · your device";color:var(--gold)}
-.pcard ol{margin:0;padding-left:1.2em;color:var(--soft);font-size:.92rem;line-height:1.65}
-.pcard ol b{color:var(--ink);font-weight:600}
-.ico{width:18px;height:18px;vertical-align:-3px;color:var(--gold);margin-left:2px}
-html.standalone .app{display:none}
-
-/* legal + footer */
-.legal{padding:34px var(--gut);border-top:1px solid var(--line);max-width:var(--max);margin:0 auto}
-.legal p{font-size:.76rem;color:var(--faint);line-height:1.65;margin:0 0 .8em}
-.legal .reg b{color:var(--soft);font-weight:600}
-.legal a{color:var(--soft)}
-footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-block:28px 40px;border-top:1px solid var(--line);font-size:.75rem;color:var(--faint)}
-.foot-marks{display:flex;align-items:center;gap:22px}
-.foot-marks img{height:34px;width:auto;opacity:.85}
-.foot-marks .m-fcg{height:30px}
-
-@media(max-width:900px){
-  .app-grid{grid-template-columns:1fr}
-}
-@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
-</style>
-<style>
-.lc{--lc-bg:#0B0A09;--lc-surf:#131110;--lc-ink:#F4F2EE;--lc-muted:#9C958B;--lc-line:rgba(248,244,238,.1);
-  --lc-acc:#E4BC63;--lc-acc-soft:rgba(228,188,99,.1);--lc-base:#8F8A82;--lc-save:#E4BC63;
-  padding:100px 5%;background:var(--ink);scroll-margin-top:60px;color:var(--lc-ink);font-family:var(--s)}
-.lc *{box-sizing:border-box}
-.lc-inner{max-width:1080px;margin:0 auto}
-.lc-head{text-align:center;margin-bottom:40px}
-.lc-head h2{font-family:var(--f);font-size:clamp(42px,5vw,66px);font-weight:300;letter-spacing:-2px;line-height:1.08;margin-bottom:12px}
-.lc-head h2 em{font-style:italic;color:var(--lc-acc)}
-.lc-head p{color:var(--lc-muted);font-size:15px}
-.lc-card{background:linear-gradient(145deg,#141210,#0c0b0a);border:1px solid var(--lc-line);border-radius:18px;padding:22px;margin-top:14px}
-.lc-eb{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--lc-acc);margin-bottom:14px}
-.lc-grid{display:grid;gap:12px}
-.lc-g4{grid-template-columns:repeat(4,1fr)}
-.lc-g3{grid-template-columns:repeat(3,1fr)}
-.lc label.lc-f{display:block;font-size:12.5px;font-weight:600;color:var(--lc-muted)}
-.lc-field{display:flex;align-items:center;gap:6px;margin-top:6px;background:var(--lc-bg);border:1px solid var(--lc-line);border-radius:10px;padding:10px 12px}
-.lc-field:focus-within{border-color:var(--lc-acc);box-shadow:0 0 0 3px var(--lc-acc-soft)}
-.lc-field input{border:0;background:none;color:var(--lc-ink);font:650 16px/1.3 var(--s);width:100%;min-width:0;padding:0;font-variant-numeric:tabular-nums}
-.lc-field input:focus{outline:none}
-.lc-field span{color:var(--lc-muted);font-size:12.5px;font-weight:600;flex:0 0 auto}
-.lc-loanline{margin-top:14px;font-size:13.5px;color:var(--lc-muted)}
-.lc-loanline b{color:var(--lc-ink);font-variant-numeric:tabular-nums}
-.lc-tabs{display:flex;gap:4px;margin-top:18px;background:var(--lc-surf);border:1px solid var(--lc-line);border-radius:999px;padding:4px;overflow-x:auto;scrollbar-width:none}
-.lc-tabs::-webkit-scrollbar{display:none}
-.lc-tab{flex:1;white-space:nowrap;border:0;background:none;color:var(--lc-muted);font:650 13.5px var(--s);padding:10px 16px;border-radius:999px;cursor:pointer;transition:background-color .15s,color .15s}
-.lc-tab.on{background:var(--lc-acc);color:#0B0B0B}
-.lc-tab:not(.on):hover{color:var(--lc-ink)}
-.lc button:focus-visible,.lc input:focus-visible{outline:2px solid var(--lc-acc);outline-offset:2px}
-.lc-panel{display:none}.lc-panel.on{display:block}
-.lc-tiles{display:grid;gap:12px;grid-template-columns:1.4fr 1fr 1fr;margin-top:14px}
-.lc-tile{background:linear-gradient(145deg,#141210,#0c0b0a);border:1px solid var(--lc-line);border-radius:18px;padding:18px 20px}
-.lc-tl{font-size:11px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--lc-muted)}
-.lc-tv{margin-top:6px;font-family:var(--f);font-size:40px;font-weight:400;letter-spacing:-1px;font-variant-numeric:tabular-nums;line-height:1.1;overflow-wrap:anywhere}
-.lc-tv.sm{font-family:var(--s);font-size:21px;font-weight:700;letter-spacing:-.3px}
-.lc-ts{margin-top:5px;font-size:12.5px;color:var(--lc-muted)}
-.lc-tile.lc-hero .lc-tv{color:var(--lc-acc)}
-.lc-tile.lc-gold{background:var(--lc-acc-soft);border-color:rgba(228,188,99,.3)}
-.lc-tile.lc-gold .lc-tl,.lc-tile.lc-gold .lc-ts{color:rgba(228,188,99,.8)}
-.lc-tile.lc-gold .lc-tv{color:var(--lc-acc)}
-.lc-tw{overflow-x:auto}
-.lc table{width:100%;border-collapse:collapse;font-size:14px;color:var(--lc-ink)}
-.lc th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--lc-muted);font-weight:700;padding:8px 10px;border-bottom:1px solid var(--lc-line)}
-.lc th.r{text-align:right}
-.lc td{padding:10px;border-bottom:1px solid var(--lc-line);vertical-align:top}
-.lc td.r{text-align:right;font-variant-numeric:tabular-nums;font-weight:650;white-space:nowrap}
-.lc tr.total td{border-bottom:0;border-top:2px solid var(--lc-acc);font-weight:800;color:var(--lc-acc)}
-.lc-hint{display:block;font-size:11.5px;color:var(--lc-muted);font-weight:400;margin-top:2px}
-.lc-mini{width:96px;border:1px solid var(--lc-line);border-radius:7px;padding:5px 8px;font:650 13.5px var(--s);color:var(--lc-ink);background:var(--lc-bg);text-align:right;font-variant-numeric:tabular-nums}
-#lcFlexTable{min-width:600px}
-#lcInsTable{min-width:520px}
-#lcInsTable td:first-child{white-space:nowrap}
-.lc-chk{display:flex;gap:9px;align-items:flex-start;font-size:13.5px;margin:7px 0;cursor:pointer;color:var(--lc-ink)}
-.lc input[type=checkbox]{accent-color:var(--lc-acc);width:16px;height:16px;margin:2px 0 0;flex:0 0 auto}
-.lc-opts{margin-bottom:12px}
-.lc-note{font-size:12.5px;color:var(--lc-muted);margin-top:12px;line-height:1.55}
-.lc-notice{margin-top:12px;padding:10px 12px;border-radius:10px;font-size:13px;background:var(--lc-acc-soft);color:var(--lc-ink)}
-.lc-notice.warn{background:rgba(227,2,31,.12);color:#F2B8BF}
-.lc-cash{display:grid;grid-template-columns:1fr 1fr 1.3fr;gap:12px;margin-top:14px;padding:16px;background:var(--lc-acc-soft);border:1px solid rgba(228,188,99,.2);border-radius:12px}
-.lc-cl{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--lc-muted)}
-.lc-cv{font-size:19px;font-weight:800;font-variant-numeric:tabular-nums;margin-top:2px}
-.lc-cash .lc-big .lc-cv{font-size:25px;color:var(--lc-acc)}
-.lc-legend{display:flex;flex-wrap:wrap;gap:16px;font-size:12.5px;color:var(--lc-muted);margin-bottom:6px}
-.lc-sw{width:10px;height:10px;border-radius:3px;display:inline-block;margin-right:6px;vertical-align:-1px}
-.lc-chartwrap{position:relative}
-#lcChart{width:100%;height:auto;display:block;touch-action:pan-y}
-.lc .grid-ln{stroke:var(--lc-line);stroke-width:1}
-.lc .ax{fill:var(--lc-muted);font-size:11px}
-.lc .ln{fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
-.lc .ln.base{stroke:var(--lc-base)}.lc .ln.save{stroke:var(--lc-save)}
-.lc .dot.base{fill:var(--lc-base);stroke:#0c0b0a;stroke-width:2}.lc .dot.save{fill:var(--lc-save);stroke:#0c0b0a;stroke-width:2}
-.lc .xhair{stroke:var(--lc-muted);stroke-width:1;stroke-dasharray:3 3}
-#lcTip{position:absolute;pointer-events:none;display:none;z-index:5;background:#1A1714;border:1px solid var(--lc-line);border-radius:10px;padding:8px 11px;font-size:12.5px;box-shadow:0 8px 24px rgba(0,0,0,.5);min-width:160px}
-#lcTip .tt{font-weight:750;margin-bottom:4px}
-#lcTip .tr{display:flex;justify-content:space-between;gap:14px;margin:2px 0}
-#lcTip .tr b{font-variant-numeric:tabular-nums}
-.lc-barrow{display:grid;grid-template-columns:96px 1fr auto;gap:10px;align-items:center;font-size:13px;margin:9px 0}
-.lc-barlab{font-weight:650}
-.lc-bartrack{min-width:60px}
-.lc-bar{background:var(--lc-acc);border-radius:4px;height:12px;min-width:3px;display:block}
-.lc-barval{font-variant-numeric:tabular-nums;font-weight:700;white-space:nowrap}
-.lc-exp{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
-.lc-exp .lc-card{margin-top:0}
-.lc-exp h3{margin:0 0 6px;font-size:15px;font-weight:750;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.lc-exp p{margin:0;font-size:13px;color:var(--lc-muted);line-height:1.55}
-.lc-tag{font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;background:var(--lc-acc-soft);color:var(--lc-acc);border-radius:99px;padding:2px 8px}
-.lc-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;margin-top:14px;padding:22px;border:1px solid rgba(228,188,99,.3);border-radius:18px;background:linear-gradient(120deg,rgba(228,188,99,.12),rgba(228,188,99,.02))}
-.lc-cta p{margin:0;font-size:15px;color:var(--lc-ink);max-width:520px}
-.lc-cta p small{display:block;color:var(--lc-muted);font-size:12.5px;margin-top:3px}
-.lc-cta a{display:inline-flex;align-items:center;gap:9px;background:var(--lc-acc);color:#0B0B0B;padding:15px 24px;border-radius:999px;font-weight:700;font-size:15px;white-space:nowrap;transition:transform .2s,box-shadow .2s}
-.lc-cta a:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(228,188,99,.3);color:#0B0B0B}
-.lc-foot{margin-top:18px;font-size:12px;color:var(--lc-muted);line-height:1.6}
-@media(max-width:720px){
-  .lc{padding:72px 14px}
-  .lc-g4,.lc-g3{grid-template-columns:repeat(2,1fr)}
-  .lc-g4>.lc-f:first-child{grid-column:1/-1}
-  .lc-tiles{grid-template-columns:1fr 1fr}
-  .lc-tile.lc-hero{grid-column:1/-1}
-  .lc-exp{grid-template-columns:1fr}
-  .lc-card{padding:18px 16px}
-  .lc-tab{flex:0 0 auto}
-  .lc-cta a{width:100%;justify-content:center}
-}
-@media(max-width:600px){.lc-cash{grid-template-columns:1fr}}
-@media(prefers-reduced-motion:reduce){.lc *{transition:none!important}}
-</style>
+<link rel="manifest" href="/tools/manifest.webmanifest">
+<meta name="theme-color" content="#0B0B0B">
+<link rel="icon" href="/tools/icons/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/tools/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/tools/icons/favicon-16.png">
+<link rel="apple-touch-icon" href="/tools/icons/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="ProCalculator">
+<meta name="application-name" content="ProCalculator">
 </head>
 <body>
+<style>
+  :root{
+    --bg:#F7F8F5; --surface:#FFFFFF; --ink:#29322E; --muted:#6E7C75; --line:#E3E9E4;
+    --accent:#537D6D; --accent-2:#7197AB; --on-accent:#FFFFFF; --accent-soft:#E8F1EC;
+    --gold-bg:#EAF2F6; --gold-ink:#4F7181;
+    --c-base:#77838A; --c-save:#5B8E78;
+    --shadow:0 12px 32px rgba(35,56,46,.07),0 2px 6px rgba(35,56,46,.035);
+    --shadow-hover:0 18px 40px rgba(35,56,46,.11),0 3px 8px rgba(35,56,46,.055);
+    --radius:18px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#111514; --surface:#1A211E; --ink:#F0F5F1; --muted:#A8B6AD; --line:#2C3731;
+      --accent:#85AA99; --accent-2:#91B4C7; --on-accent:#142019; --accent-soft:#223129;
+      --gold-bg:#1D2D35; --gold-ink:#A8CBDC;
+      --c-base:#C4CED2; --c-save:#8FC4A9;
+      --shadow:0 4px 14px rgba(0,0,0,.52);
+    }
+  }
+  :root[data-theme="light"]{
+    --bg:#F7F8F5; --surface:#FFFFFF; --ink:#29322E; --muted:#6E7C75; --line:#E3E9E4;
+    --accent:#537D6D; --accent-2:#7197AB; --on-accent:#FFFFFF; --accent-soft:#E8F1EC;
+    --gold-bg:#EAF2F6; --gold-ink:#4F7181;
+    --c-base:#77838A; --c-save:#5B8E78;
+    --shadow:0 4px 14px rgba(35,56,46,.10);
+  }
+  :root[data-theme="dark"]{
+    --bg:#111514; --surface:#1A211E; --ink:#F0F5F1; --muted:#A8B6AD; --line:#2C3731;
+    --accent:#85AA99; --accent-2:#91B4C7; --on-accent:#142019; --accent-soft:#223129;
+    --gold-bg:#1D2D35; --gold-ink:#A8CBDC;
+    --c-base:#C4CED2; --c-save:#8FC4A9;
+    --shadow:0 4px 14px rgba(0,0,0,.52);
+  }
+  html,body{margin:0;padding:0}
+  body{
+    background:radial-gradient(circle at 8% 0%,rgba(83,125,109,.09),transparent 27rem),radial-gradient(circle at 95% 12%,rgba(113,151,171,.13),transparent 24rem),var(--bg); color:var(--ink);
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+    font-size:15px; line-height:1.55;
+    -webkit-text-size-adjust:100%;
+  }
+  *{box-sizing:border-box}
+  .wrap{max-width:1080px;margin:0 auto;padding:28px 20px 72px}
 
-<header class="fcgnav">
-  <div class="fcgnav-in">
-    <a class="fcgnav-brand" href="/"><img src="/img/fcg-white.png" alt="FCG · E Trend" width="560" height="336"><span>Felix Cheng</span></a>
-    <div class="fcgnav-links" role="navigation" aria-label="Site">
-      <a href="/#about">About</a>
-      <a href="/catalog/">Catalogue</a>
-      <a href="/tools/" aria-current="page">Agent Tools</a>
-      <a href="/join/">Join FCG</a>
-    </div>
-    <div class="fcgnav-cta">
-      <details class="fcgnav-menu"><summary>Menu</summary><div class="panel"><a href="/">Home</a><a href="/#about">About</a><a href="/catalog/">Catalogue</a><a href="/tools/" aria-current="page">Agent Tools</a><a href="/join/">Join FCG</a></div></details>
-      <a class="b1" href="/catalog/">Catalogue</a>
-      <a class="b2" href="https://wa.me/60182131314" target="_blank" rel="noopener" data-track="nav">WhatsApp</a>
-    </div>
-  </div>
-</header>
+  /* header */
+  .top{display:flex;align-items:center;gap:14px;padding:4px 2px 18px}
+  .brand{
+    width:46px;height:46px;flex:0 0 auto;border-radius:12px;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));color:var(--on-accent);
+    display:flex;align-items:center;justify-content:center;
+    font-weight:850;font-size:15px;letter-spacing:.02em;box-shadow:0 8px 16px rgba(83,125,109,.16);
+  }
+  .top h1{margin:0;font-size:clamp(22px,3vw,28px);font-weight:850;letter-spacing:-.035em;line-height:1.15;text-wrap:balance}
+  .top .sub{margin:3px 0 0;font-size:13px;color:var(--muted)}
+  .top-actions{margin-left:auto;display:flex;gap:8px}
+  .icon-btn{width:38px;height:38px;border-radius:12px;border:1px solid var(--line);background:color-mix(in srgb,var(--surface) 86%,transparent);color:var(--ink);font-size:17px;cursor:pointer;display:grid;place-items:center;transition:transform .18s,background-color .18s,border-color .18s}
+  .icon-btn:hover{transform:translateY(-1px);border-color:var(--accent);background:var(--accent-soft)}
+  .nav-link{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:650;color:var(--accent);text-decoration:none;margin-bottom:4px}
+  .nav-link:hover{text-decoration:underline}
+  .visit-badge{font-size:11.5px;color:var(--muted)}
 
-<main>
-<section class="hero">
-  <div class="wrap">
-    <span class="free-pill"><i></i>Free for every agent</span>
-    <h1>Client asks &ldquo;how much per month?&rdquo;<br><em>Answer in 10 seconds.</em></h1>
-    <p class="lead">The calculator my team uses on every viewing, now open to any negotiator in Malaysia. No sign-up, no App Store. Works on any phone or tablet.</p>
-    <div class="cta-row">
-      <a class="btn btn-a" href="#calc" data-track="hero-calc">Open the calculator</a>
-      <a class="btn btn-b" href="#app" data-track="hero-app">Download free app</a>
-    </div>
-    <div class="hero-stats">
-      <div><b>6 in 1</b><span>instalment, fees, cash, pay early, flexi, MRTA</span></div>
-      <div><b>RM 0</b><span>free to use, no login</span></div>
-      <div><b>Any phone</b><span>iPhone, Android, iPad</span></div>
-    </div>
-  </div>
-</section>
+  /* cards + inputs */
+  .card{background:color-mix(in srgb,var(--surface) 94%,transparent);border:1px solid var(--line);border-radius:var(--radius);padding:20px;margin-top:16px;box-shadow:var(--shadow)}
+  .eyebrow{font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+  .grid{display:grid;gap:12px}
+  .g4{grid-template-columns:repeat(4,1fr)}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  @media (max-width:720px){ .g4,.g3{grid-template-columns:repeat(2,1fr)} }
+  label.f{display:block;font-size:12.5px;font-weight:600;color:var(--muted)}
+  .field{
+    display:flex;align-items:center;gap:6px;margin-top:6px;
+    background:color-mix(in srgb,var(--bg) 76%,var(--surface));border:1px solid var(--line);border-radius:11px;padding:10px 12px;transition:border-color .18s,box-shadow .18s,background-color .18s;
+  }
+  .field:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+  .field input{
+    border:0;background:none;color:var(--ink);
+    font-family:inherit;font-size:16px;font-weight:650;
+    width:100%;min-width:0;padding:0;
+    font-variant-numeric:tabular-nums;
+  }
+  .field input:focus{outline:none}
+  .field span{color:var(--muted);font-size:12.5px;font-weight:600;flex:0 0 auto}
+  .loanline{margin:16px 0 0;padding:11px 13px;background:var(--accent-soft);border-radius:10px;font-size:13.5px;color:var(--muted)}
+  .loanline b{color:var(--ink);font-weight:750;font-variant-numeric:tabular-nums}
 
+  /* tabs */
+  .tabs{position:sticky;top:10px;z-index:10;display:flex;gap:4px;margin-top:20px;background:color-mix(in srgb,var(--surface) 90%,transparent);backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:14px;padding:5px;overflow-x:auto;box-shadow:0 6px 20px rgba(35,56,46,.07)}
+  .tab{
+    flex:1;white-space:nowrap;border:0;background:none;color:var(--muted);
+    font-family:inherit;font-weight:650;font-size:13.5px;
+    padding:10px 13px;border-radius:10px;cursor:pointer;
+    transition:background-color .15s,color .15s,transform .15s;
+  }
+  .tab.on{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:var(--on-accent);box-shadow:0 5px 12px rgba(83,125,109,.16)}
+  .tab:active{transform:scale(.98)}
+  .tab:not(.on):hover{color:var(--ink)}
+  button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .panel{display:none}
+  .panel.on{display:block;animation:panel-in .22s ease-out}
+  @keyframes panel-in{from{opacity:.35;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
 
-<section class="app" id="app">
-  <div class="wrap app-grid">
+  /* stat tiles */
+  .tiles{display:grid;gap:14px;grid-template-columns:1.4fr 1fr 1fr;margin-top:16px}
+  #t1 .tiles{grid-template-columns:1fr}
+  @media (max-width:720px){
+    .tiles{grid-template-columns:1fr 1fr}
+    .tile.hero{grid-column:1 / -1}
+  }
+  .tile{background:color-mix(in srgb,var(--surface) 94%,transparent);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+  .tile .tl{font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+  .tile .tv{margin-top:6px;font-size:30px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.15;overflow-wrap:anywhere}
+  .tile .tv.sm{font-size:20px}
+  .tile .ts{margin-top:4px;font-size:12.5px;color:var(--muted)}
+  .tile.hero{background:linear-gradient(135deg,var(--surface),var(--accent-soft))}
+  .tile.hero .tv{color:var(--accent)}
+  .tile.gold{background:var(--gold-bg);border-color:transparent}
+  .tile.gold .tl{color:var(--gold-ink);opacity:.8}
+  .tile.gold .tv{color:var(--gold-ink)}
+  .tile.gold .ts{color:var(--gold-ink);opacity:.75}
+
+  /* tables */
+  .tablewrap{overflow-x:auto}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:700;padding:8px 10px;border-bottom:1px solid var(--line)}
+  th.r{text-align:right}
+  td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  td.r{text-align:right;font-variant-numeric:tabular-nums;font-weight:650;white-space:nowrap}
+  tr.total td{border-bottom:0;border-top:2px solid var(--ink);font-weight:800}
+  .hint{display:block;font-size:11.5px;color:var(--muted);font-weight:400;margin-top:2px}
+  .mini{
+    width:96px;border:1px solid var(--line);border-radius:7px;padding:4px 8px;
+    font-family:inherit;font-size:13.5px;font-weight:650;color:var(--ink);
+    background:var(--bg);text-align:right;font-variant-numeric:tabular-nums;
+  }
+  #flexTable{min-width:600px}
+  #insTable{min-width:520px}
+  #insTable td:first-child{white-space:nowrap}
+
+  /* checkboxes, notes */
+  .chk{display:flex;gap:8px;align-items:flex-start;font-size:13.5px;margin:6px 0;cursor:pointer}
+  input[type="checkbox"]{accent-color:var(--accent);width:16px;height:16px;margin:2px 0 0;flex:0 0 auto}
+  .opts{margin-bottom:12px}
+  .note{font-size:12.5px;color:var(--muted);margin-top:10px;line-height:1.5}
+  .notice{margin-top:12px;padding:10px 12px;border-radius:10px;font-size:13px;background:var(--accent-soft);color:var(--ink)}
+  .notice.warn{background:var(--gold-bg);color:var(--gold-ink)}
+
+  /* upfront cash strip */
+  .cashline{display:grid;grid-template-columns:1fr 1fr 1.3fr;gap:12px;margin-top:16px;padding:16px 18px;background:linear-gradient(135deg,var(--accent-soft),color-mix(in srgb,var(--accent-soft) 62%,var(--surface)));border:1px solid color-mix(in srgb,var(--accent) 14%,var(--line));border-radius:13px}
+  @media (max-width:600px){ .cashline{grid-template-columns:1fr} }
+  .cashline .cl{font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+  .cashline .cv{font-size:19px;font-weight:800;font-variant-numeric:tabular-nums;margin-top:2px}
+  .cashline .big .cv{font-size:24px;color:var(--accent)}
+
+  /* chart */
+  .legend{display:flex;flex-wrap:wrap;gap:16px;font-size:12.5px;color:var(--muted);margin-bottom:6px}
+  .sw{width:10px;height:10px;border-radius:3px;display:inline-block;margin-right:6px;vertical-align:-1px}
+  .chartwrap{position:relative}
+  #chart{width:100%;height:auto;display:block;touch-action:pan-y}
+  .grid-ln{stroke:var(--line);stroke-width:1}
+  .ax{fill:var(--muted);font-size:11px}
+  .ln{fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+  .ln.base{stroke:var(--c-base)}
+  .ln.save{stroke:var(--c-save)}
+  .dot.base{fill:var(--c-base);stroke:var(--surface);stroke-width:2}
+  .dot.save{fill:var(--c-save);stroke:var(--surface);stroke-width:2}
+  .xhair{stroke:var(--muted);stroke-width:1;stroke-dasharray:3 3}
+  #tip{
+    position:absolute;pointer-events:none;display:none;z-index:5;
+    background:var(--surface);border:1px solid var(--line);border-radius:10px;
+    padding:8px 11px;font-size:12.5px;box-shadow:var(--shadow);min-width:160px;
+  }
+  #tip .tt{font-weight:750;margin-bottom:4px}
+  #tip .tr{display:flex;justify-content:space-between;gap:14px;margin:2px 0}
+  #tip .tr b{font-variant-numeric:tabular-nums;font-weight:700}
+
+  /* comparison bars */
+  .barrow{display:grid;grid-template-columns:96px 1fr auto;gap:10px;align-items:center;font-size:13px;margin:9px 0}
+  .barlab{font-weight:650}
+  .bartrack{min-width:60px}
+  .bar{background:linear-gradient(90deg,var(--accent),var(--accent-2));border-radius:99px;height:12px;min-width:3px;box-shadow:0 2px 5px rgba(83,125,109,.14)}
+  .barval{font-variant-numeric:tabular-nums;font-weight:700;white-space:nowrap}
+
+  /* explainer cards */
+  .exp{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+  @media (max-width:720px){ .exp{grid-template-columns:1fr} }
+  .exp .card{margin-top:0}
+  .exp h3{margin:0 0 6px;font-size:15px;font-weight:750;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .exp p{margin:0;font-size:13px;color:var(--muted)}
+  .tag{font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;background:var(--accent-soft);color:var(--accent);border-radius:99px;padding:2px 8px}
+
+  footer{margin:28px 4px 0;padding-top:18px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);line-height:1.6}
+  @media (max-width:520px){.wrap{padding:18px 13px 48px}.top{gap:11px}.brand{width:42px;height:42px}.top .sub{font-size:12px}.top-actions{display:none}.card{padding:16px}.tab{flex:0 0 auto}.tile .tv{font-size:26px}}
+
+  @media (prefers-reduced-motion: reduce){ *{transition:none !important} }
+</style>
+
+<style id="brand-colours">
+  :root,:root[data-theme="light"],:root[data-theme="dark"]{
+    --bg:#0B0B0B; --surface:#151413; --ink:#F4F2EE; --muted:#A8A29A; --line:#2A2724;
+    --accent:#E4BC63; --accent-2:#C99B3E; --on-accent:#0B0B0B; --accent-soft:rgba(228,188,99,.12);
+    --gold-bg:rgba(228,188,99,.10); --gold-ink:#E4BC63;
+    --c-base:#8F8A82; --c-save:#E4BC63;
+    --red:#E3021F;
+    --shadow:0 4px 14px rgba(0,0,0,.55); --shadow-hover:0 10px 26px rgba(0,0,0,.6);
+    color-scheme:dark;
+  }
+  @media (prefers-color-scheme: light){
+    :root,:root[data-theme="light"]{--bg:#0B0B0B; --surface:#151413; --ink:#F4F2EE; --muted:#A8A29A; --line:#2A2724; --accent:#E4BC63; --accent-2:#C99B3E; --on-accent:#0B0B0B; --accent-soft:rgba(228,188,99,.12); --gold-bg:rgba(228,188,99,.10); --gold-ink:#E4BC63; --c-base:#8F8A82; --c-save:#E4BC63}
+  }
+  body{background:radial-gradient(circle at 10% 0%,rgba(228,188,99,.10),transparent 26rem),radial-gradient(circle at 95% 8%,rgba(228,188,99,.06),transparent 22rem),var(--bg)}
+  .top-actions{display:none!important}
+  .top{border-bottom:2px solid var(--red);margin-bottom:16px;padding-bottom:16px}
+  .brand-img{width:46px;height:46px;flex:0 0 auto;border-radius:12px;border:1px solid rgba(228,188,99,.45);box-shadow:0 0 0 3px rgba(228,188,99,.10);display:block}
+  @media (max-width:520px){.brand-img{width:42px;height:42px}}
+  .tab.on{box-shadow:0 5px 14px rgba(228,188,99,.22)}
+  .notice.warn{background:rgba(227,2,31,.12);color:#F4C2C8;border-left:3px solid var(--red)}
+  .made{margin-top:8px;color:var(--ink);font-weight:600}
+  .app-bar{display:flex;align-items:center;gap:10px;padding:12px 14px;margin:0 0 14px;border-radius:16px;border:1px solid rgba(228,188,99,.35);background:linear-gradient(120deg,rgba(228,188,99,.14),rgba(228,188,99,.03))}
+  .app-tx{flex:1;min-width:0;line-height:1.3}
+  .app-tx b{display:block;font-size:14px;color:var(--ink)}
+  .app-tx span{font-size:12px;color:var(--muted)}
+  .app-btn{flex:0 0 auto;border:1px solid var(--accent);background:var(--accent);color:#0B0B0B;font:700 13px/1 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding:11px 16px;border-radius:999px;cursor:pointer;-webkit-appearance:none;appearance:none}
+  .app-btn.ghost{background:transparent;color:var(--accent)}
+  .app-btn:active{transform:scale(.97)}
+  .app-help{margin:-4px 0 14px;padding:12px 14px;border-radius:12px;background:var(--surface);border:1px solid var(--line);font-size:13.5px;color:var(--ink);line-height:1.6}
+  .app-help b{color:var(--accent)}
+  .app-help svg{width:16px;height:16px;vertical-align:-3px;color:var(--accent)}
+  html.standalone .app-bar,html.standalone .app-help{display:none!important}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <img class="brand-img" src="/tools/icons/apple-touch-icon.png" width="46" height="46" alt="">
     <div>
-      <p class="eyebrow">Free app · iPhone · Android · iPad</p>
-      <h2>Put it on your home screen.<br><em>Open it like an app.</em></h2>
-      <p class="lead">No App Store, no sign-up. Install once and it sits next to your WhatsApp. After the first open, the calculator works even with no signal at the showroom.</p>
-      <div class="cta-row">
-        <button type="button" class="btn btn-a" id="installBtn">Download free app</button>
-        <button type="button" class="btn btn-b" id="shareBtn">Share with your team</button>
-      </div>
-      <p class="app-status" id="appStatus" role="status" hidden></p>
+      <h1>ProCalculator</h1>
+      <p class="sub">Free home loan calculator for agents · Malaysia</p>
     </div>
-    <div class="plat">
-      <div class="pcard" data-os="ios">
-        <div class="ph"><b>iPhone &amp; iPad</b><span>Safari</span></div>
-        <ol>
-          <li>Tap the <b>Share</b> button <svg class="ico" viewBox="0 0 24 24" aria-label="Share icon"><path d="M12 3v12M7.5 7.5 12 3l4.5 4.5M6 11H5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1h-1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></li>
-          <li>Scroll down, tap <b>Add to Home Screen</b></li>
-          <li>Tap <b>Add</b>. Done.</li>
-        </ol>
-      </div>
-      <div class="pcard" data-os="android">
-        <div class="ph"><b>Android</b><span>Chrome</span></div>
-        <ol>
-          <li>Tap <b>Download free app</b></li>
-          <li>Tap <b>Install</b>. Done.</li>
-          <li>No pop-up? Open the <b>&#8942;</b> menu, tap <b>Install app</b> or <b>Add to Home screen</b></li>
-        </ol>
-      </div>
-      <div class="pcard" data-os="desktop">
-        <div class="ph"><b>Laptop</b><span>Chrome or Edge</span></div>
-        <ol>
-          <li>Click <b>Download free app</b>, or the install icon in the address bar</li>
-          <li>Click <b>Install</b></li>
-        </ol>
-      </div>
+    <div class="top-actions">
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle colour theme" title="Toggle colour theme">◐</button>
     </div>
-  </div>
-</section>
+  </header>
 
-<section class="lc" id="calc">
- <div class="lc-inner">
-  <div class="lc-head">
-    <div class="eyebrow">Home Loan Calculator</div>
-    <h2>How much is it <em>every month?</em></h2>
-    <p>Instalment · legal fees &amp; stamp duty · pay early · flexi loans · MRTA vs MLTA</p>
+  <div class="app-bar" id="appBar">
+    <div class="app-tx"><b>Free app</b><span>iPhone · Android · iPad · offline</span></div>
+    <button type="button" class="app-btn ghost" id="shareBtn" aria-label="Share this calculator">Share</button>
+    <button type="button" class="app-btn" id="installBtn">Download</button>
   </div>
+  <div class="app-help" id="appHelp" role="status" hidden></div>
 
-  <div class="lc-card">
-    <div class="lc-eb">Loan details</div>
-    <div class="lc-grid lc-g4">
-      <label class="lc-f">Property price (SPA)
-        <span class="lc-field"><span>RM</span><input id="lcPrice" type="number" inputmode="decimal" value="450000" min="0" step="10000"></span>
+  <!-- shared loan details -->
+  <section class="card">
+    <div class="eyebrow">Loan details</div>
+    <div class="grid g4">
+      <label class="f">Property price (SPA)
+        <span class="field"><span>RM</span><input id="price" type="number" inputmode="decimal" value="500000" min="0" step="10000"></span>
       </label>
-      <label class="lc-f">Down payment
-        <span class="lc-field"><input id="lcDown" type="number" inputmode="decimal" value="10" min="0" max="90" step="1"><span>%</span></span>
+      <label class="f">Down payment
+        <span class="field"><input id="down" type="number" inputmode="decimal" value="10" min="0" max="90" step="1"><span>%</span></span>
       </label>
-      <label class="lc-f">Interest rate (p.a.)
-        <span class="lc-field"><input id="lcRate" type="number" inputmode="decimal" value="3.9" min="0" max="12" step="0.05"><span>%</span></span>
+      <label class="f">Interest rate (p.a.)
+        <span class="field"><input id="rate" type="number" inputmode="decimal" value="3.9" min="0" max="12" step="0.05"><span>%</span></span>
       </label>
-      <label class="lc-f">Tenure
-        <span class="lc-field"><input id="lcTenure" type="number" inputmode="numeric" value="35" min="1" max="35" step="1"><span>yrs</span></span>
+      <label class="f">Tenure
+        <span class="field"><input id="tenure" type="number" inputmode="numeric" value="35" min="1" max="35" step="1"><span>yrs</span></span>
       </label>
     </div>
-    <p class="lc-loanline">Loan amount <b id="lcLoanAmt">-</b> &nbsp;·&nbsp; Margin of finance <b id="lcMof">-</b> &nbsp;·&nbsp; Down payment <b id="lcDownRM">-</b></p>
-  </div>
+    <p class="loanline">Loan amount <b id="loanAmt">-</b> &nbsp;·&nbsp; Margin of finance <b id="mof">-</b> &nbsp;·&nbsp; Down payment <b id="downRM">-</b></p>
+  </section>
 
-  <div class="lc-tabs" role="tablist" aria-label="Calculator sections">
-    <button type="button" class="lc-tab on" data-tab="lcT1" role="tab" aria-selected="true">Loan + fees</button>
-    <button type="button" class="lc-tab" data-tab="lcT2" role="tab" aria-selected="false">Pay early</button>
-    <button type="button" class="lc-tab" data-tab="lcT3" role="tab" aria-selected="false">Flexi loans</button>
-    <button type="button" class="lc-tab" data-tab="lcT4" role="tab" aria-selected="false">MRTA vs MLTA</button>
-  </div>
+  <!-- tabs -->
+  <nav class="tabs" role="tablist" aria-label="Calculator sections">
+    <button class="tab on" data-tab="t1" role="tab" aria-selected="true">Loan + fees</button>
+    <button class="tab" data-tab="t2" role="tab" aria-selected="false">Pay early</button>
+    <button class="tab" data-tab="t3" role="tab" aria-selected="false">Flexi loans</button>
+    <button class="tab" data-tab="t4" role="tab" aria-selected="false">MRTA vs MLTA</button>
+  </nav>
 
-  <div class="lc-panel on" id="lcT1">
-    <div class="lc-tiles">
-      <div class="lc-tile lc-hero"><div class="lc-tl">Monthly instalment</div><div class="lc-tv" id="lcMPay">-</div><div class="lc-ts" id="lcMPaySub">-</div></div>
-      <div class="lc-tile"><div class="lc-tl">Total interest</div><div class="lc-tv sm" id="lcTInt">-</div><div class="lc-ts">over full tenure</div></div>
-      <div class="lc-tile"><div class="lc-tl">Total payment</div><div class="lc-tv sm" id="lcTPay">-</div><div class="lc-ts">principal + interest</div></div>
-    </div>
-    <div class="lc-card">
-      <div class="lc-eb">Legal fees &amp; stamp duty</div>
-      <div class="lc-opts">
-        <label class="lc-chk"><input type="checkbox" id="lcFtb"> <span>First-time buyer stamp-duty exemption <span class="lc-hint">first residential home: full exemption up to RM500k. From 1 Jan 2027 (Budget 2027 proposal) RM500k to RM750k: first RM500k free, 50% off the rest. Confirm with the lawyer</span></span></label>
-        <label class="lc-chk"><input type="checkbox" id="lcAbsSpa"> <span>Developer absorbs SPA legal fee <span class="lc-hint">common for new launches</span></span></label>
-        <label class="lc-chk"><input type="checkbox" id="lcAbsLoan"> <span>Developer absorbs loan legal fee</span></label>
+  <!-- TAB 1 : legal fees + stamp duty, then instalment -->
+  <section class="panel on" id="t1">
+    <div class="card">
+      <div class="eyebrow">Legal fees &amp; stamp duty</div>
+      <div class="opts">
+        <label class="chk"><input type="checkbox" id="ftb"> First-time buyer stamp-duty exemption <span class="hint">first residential home: full exemption up to RM500k. From 1 Jan 2027 (Budget 2027 proposal) RM500k to RM750k: first RM500k free, 50% off the rest. Confirm with the lawyer</span></label>
+        <label class="chk"><input type="checkbox" id="absSpa"> Developer absorbs SPA legal fee <span class="hint">common for new launches</span></label>
+        <label class="chk"><input type="checkbox" id="absLoan"> Developer absorbs loan legal fee</label>
       </div>
-      <div id="lcFtbNote" class="lc-notice" hidden></div>
-      <div class="lc-tw">
+      <div id="ftbNote" class="notice" hidden></div>
+      <div class="tablewrap">
         <table>
           <thead><tr><th>Item</th><th class="r">Amount</th></tr></thead>
           <tbody>
-            <tr><td>SPA legal fee <span class="lc-hint">SRO 2023 scale, 1.25% on first RM500k, 1% on next RM7m</span></td><td class="r" id="lcFSpaLegal">-</td></tr>
-            <tr><td>SPA disbursements <span class="lc-hint">searches, registration, misc, editable estimate</span></td><td class="r"><input class="lc-mini" id="lcDSpa" type="number" inputmode="decimal" value="2000" min="0" step="100" aria-label="SPA disbursements"></td></tr>
-            <tr><td>Stamp duty on MOT <span class="lc-hint">1% first RM100k · 2% to RM500k · 3% to RM1m · 4% above</span></td><td class="r" id="lcFMot">-</td></tr>
-            <tr><td>Loan legal fee <span class="lc-hint">same SRO 2023 scale, on loan amount</span></td><td class="r" id="lcFLoanLegal">-</td></tr>
-            <tr><td>Loan disbursements <span class="lc-hint">editable estimate</span></td><td class="r"><input class="lc-mini" id="lcDLoan" type="number" inputmode="decimal" value="1500" min="0" step="100" aria-label="Loan disbursements"></td></tr>
-            <tr><td>Stamp duty on loan agreement <span class="lc-hint">0.5% of loan amount</span></td><td class="r" id="lcFLoanStamp">-</td></tr>
-            <tr><td>SST 8% on legal fees</td><td class="r" id="lcFSst">-</td></tr>
-            <tr class="total"><td>Total fees &amp; duties</td><td class="r" id="lcFTotal">-</td></tr>
+            <tr><td>Legal fees for SPA <span class="hint">SRO 2023 scale, 1.25% on first RM500k, 1% on next RM7m</span></td><td class="r" id="fSpaLegal">-</td></tr>
+            <tr><td>Legal fees for loan <span class="hint">same SRO 2023 scale, on loan amount</span></td><td class="r" id="fLoanLegal">-</td></tr>
+            <tr><td>Disbursement fees for SPA <span class="hint">searches, registration, misc, editable estimate</span></td><td class="r"><input class="mini" id="dSpa" type="number" inputmode="decimal" value="2000" min="0" step="100"></td></tr>
+            <tr><td>Disbursement fees for loan <span class="hint">editable estimate</span></td><td class="r"><input class="mini" id="dLoan" type="number" inputmode="decimal" value="1500" min="0" step="100"></td></tr>
+            <tr><td>Stamp duty for loan <span class="hint">0.5% of loan amount</span></td><td class="r" id="fLoanStamp">-</td></tr>
+            <tr><td>Stamp duty for MOT <span class="hint">1% first RM100k · 2% to RM500k · 3% to RM1m · 4% above</span></td><td class="r" id="fMot">-</td></tr>
+            <tr><td>SST 8% on legal fees</td><td class="r" id="fSst">-</td></tr>
+            <tr class="total"><td>Total fees &amp; duties</td><td class="r" id="fTotal">-</td></tr>
           </tbody>
         </table>
       </div>
-      <div class="lc-cash">
-        <div><div class="lc-cl">Down payment</div><div class="lc-cv" id="lcCDown">-</div></div>
-        <div><div class="lc-cl">Fees &amp; duties</div><div class="lc-cv" id="lcCFees">-</div></div>
-        <div class="lc-big"><div class="lc-cl">Est. cash needed upfront</div><div class="lc-cv" id="lcCTotal">-</div></div>
+      <div class="cashline">
+        <div><div class="cl">Down payment</div><div class="cv" id="cDown">-</div></div>
+        <div><div class="cl">Fees &amp; duties</div><div class="cv" id="cFees">-</div></div>
+        <div class="big"><div class="cl">Est. cash needed upfront</div><div class="cv" id="cTotal">-</div></div>
       </div>
-      <p class="lc-note">MOT stamp duty is payable when the title is transferred, for new launches where strata title comes later, this can fall 1 to 3 years after SPA. Developer packages often absorb legal fees; tick the boxes above to match the offer.</p>
+      <p class="note">MOT stamp duty is payable when the title is transferred, for new launches where strata title comes later, this can fall 1 to 3 years after SPA. Developer packages often absorb legal fees; tick the boxes above to match the offer.</p>
     </div>
-  </div>
 
-  <div class="lc-panel" id="lcT2">
-    <div class="lc-card">
-      <div class="lc-eb">Extra payments</div>
-      <div class="lc-grid lc-g3">
-        <label class="lc-f">Extra paid every month<span class="lc-field"><span>RM</span><input id="lcXMonthly" type="number" inputmode="decimal" value="300" min="0" step="50"></span></label>
-        <label class="lc-f">One-time lump sum<span class="lc-field"><span>RM</span><input id="lcXLump" type="number" inputmode="decimal" value="0" min="0" step="1000"></span></label>
-        <label class="lc-f">Lump sum paid in year<span class="lc-field"><input id="lcXYear" type="number" inputmode="numeric" value="5" min="1" step="1"><span>yr</span></span></label>
+    <div class="tiles">
+      <div class="tile hero">
+        <div class="tl">Monthly instalment</div>
+        <div class="tv" id="mPay">-</div>
+        <div class="ts" id="mPaySub">-</div>
       </div>
     </div>
-    <div class="lc-tiles">
-      <div class="lc-tile lc-hero lc-gold"><div class="lc-tl">Interest saved</div><div class="lc-tv" id="lcXSaved">-</div><div class="lc-ts" id="lcXSavedSub">-</div></div>
-      <div class="lc-tile"><div class="lc-tl">Finish earlier by</div><div class="lc-tv sm" id="lcXFaster">-</div><div class="lc-ts" id="lcXFasterSub">-</div></div>
-      <div class="lc-tile"><div class="lc-tl">Debt-free by</div><div class="lc-tv sm" id="lcXDate">-</div><div class="lc-ts" id="lcXDateSub">-</div></div>
-    </div>
-    <div class="lc-card">
-      <div class="lc-eb">Loan balance over time</div>
-      <div class="lc-legend">
-        <span><span class="lc-sw" style="background:var(--lc-base)"></span>Normal instalment</span>
-        <span><span class="lc-sw" style="background:var(--lc-save)"></span>With extra payments</span>
-      </div>
-      <div class="lc-chartwrap">
-        <svg id="lcChart" role="img" aria-label="Loan balance over time, comparing normal instalment against paying extra"></svg>
-        <div id="lcTip"></div>
-      </div>
-      <p class="lc-note">Most loans have a lock-in period (typically the first 3 to 5 years): full settlement during lock-in usually triggers a 2 to 3% penalty, but normal extra payments like these are fine with almost every bank.</p>
-    </div>
-  </div>
+  </section>
 
-  <div class="lc-panel" id="lcT3">
-    <div class="lc-card">
-      <div class="lc-eb">Cash you can park in the loan</div>
-      <div class="lc-grid lc-g3">
-        <label class="lc-f">Cash parked from day 1<span class="lc-field"><span>RM</span><input id="lcFxCash" type="number" inputmode="decimal" value="30000" min="0" step="5000"></span></label>
-        <label class="lc-f">Added every month<span class="lc-field"><span>RM</span><input id="lcFxMonthly" type="number" inputmode="decimal" value="500" min="0" step="100"></span></label>
-        <label class="lc-f">Full-flexi account fee<span class="lc-field"><span>RM</span><input id="lcFxFee" type="number" inputmode="decimal" value="10" min="0" step="5"><span>/mth</span></span></label>
+  <!-- TAB 2 : early settlement -->
+  <section class="panel" id="t2">
+    <div class="card">
+      <div class="eyebrow">Extra payments</div>
+      <div class="grid g3">
+        <label class="f">Extra paid every month
+          <span class="field"><span>RM</span><input id="xMonthly" type="number" inputmode="decimal" value="300" min="0" step="50"></span>
+        </label>
+        <label class="f">One-time lump sum
+          <span class="field"><span>RM</span><input id="xLump" type="number" inputmode="decimal" value="0" min="0" step="1000"></span>
+        </label>
+        <label class="f">Lump sum paid in year
+          <span class="field"><input id="xYear" type="number" inputmode="numeric" value="5" min="1" step="1"><span>yr</span></span>
+        </label>
       </div>
     </div>
-    <div class="lc-card">
-      <div class="lc-eb">Same money, three loan types</div>
-      <div class="lc-tw">
-        <table id="lcFlexTable">
-          <thead><tr><th>Loan type</th><th class="r">Total interest</th><th class="r">Saved vs term</th><th class="r">Debt-free in</th><th class="r">Account fees</th><th>Your cash</th></tr></thead>
+
+    <div class="tiles">
+      <div class="tile hero gold">
+        <div class="tl">Interest saved</div>
+        <div class="tv" id="xSaved">-</div>
+        <div class="ts" id="xSavedSub">-</div>
+      </div>
+      <div class="tile">
+        <div class="tl">Finish earlier by</div>
+        <div class="tv sm" id="xFaster">-</div>
+        <div class="ts" id="xFasterSub">-</div>
+      </div>
+      <div class="tile">
+        <div class="tl">Debt-free by</div>
+        <div class="tv sm" id="xDate">-</div>
+        <div class="ts" id="xDateSub">-</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="eyebrow">Loan balance over time</div>
+      <div class="legend">
+        <span><span class="sw" style="background:var(--c-base)"></span>Normal instalment</span>
+        <span><span class="sw" style="background:var(--c-save)"></span>With extra payments</span>
+      </div>
+      <div class="chartwrap">
+        <svg id="chart" role="img" aria-label="Loan balance over time, comparing normal instalment against paying extra"></svg>
+        <div id="tip"></div>
+      </div>
+      <p class="note">Most loans have a lock-in period (typically the first 3 to 5 years): full settlement during lock-in usually triggers a 2 to 3% penalty, but normal extra payments like these are fine with almost every bank.</p>
+    </div>
+  </section>
+
+  <!-- TAB 3 : flexi comparison -->
+  <section class="panel" id="t3">
+    <div class="card">
+      <div class="eyebrow">Cash you can park in the loan</div>
+      <div class="grid g3">
+        <label class="f">Cash parked from day 1
+          <span class="field"><span>RM</span><input id="fxCash" type="number" inputmode="decimal" value="30000" min="0" step="5000"></span>
+        </label>
+        <label class="f">Added every month
+          <span class="field"><span>RM</span><input id="fxMonthly" type="number" inputmode="decimal" value="500" min="0" step="100"></span>
+        </label>
+        <label class="f">Full-flexi account fee
+          <span class="field"><span>RM</span><input id="fxFee" type="number" inputmode="decimal" value="10" min="0" step="5"><span>/mth</span></span>
+        </label>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="eyebrow">Same money, three loan types</div>
+      <div class="tablewrap">
+        <table id="flexTable">
+          <thead>
+            <tr><th>Loan type</th><th class="r">Total interest</th><th class="r">Saved vs term</th><th class="r">Debt-free in</th><th class="r">Account fees</th><th>Your cash</th></tr>
+          </thead>
           <tbody>
-            <tr><td><b>Term loan</b> <span class="lc-hint">cash sits in your bank, loan untouched</span></td><td class="r" id="lcFtInt">-</td><td class="r">-</td><td class="r" id="lcFtTime">-</td><td class="r">-</td><td><span class="lc-hint">In your savings account, untouched by the loan</span></td></tr>
-            <tr><td><b>Semi-flexi</b> <span class="lc-hint">cash paid into loan as capital repayment</span></td><td class="r" id="lcFsInt">-</td><td class="r" id="lcFsSaved">-</td><td class="r" id="lcFsTime">-</td><td class="r">-</td><td><span class="lc-hint">Locked in the loan, redraw needs a request + fee</span></td></tr>
-            <tr><td><b>Full flexi</b> <span class="lc-hint">cash parked in linked current account</span></td><td class="r" id="lcFfInt">-</td><td class="r" id="lcFfSaved">-</td><td class="r" id="lcFfTime">-</td><td class="r" id="lcFfFees">-</td><td><span class="lc-hint">Withdraw anytime, like a normal account</span></td></tr>
+            <tr><td><b>Term loan</b> <span class="hint">cash sits in your bank, loan untouched</span></td><td class="r" id="ftInt">-</td><td class="r">-</td><td class="r" id="ftTime">-</td><td class="r">-</td><td><span class="hint">In your savings account, untouched by the loan</span></td></tr>
+            <tr><td><b>Semi-flexi</b> <span class="hint">cash paid into loan as capital repayment</span></td><td class="r" id="fsInt">-</td><td class="r" id="fsSaved">-</td><td class="r" id="fsTime">-</td><td class="r">-</td><td><span class="hint">Locked in the loan, redraw needs a request + fee</span></td></tr>
+            <tr><td><b>Full flexi</b> <span class="hint">cash parked in linked current account</span></td><td class="r" id="ffInt">-</td><td class="r" id="ffSaved">-</td><td class="r" id="ffTime">-</td><td class="r" id="ffFees">-</td><td><span class="hint">Withdraw anytime, like a normal account</span></td></tr>
           </tbody>
         </table>
       </div>
-      <div id="lcFxBars" style="margin-top:14px"></div>
-      <p class="lc-note">* Full flexi “debt-free” = the month your parked cash equals the remaining balance, you could settle in full that day and stop paying interest. Assumes the cash stays parked. Semi-flexi and full flexi save a near-identical amount of interest; the real difference is access to your money and the small account fee.</p>
+      <div id="fxBars" style="margin-top:14px"></div>
+      <p class="note" id="fxNote">* Full flexi “debt-free” = the month your parked cash equals the remaining balance, you could settle in full that day and stop paying interest. Assumes the cash stays parked. Semi-flexi and full flexi save a near-identical amount of interest; the real difference is access to your money and the small account fee.</p>
     </div>
-    <div class="lc-exp">
-      <div class="lc-card"><h3>Term loan</h3><p>Fixed instalment, fixed schedule. Extra payments usually need a written request, and once paid in, the money cannot be taken back. Some banks price it slightly cheaper.</p></div>
-      <div class="lc-card"><h3>Semi-flexi <span class="lc-tag">Most common</span></h3><p>Pay extra any time to cut principal and interest. Withdrawing the extra back (redraw) needs a bank request, a processing fee (commonly RM25 to 50) and a few working days.</p></div>
-      <div class="lc-card"><h3>Full flexi</h3><p>Loan linked to a current account. Every ringgit parked there reduces the balance charged interest, calculated daily. Withdraw anytime. Usually a small monthly account fee (RM5 to 10), occasionally a slightly higher rate.</p></div>
-    </div>
-  </div>
 
-  <div class="lc-panel" id="lcT4">
-    <div class="lc-card">
-      <div class="lc-eb">Cover details</div>
-      <div class="lc-grid lc-g4">
-        <label class="lc-f">Age next birthday<span class="lc-field"><input id="lcInsAge" type="number" inputmode="numeric" value="30" min="18" max="60" step="1"><span>yrs</span></span></label>
-        <label class="lc-f">Coverage amount<span class="lc-field"><span>RM</span><input id="lcInsSum" type="number" inputmode="decimal" value="405000" min="0" step="10000" data-auto="1"></span></label>
-        <label class="lc-f">Coverage term<span class="lc-field"><input id="lcInsTerm" type="number" inputmode="numeric" value="35" min="5" max="40" step="1" data-auto="1"><span>yrs</span></span></label>
-        <label class="lc-chk" style="align-self:end"><input type="checkbox" id="lcInsFin" checked> <span>Finance MRTA premium into the loan</span></label>
+    <div class="exp">
+      <div class="card">
+        <h3>Term loan</h3>
+        <p>Fixed instalment, fixed schedule. Extra payments usually need a written request, and once paid in, the money cannot be taken back. Some banks price it slightly cheaper.</p>
       </div>
-      <div id="lcInsAgeNote" class="lc-notice warn" hidden></div>
+      <div class="card">
+        <h3>Semi-flexi <span class="tag">Most common</span></h3>
+        <p>Pay extra any time to cut principal and interest. Withdrawing the extra back (redraw) needs a bank request, a processing fee (commonly RM25 to 50) and a few working days. Most standard mortgages today are semi-flexi.</p>
+      </div>
+      <div class="card">
+        <h3>Full flexi</h3>
+        <p>Loan linked to a current account. Every ringgit parked there reduces the balance charged interest, calculated daily. Withdraw anytime with no questions. Usually a small monthly account fee (RM5 to 10), occasionally a slightly higher rate.</p>
+      </div>
     </div>
-    <div class="lc-tiles">
-      <div class="lc-tile lc-hero"><div class="lc-tl">MRTA, one-time premium</div><div class="lc-tv" id="lcMrtaPrem">-</div><div class="lc-ts" id="lcMrtaSub">-</div></div>
-      <div class="lc-tile"><div class="lc-tl">MLTA, monthly premium</div><div class="lc-tv sm" id="lcMltaMo">-</div><div class="lc-ts" id="lcMltaYr">-</div></div>
-      <div class="lc-tile"><div class="lc-tl">MLTA, total over term</div><div class="lc-tv sm" id="lcMltaTot">-</div><div class="lc-ts">pure term plan, savings-linked plans cost 2 to 3×</div></div>
+  </section>
+
+  <!-- TAB 4 : MRTA vs MLTA -->
+  <section class="panel" id="t4">
+    <div class="card">
+      <div class="eyebrow">Cover details</div>
+      <div class="grid g4">
+        <label class="f">Age next birthday
+          <span class="field"><input id="insAge" type="number" inputmode="numeric" value="30" min="18" max="60" step="1"><span>yrs</span></span>
+        </label>
+        <label class="f">Coverage amount
+          <span class="field"><span>RM</span><input id="insSum" type="number" inputmode="decimal" value="450000" min="0" step="10000" data-auto="1"></span>
+        </label>
+        <label class="f">Coverage term
+          <span class="field"><input id="insTerm" type="number" inputmode="numeric" value="35" min="5" max="40" step="1" data-auto="1"><span>yrs</span></span>
+        </label>
+        <label class="chk" style="align-self:end"><input type="checkbox" id="insFin" checked> Finance MRTA premium into the loan</label>
+      </div>
+      <div id="insAgeNote" class="notice warn" hidden></div>
     </div>
-    <div class="lc-card">
-      <div class="lc-eb">Which one suits you</div>
-      <div class="lc-tw">
-        <table id="lcInsTable">
+
+    <div class="tiles">
+      <div class="tile hero">
+        <div class="tl">MRTA, one-time premium</div>
+        <div class="tv" id="mrtaPrem">-</div>
+        <div class="ts" id="mrtaSub">-</div>
+      </div>
+      <div class="tile">
+        <div class="tl">MLTA, monthly premium</div>
+        <div class="tv sm" id="mltaMo">-</div>
+        <div class="ts" id="mltaYr">-</div>
+      </div>
+      <div class="tile">
+        <div class="tl">MLTA, total over term</div>
+        <div class="tv sm" id="mltaTot">-</div>
+        <div class="ts">pure term plan, savings-linked plans cost 2 to 3×</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="eyebrow">Which one suits your client</div>
+      <div class="tablewrap">
+        <table id="insTable">
           <thead><tr><th></th><th>MRTA</th><th>MLTA</th></tr></thead>
           <tbody>
             <tr><td><b>Payment</b></td><td>One-time, usually financed into the loan</td><td>Monthly or yearly, for the whole term</td></tr>
@@ -516,193 +498,460 @@ footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-betw
           </tbody>
         </table>
       </div>
-      <p class="lc-note">Premiums are indicative market estimates for a non-smoker with standard health, covering death &amp; TPD, actual quotes vary by insurer, gender, health and product. Always get the exact quote from the bank's panel insurer.</p>
+      <p class="note">Premiums are indicative market estimates for a non-smoker with standard health, covering death &amp; TPD, actual quotes vary by insurer, gender, health and product. MRTA financing cost is calculated at your loan rate over the full tenure. Always get the exact quote from the bank's panel insurer or an agent.</p>
     </div>
-  </div>
+  </section>
 
+  <footer>
+    Estimates for illustration only, monthly-rest calculation (most banks use daily rest, figures shift slightly). Legal fees per Solicitors' Remuneration Order 2023; stamp duty per current tiers; 8% SST on legal fees. MRTA/MLTA premiums are indicative, final pricing comes from the insurer's quote. Not a loan offer, quotation or financial advice, confirm exact figures with your banker and lawyer.<br>
+    <div class="made">Made by Felix Cheng (REN 25339) · E Trend Realty Sdn Bhd</div>
+  </footer>
+</div>
 
-  <p class="lc-foot">Estimates for illustration only, monthly-rest calculation (most banks use daily rest, figures shift slightly). Legal fees per Solicitors' Remuneration Order 2023; stamp duty per current tiers; 8% SST on legal fees. MRTA/MLTA premiums are indicative. Not a loan offer, quotation or financial advice, confirm exact figures with your banker and lawyer.</p>
- </div>
-</section>
-
-</main>
-
-<section class="legal" aria-label="Disclaimer">
-  <p>These tools give estimates for illustration only. They are not a loan offer, quotation, or financial, legal or tax advice. Bank approval, rates, fees and stamp duty depend on the bank, the lawyer and current law. Confirm exact figures with your banker and lawyer before advising a client.</p>
-  <p class="reg"><b>Felix Cheng Chin Fung</b> (REN 25339) · Real Estate Negotiator · <b>E Trend Realty Sdn Bhd</b> (1222480-D) · LPPEH Reg. No. <b>E (1) 1752/1</b> · Registered estate agency under BOVAEP / LPPEH · <a href="/privacy/">Notis Privasi / Privacy Notice</a></p>
-</section>
-<footer class="wrap">
-  <div class="foot-marks">
-    <img class="m-et" src="/img/etrend.png" alt="E Trend Realty" width="180" height="240">
-    <img class="m-fcg" src="/img/fcg-white.png" alt="FCG · E Trend" width="560" height="353">
-    <img class="m-miea" src="/img/miea.png" alt="MIEA member" width="260" height="290">
-  </div>
-  <span>Registered REN · BOVAEP / LPPEH</span>
-</footer>
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+try{fbq('init','1818471292624398');fbq('track','PageView');fbq('trackCustom','AgentToolsView')}catch(e){}
+</script>
 
 <script>
 (function(){
   "use strict";
-  var root=document.getElementById("calc");
-  var $=function(id){return document.getElementById(id)};
-  var MONTHS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-  function num(id){var v=parseFloat($(id).value);return (isFinite(v)&&v>=0)?v:0}
-  function RM(v){return isFinite(v)?"RM "+Math.round(v).toLocaleString("en-US"):"-"}
-  function RM2(v){return isFinite(v)?"RM "+v.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2}):"-"}
-  function dur(mo){if(!isFinite(mo))return "-";mo=Math.round(mo);var y=Math.floor(mo/12),m=mo%12;if(y<=0)return m+" mth";if(m===0)return y+" yrs";return y+" yrs "+m+" mth"}
-  function dateAfter(mo){if(!isFinite(mo))return "-";var d=new Date(),t=new Date(d.getFullYear(),d.getMonth()+Math.round(mo),1);return MONTHS[t.getMonth()]+" "+t.getFullYear()}
-  function kfmt(v){if(v>=1e6)return "RM"+(v/1e6).toFixed(1).replace(/\.0$/,"")+"M";if(v>=1000)return "RM"+Math.round(v/1000)+"k";return "RM"+Math.round(v)}
-  function pmt(L,rate,n){if(L<=0||n<=0)return 0;var i=rate/1200;if(i===0)return L/n;return L*i/(1-Math.pow(1+i,-n))}
-  function simulate(L,rate,n,o){
-    o=o||{};var i=rate/1200,M=pmt(L,rate,n),bal=L,off=o.offset0||0,m=0,tot=0,eff=0;
-    var extra=o.extra||0,lump=o.lump||0,lumpM=o.lumpMonth||0,offAdd=o.offsetMonthly||0,pts=[[0,L]],cap=n+1200;
-    if(L<=0)return {months:0,interest:0,payment:0,pts:pts,eff:0};
-    while(bal>0.005&&m<cap){
+  var $ = function(id){ return document.getElementById(id); };
+  var MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+  function num(id){
+    var v = parseFloat($(id).value);
+    return (isFinite(v) && v >= 0) ? v : 0;
+  }
+  function RM(v){
+    if(!isFinite(v)) return "-";
+    return "RM " + Math.round(v).toLocaleString("en-US");
+  }
+  function RM2(v){
+    if(!isFinite(v)) return "-";
+    return "RM " + v.toLocaleString("en-US",{minimumFractionDigits:2, maximumFractionDigits:2});
+  }
+  function dur(mo){
+    if(!isFinite(mo)) return "-";
+    mo = Math.round(mo);
+    var y = Math.floor(mo/12), m = mo % 12;
+    if(y <= 0) return m + " mth";
+    if(m === 0) return y + " yrs";
+    return y + " yrs " + m + " mth";
+  }
+  function dateAfter(mo){
+    if(!isFinite(mo)) return "-";
+    var d = new Date();
+    var t = new Date(d.getFullYear(), d.getMonth() + Math.round(mo), 1);
+    return MONTHS[t.getMonth()] + " " + t.getFullYear();
+  }
+  function kfmt(v){
+    if(v >= 1e6) return "RM" + (v/1e6).toFixed(1).replace(/\.0$/,"") + "M";
+    if(v >= 1000) return "RM" + Math.round(v/1000) + "k";
+    return "RM" + Math.round(v);
+  }
+
+  function pmt(L, rate, n){
+    if(L <= 0 || n <= 0) return 0;
+    var i = rate/1200;
+    if(i === 0) return L/n;
+    return L * i / (1 - Math.pow(1+i, -n));
+  }
+
+  // Amortization simulator (monthly rest).
+  // opts: extra (RM/mth), lump + lumpMonth (applied at start of that month),
+  //       offset0 + offsetMonthly (full-flexi linked account), all optional.
+  function simulate(L, rate, n, opts){
+    opts = opts || {};
+    var i = rate/1200, M = pmt(L, rate, n);
+    var bal = L, off = opts.offset0 || 0, m = 0, tot = 0, eff = 0;
+    var extra = opts.extra || 0, lump = opts.lump || 0, lumpM = opts.lumpMonth || 0, offAdd = opts.offsetMonthly || 0;
+    var pts = [[0, L]];
+    var cap = n + 1200;
+    if(L <= 0) return {months:0, interest:0, payment:0, pts:pts, eff:0};
+    if(off >= bal) eff = 0; // already coverable on day one
+    while(bal > 0.005 && m < cap){
       m++;
-      if(lump>0&&m===lumpM)bal=Math.max(0,bal-lump);
-      if(bal<=0.005){pts.push([m,0]);break}
-      var interest=Math.max(0,bal-off)*i;tot+=interest;
-      var principal=M+extra-interest;
-      if(principal<=0)return {months:Infinity,interest:Infinity,payment:M,pts:pts,eff:Infinity};
-      if(principal>bal)principal=bal;
-      bal-=principal;off+=offAdd;
-      if(!eff&&off>0&&bal<=off)eff=m;
-      if(m%12===0||bal<=0.005)pts.push([m,Math.max(0,bal)]);
+      if(lump > 0 && m === lumpM) bal = Math.max(0, bal - lump);
+      if(bal <= 0.005) { pts.push([m, 0]); break; }
+      var interest = Math.max(0, bal - off) * i;
+      tot += interest;
+      var principal = M + extra - interest;
+      if(principal <= 0) return {months:Infinity, interest:Infinity, payment:M, pts:pts, eff:Infinity};
+      if(principal > bal) principal = bal;
+      bal -= principal;
+      off += offAdd;
+      if(!eff && off > 0 && bal <= off) eff = m;
+      if(m % 12 === 0 || bal <= 0.005) pts.push([m, Math.max(0, bal)]);
     }
-    if(!eff)eff=m;
-    return {months:m,interest:tot,payment:M,pts:pts,eff:eff};
+    if(!eff) eff = m;
+    return {months:m, interest:tot, payment:M, pts:pts, eff:eff};
   }
-  function legalFee(v){if(v<=0)return 0;var f=Math.min(v,500000)*0.0125;if(v>500000)f+=(Math.min(v,7500000)-500000)*0.01;if(v>7500000)f+=(v-7500000)*0.01;return Math.max(f,500)}
-  function motDuty(v){if(v<=0)return 0;var d=Math.min(v,100000)*0.01;if(v>100000)d+=(Math.min(v,500000)-100000)*0.02;if(v>500000)d+=(Math.min(v,1000000)-500000)*0.03;if(v>1000000)d+=(v-1000000)*0.04;return d}
-  var MRTA_AGES=[25,30,35,40,45,50,55],MRTA_TEN=[5,10,15,20,25,30,35];
-  var MRTA_RATE=[[2.0,4.5,8.0,12,16,20,25],[2.5,5.5,10,15,20,26,32],[3.5,8.0,14,21,28,36,45],[5.5,12,20,30,40,52,65],[8.5,18,30,44,58,75,92],[13,27,44,64,85,110,140],[20,40,65,92,125,160,200]];
-  var MLTA_AGES=[25,30,35,40,45,50,55],MLTA_RATES=[2.2,2.6,3.5,5.0,7.5,11,16];
-  function lerp(a,b,t){return a+(b-a)*t}
-  function interp1(xs,ys,x){x=Math.min(Math.max(x,xs[0]),xs[xs.length-1]);var i=0;while(i<xs.length-2&&x>xs[i+1])i++;return lerp(ys[i],ys[i+1],(x-xs[i])/(xs[i+1]-xs[i]))}
-  function gridRate(ages,tens,t,age,ten){
-    age=Math.min(Math.max(age,ages[0]),ages[ages.length-1]);ten=Math.min(Math.max(ten,tens[0]),tens[tens.length-1]);
-    var i=0;while(i<ages.length-2&&age>ages[i+1])i++;var j=0;while(j<tens.length-2&&ten>tens[j+1])j++;
-    var ta=(age-ages[i])/(ages[i+1]-ages[i]),tt=(ten-tens[j])/(tens[j+1]-tens[j]);
-    return lerp(lerp(t[i][j],t[i][j+1],tt),lerp(t[i+1][j],t[i+1][j+1],tt),ta);
+
+  // Legal fee, Solicitors' Remuneration Order 2023 scale
+  function legalFee(v){
+    if(v <= 0) return 0;
+    var f = Math.min(v, 500000) * 0.0125;
+    if(v > 500000) f += (Math.min(v, 7500000) - 500000) * 0.01;
+    if(v > 7500000) f += (v - 7500000) * 0.01; // negotiable, capped at 1%
+    return Math.max(f, 500);
   }
-  var CH=null,W=640,H=300,PL=56,PR=14,PT=14,PB=32,IW=W-PL-PR,IH=H-PT-PB;
-  function balAt(sim,yr){var m=yr*12;if(m>=sim.months)return 0;for(var k=0;k<sim.pts.length;k++){if(sim.pts[k][0]===m)return sim.pts[k][1]}return null}
-  function drawChart(base,sc,L){
-    var svg=$("lcChart"),xMax=Math.max(base.months,sc.months,12)/12,yMax=Math.max(L,1);
-    var X=function(yr){return PL+IW*(yr/xMax)},Y=function(v){return PT+IH*(1-v/yMax)},g="";
-    for(var k=0;k<=4;k++){var val=yMax*k/4,y=Y(val);g+='<line class="grid-ln" x1="'+PL+'" y1="'+y.toFixed(1)+'" x2="'+(W-PR)+'" y2="'+y.toFixed(1)+'"/><text class="ax" x="'+(PL-8)+'" y="'+(y+4).toFixed(1)+'" text-anchor="end">'+kfmt(val)+'</text>'}
-    var step=xMax>26?10:5;
-    for(var yr=0;yr<=Math.floor(xMax);yr+=step){g+='<text class="ax" x="'+X(yr).toFixed(1)+'" y="'+(H-10)+'" text-anchor="middle">'+(yr===0?"Now":"Yr "+yr)+'</text>'}
-    var path=function(p){var s="";for(var q=0;q<p.length;q++){s+=(q?"L":"M")+X(p[q][0]/12).toFixed(1)+" "+Y(p[q][1]).toFixed(1)}return s};
-    g+='<path class="ln base" d="'+path(base.pts)+'"/><path class="ln save" d="'+path(sc.pts)+'"/>';
-    var be=base.pts[base.pts.length-1],se=sc.pts[sc.pts.length-1];
-    g+='<circle class="dot base" cx="'+X(be[0]/12).toFixed(1)+'" cy="'+Y(be[1]).toFixed(1)+'" r="4"/><circle class="dot save" cx="'+X(se[0]/12).toFixed(1)+'" cy="'+Y(se[1]).toFixed(1)+'" r="4"/>';
-    g+='<line id="lcXh" class="xhair" y1="'+PT+'" y2="'+(PT+IH)+'" x1="-10" x2="-10" visibility="hidden"/>';
-    svg.setAttribute("viewBox","0 0 "+W+" "+H);svg.innerHTML=g;CH={base:base,sc:sc,xMax:xMax,X:X};
+  // Stamp duty on transfer (MOT)
+  function motDuty(v){
+    if(v <= 0) return 0;
+    var d = Math.min(v, 100000) * 0.01;
+    if(v > 100000) d += (Math.min(v, 500000) - 100000) * 0.02;
+    if(v > 500000) d += (Math.min(v, 1000000) - 500000) * 0.03;
+    if(v > 1000000) d += (v - 1000000) * 0.04;
+    return d;
   }
-  function hideTip(){$("lcTip").style.display="none";var xh=$("lcXh");if(xh)xh.setAttribute("visibility","hidden")}
+
+  // ---- MRTA / MLTA indicative rate tables ----
+  // MRTA: single premium per RM1,000 sum assured (reducing cover, non-smoker, standard health)
+  var MRTA_AGES = [25,30,35,40,45,50,55];
+  var MRTA_TEN  = [5,10,15,20,25,30,35];
+  var MRTA_RATE = [
+    [2.0, 4.5, 8.0, 12,  16,  20,  25 ],
+    [2.5, 5.5, 10,  15,  20,  26,  32 ],
+    [3.5, 8.0, 14,  21,  28,  36,  45 ],
+    [5.5, 12,  20,  30,  40,  52,  65 ],
+    [8.5, 18,  30,  44,  58,  75,  92 ],
+    [13,  27,  44,  64,  85,  110, 140],
+    [20,  40,  65,  92,  125, 160, 200]
+  ];
+  // MLTA: level term, annual premium per RM1,000 by entry age (pure protection)
+  var MLTA_AGES  = [25,30,35,40,45,50,55];
+  var MLTA_RATES = [2.2,2.6,3.5,5.0,7.5,11,16];
+
+  function lerp(a,b,t){ return a + (b-a)*t; }
+  function interp1(xs, ys, x){
+    x = Math.min(Math.max(x, xs[0]), xs[xs.length-1]);
+    var i = 0;
+    while(i < xs.length-2 && x > xs[i+1]) i++;
+    var t = (x - xs[i]) / (xs[i+1] - xs[i]);
+    return lerp(ys[i], ys[i+1], t);
+  }
+  function gridRate(ages, tens, table, age, ten){
+    age = Math.min(Math.max(age, ages[0]), ages[ages.length-1]);
+    ten = Math.min(Math.max(ten, tens[0]), tens[tens.length-1]);
+    var i = 0; while(i < ages.length-2 && age > ages[i+1]) i++;
+    var j = 0; while(j < tens.length-2 && ten > tens[j+1]) j++;
+    var ta = (age - ages[i]) / (ages[i+1] - ages[i]);
+    var tt = (ten - tens[j]) / (tens[j+1] - tens[j]);
+    var r1 = lerp(table[i][j],   table[i][j+1],   tt);
+    var r2 = lerp(table[i+1][j], table[i+1][j+1], tt);
+    return lerp(r1, r2, ta);
+  }
+
+  // ---- chart ----
+  var CH = null; // current chart state for hover
+  var W = 640, H = 300, PL = 56, PR = 14, PT = 14, PB = 32;
+  var IW = W - PL - PR, IH = H - PT - PB;
+
+  function balAt(sim, yr){
+    var m = yr * 12;
+    if(m >= sim.months) return 0;
+    for(var k = 0; k < sim.pts.length; k++){
+      if(sim.pts[k][0] === m) return sim.pts[k][1];
+    }
+    return null;
+  }
+
+  function drawChart(base, sc, L){
+    var svg = $("chart");
+    var xMax = Math.max(base.months, sc.months, 12) / 12;
+    var yMax = Math.max(L, 1);
+    var X = function(yr){ return PL + IW * (yr / xMax); };
+    var Y = function(v){ return PT + IH * (1 - v / yMax); };
+    var g = "";
+    for(var k = 0; k <= 4; k++){
+      var val = yMax * k / 4, y = Y(val);
+      g += '<line class="grid-ln" x1="'+PL+'" y1="'+y.toFixed(1)+'" x2="'+(W-PR)+'" y2="'+y.toFixed(1)+'"/>';
+      g += '<text class="ax" x="'+(PL-8)+'" y="'+(y+4).toFixed(1)+'" text-anchor="end">'+kfmt(val)+'</text>';
+    }
+    var stepYr = xMax > 26 ? 10 : 5;
+    for(var yr = 0; yr <= Math.floor(xMax); yr += stepYr){
+      g += '<text class="ax" x="'+X(yr).toFixed(1)+'" y="'+(H-10)+'" text-anchor="middle">'+(yr===0 ? "Now" : "Yr "+yr)+'</text>';
+    }
+    var path = function(pts){
+      var s = "";
+      for(var k2 = 0; k2 < pts.length; k2++){
+        s += (k2 ? "L" : "M") + X(pts[k2][0]/12).toFixed(1) + " " + Y(pts[k2][1]).toFixed(1);
+      }
+      return s;
+    };
+    g += '<path class="ln base" d="'+path(base.pts)+'"/>';
+    g += '<path class="ln save" d="'+path(sc.pts)+'"/>';
+    var be = base.pts[base.pts.length-1], se = sc.pts[sc.pts.length-1];
+    g += '<circle class="dot base" cx="'+X(be[0]/12).toFixed(1)+'" cy="'+Y(be[1]).toFixed(1)+'" r="4"/>';
+    g += '<circle class="dot save" cx="'+X(se[0]/12).toFixed(1)+'" cy="'+Y(se[1]).toFixed(1)+'" r="4"/>';
+    g += '<line id="xh" class="xhair" y1="'+PT+'" y2="'+(PT+IH)+'" x1="-10" x2="-10" visibility="hidden"/>';
+    svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+    svg.innerHTML = g;
+    CH = {base:base, sc:sc, xMax:xMax, X:X};
+  }
+
+  function hideTip(){
+    $("tip").style.display = "none";
+    var xh = $("xh");
+    if(xh) xh.setAttribute("visibility","hidden");
+  }
+
   function onMove(e){
-    if(!CH)return;var svg=$("lcChart"),rect=svg.getBoundingClientRect();if(rect.width===0)return;
-    var sx=(e.clientX-rect.left)/rect.width*W,yr=Math.round((sx-PL)/IW*CH.xMax);if(yr<0)yr=0;var mx=Math.floor(CH.xMax);if(yr>mx)yr=mx;
-    var b=balAt(CH.base,yr),s=balAt(CH.sc,yr);if(b===null||s===null){hideTip();return}
-    var xh=$("lcXh"),px=CH.X(yr);xh.setAttribute("x1",px);xh.setAttribute("x2",px);xh.setAttribute("visibility","visible");
-    var html='<div class="tt">Year '+yr+' · '+(new Date().getFullYear()+yr)+'</div>';
-    html+='<div class="tr"><span><span class="lc-sw" style="background:var(--lc-base)"></span>Normal</span><b>'+RM(b)+'</b></div>';
-    html+='<div class="tr"><span><span class="lc-sw" style="background:var(--lc-save)"></span>With extra</span><b>'+(s<=0?"Settled ✓":RM(s))+'</b></div>';
-    if(b-s>1)html+='<div class="tr"><span>You owe less</span><b>'+RM(b-s)+'</b></div>';
-    var tip=$("lcTip");tip.innerHTML=html;tip.style.display="block";
-    var wr=svg.parentElement.getBoundingClientRect(),left=px/W*rect.width+14;if(left+180>wr.width)left=px/W*rect.width-190;
-    tip.style.left=Math.max(0,left)+"px";tip.style.top="18px";
+    if(!CH) return;
+    var svg = $("chart"), rect = svg.getBoundingClientRect();
+    if(rect.width === 0) return;
+    var sx = (e.clientX - rect.left) / rect.width * W;
+    var yr = Math.round((sx - PL) / IW * CH.xMax);
+    if(yr < 0) yr = 0;
+    var maxYr = Math.floor(CH.xMax);
+    if(yr > maxYr) yr = maxYr;
+    var b = balAt(CH.base, yr), s = balAt(CH.sc, yr);
+    if(b === null || s === null) { hideTip(); return; }
+    var xh = $("xh"), px = CH.X(yr);
+    xh.setAttribute("x1", px); xh.setAttribute("x2", px);
+    xh.setAttribute("visibility","visible");
+    var thisYear = new Date().getFullYear() + yr;
+    var html = '<div class="tt">Year ' + yr + ' · ' + thisYear + '</div>';
+    html += '<div class="tr"><span><span class="sw" style="background:var(--c-base)"></span>Normal</span><b>' + RM(b) + '</b></div>';
+    html += '<div class="tr"><span><span class="sw" style="background:var(--c-save)"></span>With extra</span><b>' + (s <= 0 ? "Settled ✓" : RM(s)) + '</b></div>';
+    if(b - s > 1) html += '<div class="tr"><span>You owe less</span><b>' + RM(b - s) + '</b></div>';
+    var tip = $("tip");
+    tip.innerHTML = html;
+    tip.style.display = "block";
+    var wrap = svg.parentElement, wrect = wrap.getBoundingClientRect();
+    var left = px / W * rect.width + 14;
+    if(left + 180 > wrect.width) left = px / W * rect.width - 190;
+    tip.style.left = Math.max(0, left) + "px";
+    tip.style.top = "18px";
   }
+
+  // ---- main recalc ----
   function recalc(){
-    var price=num("lcPrice"),downPct=Math.min(100,num("lcDown")),rate=num("lcRate");
-    var yrs=Math.min(35,Math.max(1,num("lcTenure")||1)),n=Math.round(yrs*12);
-    var loan=price*(1-downPct/100),downRM=price*downPct/100;
-    $("lcLoanAmt").textContent=RM(loan);$("lcMof").textContent=(100-downPct).toFixed(0)+"%";$("lcDownRM").textContent=RM(downRM);
-    var base=simulate(loan,rate,n),M=base.payment;
-    $("lcMPay").textContent=RM2(M);$("lcMPaySub").textContent=rate.toFixed(2)+"% p.a. · "+yrs+" years · monthly rest";
-    $("lcTInt").textContent=RM(base.interest);$("lcTPay").textContent=RM(loan+base.interest);
-    var ftb=$("lcFtb").checked,absS=$("lcAbsSpa").checked,absL=$("lcAbsLoan").checked;
-    var spaLegal=absS?0:legalFee(price),loanLegal=absL?0:legalFee(loan),mot=motDuty(price),loanStamp=loan*0.005,note="",warn=false;
-    var today=new Date(Date.now()+8*3600e3).toISOString().slice(0,10),tier27=today>="2027-01-01"&&today<="2030-12-31";
+    var price = num("price");
+    var downPct = Math.min(100, num("down"));
+    var rate = num("rate");
+    var yrs = Math.min(50, Math.max(1, num("tenure") || 1));
+    var n = Math.round(yrs * 12);
+    var loan = price * (1 - downPct/100);
+    var downRM = price * downPct/100;
+
+    $("loanAmt").textContent = RM(loan);
+    $("mof").textContent = (100 - downPct).toFixed(0) + "%";
+    $("downRM").textContent = RM(downRM);
+
+    var base = simulate(loan, rate, n);
+    var M = base.payment;
+
+    // Tab 1, instalment
+    $("mPay").textContent = RM2(M);
+    $("mPaySub").textContent = rate.toFixed(2) + "% p.a. · " + yrs + " years · monthly rest";
+
+    // Tab 1, fees
+    var ftb = $("ftb").checked, absS = $("absSpa").checked, absL = $("absLoan").checked;
+    var spaLegal = absS ? 0 : legalFee(price);
+    var loanLegal = absL ? 0 : legalFee(loan);
+    var mot = motDuty(price);
+    var loanStamp = loan * 0.005;
+    var note = "", warn = false;
+    var today = new Date(Date.now() + 8 * 3600e3).toISOString().slice(0, 10);
+    var tier27 = today >= "2027-01-01" && today <= "2030-12-31";
     if(ftb){
-      if(price<=500000){mot=0;loanStamp=0;note="Full exemption applied. MOT and loan agreement stamp duty waived for a first residential home up to RM500,000."}
-      else if(tier27&&price<=750000){mot=(motDuty(price)-motDuty(500000))*0.5;loanStamp=Math.max(0,loan-500000)*0.005*0.5;note="Budget 2027 rule applied (SPA signed 1 Jan 2027 to 31 Dec 2030): first RM500,000 exempted, 50% off the rest. Confirm with the lawyer."}
-      else if(price<=750000){warn=true;note="No exemption applied today. The current exemption covers homes up to RM500,000. Budget 2027 proposes RM500k to RM750k (first RM500k free, 50% off the rest) for SPA signed from 1 Jan 2027."}
-      else{warn=true;note="No exemption applied. The first-home exemption does not cover a home priced at "+RM(price)+"."}
+      if(price <= 500000){
+        mot = 0; loanStamp = 0;
+        note = "Full exemption applied. MOT and loan agreement stamp duty waived for a first residential home up to RM500,000.";
+      } else if(tier27 && price <= 750000){
+        mot = (motDuty(price) - motDuty(500000)) * 0.5; loanStamp = Math.max(0, loan - 500000) * 0.005 * 0.5;
+        note = "Budget 2027 rule applied (SPA signed 1 Jan 2027 to 31 Dec 2030): first RM500,000 exempted, 50% off the rest. Confirm with the lawyer.";
+      } else if(price <= 750000){
+        warn = true;
+        note = "No exemption applied today. The current exemption covers homes up to RM500,000. Budget 2027 proposes RM500k to RM750k (first RM500k free, 50% off the rest) for SPA signed from 1 Jan 2027.";
+      } else {
+        warn = true;
+        note = "No exemption applied. The first-home exemption does not cover a home priced at " + RM(price) + ".";
+      }
     }
-    var fn=$("lcFtbNote");fn.hidden=!note;fn.textContent=note;fn.className="lc-notice"+(warn?" warn":"");
-    var dSpa=num("lcDSpa"),dLoan=num("lcDLoan"),sst=(spaLegal+loanLegal)*0.08,totalFees=spaLegal+dSpa+mot+loanLegal+dLoan+loanStamp+sst;
-    $("lcFSpaLegal").textContent=absS?"Absorbed":RM(spaLegal);$("lcFMot").textContent=RM(mot);
-    $("lcFLoanLegal").textContent=absL?"Absorbed":RM(loanLegal);$("lcFLoanStamp").textContent=RM(loanStamp);
-    $("lcFSst").textContent=RM(sst);$("lcFTotal").textContent=RM(totalFees);
-    $("lcCDown").textContent=RM(downRM);$("lcCFees").textContent=RM(totalFees);$("lcCTotal").textContent=RM(downRM+totalFees);
-    var xm=num("lcXMonthly"),xl=num("lcXLump"),xy=Math.max(1,Math.min(yrs,num("lcXYear")||1));
-    var sc=simulate(loan,rate,n,{extra:xm,lump:xl,lumpMonth:Math.round(xy*12)});
-    $("lcXSaved").textContent=RM(base.interest-sc.interest);
-    $("lcXSavedSub").textContent="Total interest becomes "+RM(sc.interest)+" (was "+RM(base.interest)+")";
-    $("lcXFaster").textContent=dur(base.months-sc.months);$("lcXFasterSub").textContent="Loan done in "+dur(sc.months)+" instead of "+dur(base.months);
-    $("lcXDate").textContent=dateAfter(sc.months);$("lcXDateSub").textContent="instead of "+dateAfter(base.months);
-    if(loan>0){drawChart(base,sc,loan)}else{$("lcChart").innerHTML="";CH=null}
+    var fn = $("ftbNote");
+    fn.hidden = !note;
+    fn.textContent = note;
+    fn.className = "notice" + (warn ? " warn" : "");
+
+    var dSpa = num("dSpa"), dLoan = num("dLoan");
+    var sst = (spaLegal + loanLegal) * 0.08;
+    var totalFees = spaLegal + dSpa + mot + loanLegal + dLoan + loanStamp + sst;
+
+    $("fSpaLegal").textContent = absS ? "Absorbed" : RM(spaLegal);
+    $("fMot").textContent = RM(mot);
+    $("fLoanLegal").textContent = absL ? "Absorbed" : RM(loanLegal);
+    $("fLoanStamp").textContent = RM(loanStamp);
+    $("fSst").textContent = RM(sst);
+    $("fTotal").textContent = RM(totalFees);
+    $("cDown").textContent = RM(downRM);
+    $("cFees").textContent = RM(totalFees);
+    $("cTotal").textContent = RM(downRM + totalFees);
+
+    // Tab 2, early settlement
+    var xm = num("xMonthly"), xl = num("xLump");
+    var xy = Math.max(1, Math.min(yrs, num("xYear") || 1));
+    var sc = simulate(loan, rate, n, {extra:xm, lump:xl, lumpMonth:Math.round(xy*12)});
+    var saved = base.interest - sc.interest;
+    var moSaved = base.months - sc.months;
+
+    $("xSaved").textContent = RM(saved);
+    $("xSavedSub").textContent = "Total interest becomes " + RM(sc.interest) + " (was " + RM(base.interest) + ")";
+    $("xFaster").textContent = dur(moSaved);
+    $("xFasterSub").textContent = "Loan done in " + dur(sc.months) + " instead of " + dur(base.months);
+    $("xDate").textContent = dateAfter(sc.months);
+    $("xDateSub").textContent = "instead of " + dateAfter(base.months);
+
+    if(loan > 0){ drawChart(base, sc, loan); } else { $("chart").innerHTML = ""; CH = null; }
     hideTip();
-    var cash=num("lcFxCash"),mSave=num("lcFxMonthly"),fee=num("lcFxFee");
-    var semi=simulate(loan,rate,n,{lump:cash,lumpMonth:1,extra:mSave}),full=simulate(loan,rate,n,{offset0:cash,offsetMonthly:mSave});
-    $("lcFtInt").textContent=RM(base.interest);$("lcFtTime").textContent=dur(base.months);
-    $("lcFsInt").textContent=RM(semi.interest);$("lcFsSaved").textContent=RM(base.interest-semi.interest);$("lcFsTime").textContent=dur(semi.months);
-    $("lcFfInt").textContent=RM(full.interest);$("lcFfSaved").textContent=RM(base.interest-full.interest);$("lcFfTime").textContent=dur(full.eff)+" *";$("lcFfFees").textContent=RM(fee*full.eff);
-    var maxInt=Math.max(base.interest,semi.interest,full.interest,1),bars=[["Term loan",base.interest],["Semi-flexi",semi.interest],["Full flexi",full.interest]],bh="";
-    for(var k=0;k<bars.length;k++){bh+='<div class="lc-barrow"><span class="lc-barlab">'+bars[k][0]+'</span><span class="lc-bartrack"><span class="lc-bar" style="width:'+Math.max(0.5,bars[k][1]/maxInt*100).toFixed(1)+'%"></span></span><span class="lc-barval">'+RM(bars[k][1])+'</span></div>'}
-    $("lcFxBars").innerHTML='<div class="lc-eb" style="margin-bottom:6px">Total interest paid</div>'+bh;
-    var sumEl=$("lcInsSum"),termEl=$("lcInsTerm");
-    if(sumEl.dataset.auto==="1")sumEl.value=Math.round(loan);
-    if(termEl.dataset.auto==="1")termEl.value=yrs;
-    var age=Math.min(60,Math.max(18,num("lcInsAge")||30)),sum=num("lcInsSum"),term=Math.min(40,Math.max(5,num("lcInsTerm")||yrs));
-    var an=$("lcInsAgeNote");
-    if(age+term>70){an.hidden=false;an.textContent="Heads up: this cover would run until age "+(age+term)+". Many insurers cap MRTA/MLTA cover at age 65 to 70, so the offered term may be shorter, or the premium loaded."}else{an.hidden=true}
-    var mrta=sum/1000*gridRate(MRTA_AGES,MRTA_TEN,MRTA_RATE,age,term);
-    $("lcMrtaPrem").textContent=RM(mrta);
-    if($("lcInsFin").checked&&loan>0&&mrta>0&&isFinite(M)){var M2=pmt(loan+mrta,rate,n),ex=M2-M;$("lcMrtaSub").textContent="Financed into loan: instalment becomes "+RM2(M2)+" (+"+RM2(ex)+"/mth) · extra interest "+RM(ex*n-mrta)+" over tenure"}
-    else{$("lcMrtaSub").textContent="Paid upfront in cash, nothing added to the loan"}
-    var mltaYearly=sum/1000*interp1(MLTA_AGES,MLTA_RATES,age)*(1+Math.max(0,term-20)*0.015);
-    $("lcMltaMo").textContent=RM2(mltaYearly/12);$("lcMltaYr").textContent="≈ "+RM(mltaYearly)+" per year";$("lcMltaTot").textContent=RM(mltaYearly*term);
+
+    // Tab 3, flexi comparison
+    var cash = num("fxCash"), mSave = num("fxMonthly"), fee = num("fxFee");
+    var semi = simulate(loan, rate, n, {lump:cash, lumpMonth:1, extra:mSave});
+    var full = simulate(loan, rate, n, {offset0:cash, offsetMonthly:mSave});
+    var fullFees = fee * full.eff;
+
+    $("ftInt").textContent = RM(base.interest);
+    $("ftTime").textContent = dur(base.months);
+    $("fsInt").textContent = RM(semi.interest);
+    $("fsSaved").textContent = RM(base.interest - semi.interest);
+    $("fsTime").textContent = dur(semi.months);
+    $("ffInt").textContent = RM(full.interest);
+    $("ffSaved").textContent = RM(base.interest - full.interest);
+    $("ffTime").textContent = dur(full.eff) + " *";
+    $("ffFees").textContent = RM(fullFees);
+
+    var maxInt = Math.max(base.interest, semi.interest, full.interest, 1);
+    var bars = [
+      ["Term loan", base.interest],
+      ["Semi-flexi", semi.interest],
+      ["Full flexi", full.interest]
+    ];
+    var bh = "";
+    for(var k = 0; k < bars.length; k++){
+      var pct = Math.max(0.5, bars[k][1] / maxInt * 100);
+      bh += '<div class="barrow"><span class="barlab">' + bars[k][0] + '</span>' +
+            '<span class="bartrack"><span class="bar" style="width:' + pct.toFixed(1) + '%; display:block"></span></span>' +
+            '<span class="barval">' + RM(bars[k][1]) + '</span></div>';
+    }
+    $("fxBars").innerHTML = '<div class="eyebrow" style="margin-bottom:6px">Total interest paid</div>' + bh;
+
+    // Tab 4, MRTA vs MLTA
+    var sumEl = $("insSum"), termEl = $("insTerm");
+    if(sumEl.dataset.auto === "1") sumEl.value = Math.round(loan);
+    if(termEl.dataset.auto === "1") termEl.value = yrs;
+    var age = Math.min(60, Math.max(18, num("insAge") || 30));
+    var sum = num("insSum");
+    var term = Math.min(40, Math.max(5, num("insTerm") || yrs));
+
+    var an = $("insAgeNote");
+    if(age + term > 70){
+      an.hidden = false;
+      an.textContent = "Heads up: this cover would run until age " + (age + term) + ". Many insurers cap MRTA/MLTA cover at age 65 to 70, so the offered term may be shorter, or the premium loaded.";
+    } else {
+      an.hidden = true;
+    }
+
+    var mrta = sum / 1000 * gridRate(MRTA_AGES, MRTA_TEN, MRTA_RATE, age, term);
+    $("mrtaPrem").textContent = RM(mrta);
+    if($("insFin").checked && loan > 0 && mrta > 0 && isFinite(M)){
+      var M2 = pmt(loan + mrta, rate, n);
+      var extraMo = M2 - M;
+      var extraInt = extraMo * n - mrta;
+      $("mrtaSub").textContent = "Financed into loan: instalment becomes " + RM2(M2) + " (+" + RM2(extraMo) + "/mth) · extra interest " + RM(extraInt) + " over tenure";
+    } else {
+      $("mrtaSub").textContent = "Paid upfront in cash, nothing added to the loan";
+    }
+
+    var mltaYearly = sum / 1000 * interp1(MLTA_AGES, MLTA_RATES, age) * (1 + Math.max(0, term - 20) * 0.015);
+    $("mltaMo").textContent = RM2(mltaYearly / 12);
+    $("mltaYr").textContent = "≈ " + RM(mltaYearly) + " per year";
+    $("mltaTot").textContent = RM(mltaYearly * term);
   }
-  root.addEventListener("input",recalc);
-  root.addEventListener("change",recalc);
-  var tabs=root.querySelectorAll(".lc-tab");
-  tabs.forEach(function(b){b.addEventListener("click",function(){
-    tabs.forEach(function(x){var on=x===b;x.classList.toggle("on",on);x.setAttribute("aria-selected",on?"true":"false")});
-    root.querySelectorAll(".lc-panel").forEach(function(p){p.classList.toggle("on",p.id===b.dataset.tab)});
-  })});
-  ["lcInsSum","lcInsTerm"].forEach(function(id){$(id).addEventListener("input",function(e){if(e.isTrusted)this.dataset.auto="0"})});
-  var svg=$("lcChart");
-  svg.addEventListener("pointermove",onMove);svg.addEventListener("pointerdown",onMove);svg.addEventListener("pointerleave",hideTip);
+
+  // ---- wiring ----
+  var themeToggle = $("themeToggle");
+  var storedTheme = localStorage.getItem("loan-calc-theme");
+  if(storedTheme === "light" || storedTheme === "dark") document.documentElement.dataset.theme = storedTheme;
+  function syncThemeButton(){
+    var dark = document.documentElement.dataset.theme === "dark";
+    themeToggle.textContent = dark ? "☀" : "◐";
+    themeToggle.setAttribute("aria-label", dark ? "Use light colour theme" : "Use dark colour theme");
+    themeToggle.title = dark ? "Use light colour theme" : "Use dark colour theme";
+  }
+  themeToggle.addEventListener("click", function(){
+    var currentlyDark = document.documentElement.dataset.theme === "dark";
+    document.documentElement.dataset.theme = currentlyDark ? "light" : "dark";
+    localStorage.setItem("loan-calc-theme", document.documentElement.dataset.theme);
+    syncThemeButton();
+  });
+  syncThemeButton();
+
+  document.addEventListener("input", recalc);
+  document.addEventListener("change", recalc);
+
+  var tabs = document.querySelectorAll(".tab");
+  tabs.forEach(function(b){
+    b.addEventListener("click", function(){
+      tabs.forEach(function(x){
+        var on = x === b;
+        x.classList.toggle("on", on);
+        x.setAttribute("aria-selected", on ? "true" : "false");
+      });
+      document.querySelectorAll(".panel").forEach(function(p){
+        p.classList.toggle("on", p.id === b.dataset.tab);
+      });
+    });
+  });
+
+  ["insSum","insTerm"].forEach(function(id){
+    $(id).addEventListener("input", function(e){
+      if(e.isTrusted) this.dataset.auto = "0";
+    });
+  });
+
+  var svg = $("chart");
+  svg.addEventListener("pointermove", onMove);
+  svg.addEventListener("pointerdown", onMove);
+  svg.addEventListener("pointerleave", hideTip);
+
   recalc();
 })();
 </script>
+<script>
+if (("serviceWorker" in navigator) && (location.protocol === "https:" || location.hostname === "localhost")) {
+  navigator.serviceWorker.register("./sw.js").catch(function(){});
+}
+</script>
+
 <script>
 (function(){
   var standalone=window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true;
   if(standalone){document.documentElement.classList.add('standalone');try{fbq('trackCustom','AppOpen')}catch(e){}}
   if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/tools/sw.js',{scope:'/tools/'}).catch(function(){})})}
   var ua=navigator.userAgent,ios=/iPad|iPhone|iPod/.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1),android=/Android/i.test(ua);
-  var os=ios?'ios':android?'android':'desktop';
-  var card=document.querySelector('.pcard[data-os="'+os+'"]');if(card)card.classList.add('me');
-  var btn=document.getElementById('installBtn'),st=document.getElementById('appStatus'),deferred=null;
-  function say(t){st.textContent=t;st.hidden=false}
+  var help=document.getElementById('appHelp'),deferred=null;
+  var shareIco='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M7.5 7.5 12 3l4.5 4.5M6 11H5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1h-1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  function say(h){help.innerHTML=h;help.hidden=false}
   window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();deferred=e});
-  window.addEventListener('appinstalled',function(){deferred=null;say('Installed. Find Agent Tools on your home screen.');try{fbq('trackCustom','AppInstalled')}catch(e){}});
-  btn.addEventListener('click',function(){
-    try{fbq('trackCustom','AppInstallClick',{os:os})}catch(e){}
-    if(deferred){deferred.prompt();deferred.userChoice.then(function(c){if(c.outcome!=='accepted')say('No problem. You can install it any time from this page.')});deferred=null;return}
-    if(card){card.scrollIntoView({behavior:'smooth',block:'center'})}
-    if(ios)say('On iPhone or iPad: tap the Share button, then Add to Home Screen, then Add.');
-    else if(android)say('Open the \u22EE menu in Chrome, then tap Install app or Add to Home screen.');
-    else say('Click the install icon at the right end of the address bar, or open the browser menu and choose Install.');
+  window.addEventListener('appinstalled',function(){deferred=null;say('Installed. Find <b>ProCalculator</b> on your home screen.');try{fbq('trackCustom','AppInstalled')}catch(e){}});
+  document.getElementById('installBtn').addEventListener('click',function(){
+    try{fbq('trackCustom','AppInstallClick',{os:ios?'ios':android?'android':'desktop'})}catch(e){}
+    if(deferred){deferred.prompt();deferred.userChoice.then(function(c){if(c.outcome!=='accepted')say('No problem. Tap <b>Download</b> again any time.')});deferred=null;return}
+    if(ios)say('<b>iPhone / iPad:</b> 1. Tap the Share button '+shareIco+' &nbsp;2. Tap <b>Add to Home Screen</b> &nbsp;3. Tap <b>Add</b>');
+    else if(android)say('<b>Android:</b> open the <b>&#8942;</b> menu in Chrome, then tap <b>Install app</b> or <b>Add to Home screen</b>');
+    else say('<b>Laptop:</b> click the install icon at the right of the address bar, or open the browser menu and choose <b>Install</b>');
   });
-  var share=document.getElementById('shareBtn'),link='https://fcgfelixcheng.com/tools/';
-  share.addEventListener('click',function(){
+  var link='https://fcgfelixcheng.com/tools/';
+  document.getElementById('shareBtn').addEventListener('click',function(){
     try{fbq('trackCustom','ShareTools')}catch(e){}
-    var data={title:'Agent Tools',text:'Free home loan calculator for agents. Works on iPhone, Android and iPad.',url:link};
+    var data={title:'ProCalculator',text:'ProCalculator: free home loan calculator for agents. Works on iPhone, Android and iPad.',url:link};
     if(navigator.share){navigator.share(data).catch(function(){});return}
     var done=function(){say('Link copied. Paste it in your team group.')};
     if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(link).then(done,function(){say(link)})}else{say(link)}
