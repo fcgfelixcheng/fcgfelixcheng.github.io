@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fcgfelixcheng.com/rumahbukitjelutong/sitemap.xml
