@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://fcgfelixcheng.com/matrix/">
 <meta property="og:image" content="https://fcgfelixcheng.com/matrix/icons/icon-512.png">
 <meta name="theme-color" content="#F2F4F3" id="theme-color">
-<script>try{var d=document.documentElement,s=localStorage.getItem('szj.skin'),f=localStorage.getItem('szj.font'),F={cute:'ZCOOL+KuaiLe',power:'ZCOOL+QingKe+HuangYou',brush:'Ma+Shan+Zheng'};if(s)d.setAttribute('data-skin',s);if(F[f]){d.setAttribute('data-font',f);var l=document.createElement('link');l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family='+F[f]+'&display=swap';l.setAttribute('data-ff',f);document.head.appendChild(l)}}catch(e){}</script>
+<script>try{var d=document.documentElement,s=localStorage.getItem('szj.skin'),f=localStorage.getItem('szj.font'),F={cute:'ZCOOL+KuaiLe&family=Fredoka:wght@400;600;700',power:'ZCOOL+QingKe+HuangYou&family=Anton',brush:'Ma+Shan+Zheng&family=Kaushan+Script'};if(s)d.setAttribute('data-skin',s);var q=(location.search.match(/[?&]lang=(en|zh)/)||[])[1],g=q||localStorage.getItem('szj.lang');if(g==='en')d.setAttribute('lang','en');if(F[f]){d.setAttribute('data-font',f);var l=document.createElement('link');l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family='+F[f]+'&display=swap';l.setAttribute('data-ff',f);document.head.appendChild(l)}}catch(e){}</script>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="四象限">
@@ -277,12 +277,12 @@ h1{font-family:var(--f-display);font-weight:var(--w-display);font-size:clamp(28p
 /* Fonts. Same trick as the colours: keyed by data-font on <html> and on each preview chip. */
 [data-font="std"]{--f-display:"Noto Serif SC","Songti SC","STSong",serif;--w-display:900;--w-ax:700}
 [data-font="cute"]{
-  --f-display:"ZCOOL KuaiLe","Noto Sans SC","PingFang SC",sans-serif;
-  --f-body:"ZCOOL KuaiLe","Noto Sans SC","PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
-  --w-display:400; --w-ax:400;
+  --f-display:"Fredoka","ZCOOL KuaiLe","Noto Sans SC","PingFang SC",sans-serif;
+  --f-body:"Fredoka","ZCOOL KuaiLe","Noto Sans SC","PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --w-display:600; --w-ax:600;
 }
-[data-font="power"]{--f-display:"ZCOOL QingKe HuangYou","Noto Sans SC","PingFang SC",sans-serif;--w-display:400;--w-ax:400}
-[data-font="brush"]{--f-display:"Ma Shan Zheng","STKaiti","KaiTi","Noto Serif SC",serif;--w-display:400;--w-ax:400}
+[data-font="power"]{--f-display:"Anton","ZCOOL QingKe HuangYou","Noto Sans SC","PingFang SC",sans-serif;--w-display:400;--w-ax:400}
+[data-font="brush"]{--f-display:"Kaushan Script","Ma Shan Zheng","STKaiti","KaiTi","Noto Serif SC",serif;--w-display:400;--w-ax:400}
 /* these fonts have one weight: show it as drawn instead of a smeared fake bold */
 html[data-font="cute"],html[data-font="power"],html[data-font="brush"]{font-synthesis:none}
 html[data-font="cute"] .tt{font-size:16px}
@@ -293,6 +293,14 @@ html[data-font="brush"] h1{font-size:clamp(32px,6vw,50px)}
 html[data-font="brush"] .qh h2{font-size:28px}
 html[data-font="brush"] .compact h1{font-size:24px}
 html[data-font="brush"] .compact .qh h2{font-size:19px}
+
+/* English: Latin words do not want the wide Chinese tracking */
+html[lang="en"] .ax{letter-spacing:.14em;font-size:12px;text-transform:uppercase}
+html[lang="en"] .tog{min-width:0}
+html[lang="en"] h1{letter-spacing:0}
+html[lang="en"] .qlabel{letter-spacing:.02em}
+html[lang="en"] .fsample{font-size:clamp(15px,4vw,20px)}
+#lang-btn{min-width:52px}
 
 /* theme picker */
 .skinbtn{display:inline-flex;align-items:center;gap:7px}
@@ -329,38 +337,39 @@ html[data-font="brush"] .compact .qh h2{font-size:19px}
 <div class="wrap">
   <header class="top">
     <div>
-      <h1>十字架四象限</h1>
-      <p class="lede">重要但不紧急的事先做完，手上的急事就会越来越少。</p>
+      <h1 data-i="title">十字架四象限</h1>
+      <p class="lede" data-i="lede">重要但不紧急的事先做完，手上的急事就会越来越少。</p>
     </div>
     <div class="top-r">
-      <div class="sync" id="sync" role="status"><i></i><span>只存在你这部手机 / 电脑，别人看不到</span></div>
-      <button class="viewbtn skinbtn" id="skin-btn" type="button" aria-expanded="false" aria-controls="skins"><span class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i></span>主题</button>
+      <div class="sync" id="sync" role="status"><i></i><span data-i="sync">只存在你这部手机 / 电脑，别人看不到</span></div>
+      <button class="viewbtn" id="lang-btn" type="button">EN</button>
+      <button class="viewbtn skinbtn" id="skin-btn" type="button" aria-expanded="false" aria-controls="skins"><span class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span data-i="style">主题</span></button>
       <button class="viewbtn" id="view-btn" type="button">小窗模式</button>
     </div>
   </header>
 
-  <section class="skins" id="skins" aria-label="选主题" hidden>
-    <div class="skins-h"><span><b>挑你的风格</b>只改你这部设备</span><button class="link" id="skins-close" type="button">好了</button></div>
-    <p class="skins-t" id="skins-t1">颜色</p>
+  <section class="skins" id="skins" data-i-aria="pick" aria-label="选主题" hidden>
+    <div class="skins-h"><span><b data-i="pickH">挑你的风格</b><span data-i="pickSub">只改你这部设备</span></span><button class="link" id="skins-close" type="button" data-i="done">好了</button></div>
+    <p class="skins-t" id="skins-t1" data-i="colour">颜色</p>
     <div class="skin-grid" id="skin-grid" role="radiogroup" aria-labelledby="skins-t1"></div>
-    <p class="skins-t" id="skins-t2">字体</p>
+    <p class="skins-t" id="skins-t2" data-i="font">字体</p>
     <div class="skin-grid" id="font-grid" role="radiogroup" aria-labelledby="skins-t2"></div>
   </section>
 
   <form class="add" id="add" data-q="2" autocomplete="off">
-    <input id="add-text" maxlength="200" placeholder="写下一件要做的事，例如：跟进客户的贷款文件" aria-label="要做的事">
+    <input id="add-text" maxlength="200" data-i-ph="ph" data-i-aria="phAria" placeholder="写下一件要做的事，例如：跟进客户的贷款文件" aria-label="要做的事">
     <div class="add-ctl">
       <button type="button" class="tog" id="t-imp" aria-pressed="true">重要</button>
       <button type="button" class="tog" id="t-urg" aria-pressed="false">不紧急</button>
       <span class="dest" id="dest">→ 排时间做</span>
-      <button type="submit" id="add-btn">加入</button>
+      <button type="submit" id="add-btn" data-i="add">加入</button>
     </div>
   </form>
-  <p class="hint">放哪一格？问自己两题。<b>重要</b>：会带来 booking、收入，或让团队更强吗？<b>紧急</b>：今天明天一定要做，或有人正在等你吗？</p>
+  <p class="hint" data-i-html="hint">放哪一格？问自己两题。<b>重要</b>：会带来 booking、收入，或让团队更强吗？<b>紧急</b>：今天明天一定要做，或有人正在等你吗？</p>
 
-  <section class="week" aria-label="过去 7 天">
+  <section class="week" data-i-aria="week" aria-label="过去 7 天">
     <div>
-      <p class="wk-line">过去 7 天做完 <b id="wk-total" class="num">0</b> 件，第二象限占 <b id="wk-p2" class="num q2c">0%</b></p>
+      <p class="wk-line"><span data-i="wk1">过去 7 天做完</span> <b id="wk-total" class="num">0</b> <span data-i="wk2">件，第二象限占</span> <b id="wk-p2" class="num q2c">0%</b></p>
       <p id="wk-say" class="wk-say"></p>
     </div>
     <div>
@@ -370,48 +379,48 @@ html[data-font="brush"] .compact .qh h2{font-size:19px}
   </section>
 
   <div class="banner" id="banner" hidden>
-    <p><b>还没有任何事。</b>先把脑里的事全部写下来，每件问两题：重要吗？紧急吗？</p>
-    <button class="link strong" id="ex-add" type="button">放入例子看看</button>
+    <p data-i-html="banner"><b>还没有任何事。</b>先把脑里的事全部写下来，每件问两题：重要吗？紧急吗？</p>
+    <button class="link strong" id="ex-add" type="button" data-i="exAdd">放入例子看看</button>
   </div>
 
   <main class="board" id="board">
     <div class="ax" aria-hidden="true"></div>
-    <div class="ax ax-top" aria-hidden="true">紧急</div>
-    <div class="ax ax-top" aria-hidden="true">不紧急</div>
-    <div class="ax ax-side" aria-hidden="true">重要</div>
+    <div class="ax ax-top" aria-hidden="true" data-i="urg">紧急</div>
+    <div class="ax ax-top" aria-hidden="true" data-i="nurg">不紧急</div>
+    <div class="ax ax-side" aria-hidden="true" data-i="imp">重要</div>
     <section class="quad" data-q="1" aria-labelledby="h-q1">
       <header class="qh">
-        <div><span class="qlabel">第一象限 · 重要 紧急</span><h2 id="h-q1">马上做</h2><p class="qtip">今天处理掉</p></div>
+        <div><span class="qlabel" data-i="ql1"></span><h2 id="h-q1"><span data-i="q1"></span></h2><p class="qtip" data-i="tip1"></p></div>
         <span class="qcount">·</span>
-        <button class="qadd" type="button" data-act="qadd" data-q="1" aria-label="加一件到马上做">+</button>
+        <button class="qadd" type="button" data-act="qadd" data-q="1" data-i-aria="qadd1">+</button>
       </header>
       <ul class="list"></ul>
       <div class="qfoot" hidden></div>
     </section>
     <section class="quad" data-q="2" aria-labelledby="h-q2">
       <header class="qh">
-        <div><span class="qlabel">第二象限 · 重要 不紧急</span><h2 id="h-q2">排时间做 <span class="pill">赚钱区</span></h2><p class="qtip">每天先排一件，急事会越来越少</p></div>
+        <div><span class="qlabel" data-i="ql2"></span><h2 id="h-q2"><span data-i="q2"></span> <span class="pill" data-i="pill"></span></h2><p class="qtip" data-i="tip2"></p></div>
         <span class="qcount">·</span>
-        <button class="qadd" type="button" data-act="qadd" data-q="2" aria-label="加一件到排时间做">+</button>
+        <button class="qadd" type="button" data-act="qadd" data-q="2" data-i-aria="qadd2">+</button>
       </header>
       <ul class="list"></ul>
       <div class="qfoot" hidden></div>
     </section>
-    <div class="ax ax-side" aria-hidden="true">不重要</div>
+    <div class="ax ax-side" aria-hidden="true" data-i="nimp">不重要</div>
     <section class="quad" data-q="3" aria-labelledby="h-q3">
       <header class="qh">
-        <div><span class="qlabel">第三象限 · 不重要 紧急</span><h2 id="h-q3">交给别人</h2><p class="qtip">写下交给谁，然后放手</p></div>
+        <div><span class="qlabel" data-i="ql3"></span><h2 id="h-q3"><span data-i="q3"></span></h2><p class="qtip" data-i="tip3"></p></div>
         <span class="qcount">·</span>
-        <button class="qadd" type="button" data-act="qadd" data-q="3" aria-label="加一件到交给别人">+</button>
+        <button class="qadd" type="button" data-act="qadd" data-q="3" data-i-aria="qadd3">+</button>
       </header>
       <ul class="list"></ul>
       <div class="qfoot" hidden></div>
     </section>
     <section class="quad" data-q="4" aria-labelledby="h-q4">
       <header class="qh">
-        <div><span class="qlabel">第四象限 · 不重要 不紧急</span><h2 id="h-q4">删掉</h2><p class="qtip">不做也不会怎样</p></div>
+        <div><span class="qlabel" data-i="ql4"></span><h2 id="h-q4"><span data-i="q4"></span></h2><p class="qtip" data-i="tip4"></p></div>
         <span class="qcount">·</span>
-        <button class="qadd" type="button" data-act="qadd" data-q="4" aria-label="加一件到删掉">+</button>
+        <button class="qadd" type="button" data-act="qadd" data-q="4" data-i-aria="qadd4">+</button>
       </header>
       <ul class="list"></ul>
       <div class="qfoot" hidden></div>
@@ -419,32 +428,116 @@ html[data-font="brush"] .compact .qh h2{font-size:19px}
   </main>
 
   <footer class="foot">
-    <p>点一件事可以改内容、日期、交给谁，或换到别的格。用电脑可以直接拖到别的格。</p>
-    <button class="link" id="ex-clear" type="button" hidden>清除全部例子</button>
+    <p data-i="foot"></p>
+    <button class="link" id="ex-clear" type="button" data-i="exClear" hidden></button>
     <details class="help" id="help">
-      <summary>装到电脑桌面 / 手机主屏幕</summary>
-      <ol>
-        <li>你写的事<b>只存在你自己的手机或电脑</b>，别人看不到。每部设备各自一份；换手机、用无痕模式或清除浏览器资料，记录会不见。</li>
-        <li><b>iPhone / iPad</b>：用 Safari 打开这页 → 分享按钮 →「添加到主屏幕」。</li>
-        <li><b>Android</b>：用 Chrome 打开这页 → 右上角 ⋮ →「添加到主屏幕」或「安装应用」。</li>
-        <li><b>Windows / Mac（Chrome）</b>：右上角 ⋮ →「投放、保存和分享」→「创建快捷方式」，勾「在窗口中打开」。窗口拉小，放在屏幕一边。</li>
-        <li><b>Windows（Edge）</b>：右上角 ⋯ →「更多工具」→「固定到任务栏」。</li>
-        <li><b>Mac（Safari）</b>：菜单「文件」→「添加到程序坞」。</li>
-        <li>从 WhatsApp 点开的话，先按右上角选「用 Safari / Chrome 打开」再加。想一打开就是小窗：网址最后面加 <code>#widget</code> 再收藏。</li>
-      </ol>
+      <summary data-i="helpS"></summary>
+      <ol data-i-html="helpL"></ol>
     </details>
   </footer>
 </div>
 
-<div id="toast" role="status" hidden><span id="toast-msg"></span><button id="toast-btn" type="button" hidden>撤销</button></div>
+<div id="toast" role="status" hidden><span id="toast-msg"></span><button id="toast-btn" type="button" data-i="undo" hidden>撤销</button></div>
 
 <script>
 (function(){
+  /* ---------- words: 中文 + English ---------- */
+  const L = {
+    zh: {
+      title:'十字架四象限', appTitle:'四象限',
+      lede:'重要但不紧急的事先做完，手上的急事就会越来越少。',
+      sync:'只存在你这部手机 / 电脑，别人看不到',
+      style:'主题', small:'小窗模式', full:'完整模式', langBtn:'EN', langAria:'Switch to English',
+      pick:'选主题', pickH:'挑你的风格', pickSub:'只改你这部设备', done:'好了', colour:'颜色', font:'字体',
+      sk_classic:'经典', sk_classic_sub:'跟随深浅色', sk_sakura:'樱花粉', sk_lavender:'薰衣草', sk_milktea:'奶茶', sk_mist:'雾蓝', sk_navy:'深海蓝', sk_gold:'黑金',
+      f_std:'标准', f_std_sub:'原本的样子', f_cute:'可爱', f_cute_sub:'圆圆的', f_power:'力量', f_power_sub:'粗又有劲', f_brush:'毛笔', f_brush_sub:'有气势',
+      ph:'写下一件要做的事，例如：跟进客户的贷款文件', phAria:'要做的事',
+      imp:'重要', nimp:'不重要', urg:'紧急', nurg:'不紧急', add:'加入',
+      hint:'放哪一格？问自己两题。<b>重要</b>：会带来 booking、收入，或让团队更强吗？<b>紧急</b>：今天明天一定要做，或有人正在等你吗？',
+      week:'过去 7 天', wk1:'过去 7 天做完', wk2:'件，第二象限占',
+      banner:'<b>还没有任何事。</b>先把脑里的事全部写下来，每件问两题：重要吗？紧急吗？', exAdd:'放入例子看看',
+      q1:'马上做', q2:'排时间做', q3:'交给别人', q4:'删掉', pill:'赚钱区',
+      ql1:'第一象限 · 重要 紧急', ql2:'第二象限 · 重要 不紧急', ql3:'第三象限 · 不重要 紧急', ql4:'第四象限 · 不重要 不紧急',
+      tip1:'今天处理掉', tip2:'每天先排一件，急事会越来越少', tip3:'写下交给谁，然后放手', tip4:'不做也不会怎样',
+      qadd1:'加一件到马上做', qadd2:'加一件到排时间做', qadd3:'加一件到交给别人', qadd4:'加一件到删掉',
+      empty1:'没有火要救，很好。', empty2:'还空着。想一想：哪件事做了，三个月后会多赚钱？', empty3:'没有要交出去的事。', empty4:'空的最好。',
+      foot:'点一件事可以改内容、日期、交给谁，或换到别的格。用电脑可以直接拖到别的格。',
+      exClear:'清除全部例子', helpS:'装到电脑桌面 / 手机主屏幕',
+      helpL:'<li>你写的事<b>只存在你自己的手机或电脑</b>，别人看不到。每部设备各自一份；换手机、用无痕模式或清除浏览器资料，记录会不见。</li>' +
+        '<li><b>iPhone / iPad</b>：用 Safari 打开这页 → 分享按钮 →「添加到主屏幕」。</li>' +
+        '<li><b>Android</b>：用 Chrome 打开这页 → 右上角 ⋮ →「添加到主屏幕」或「安装应用」。</li>' +
+        '<li><b>Windows / Mac（Chrome）</b>：右上角 ⋮ →「投放、保存和分享」→「创建快捷方式」，勾「在窗口中打开」。窗口拉小，放在屏幕一边。</li>' +
+        '<li><b>Windows（Edge）</b>：右上角 ⋯ →「更多工具」→「固定到任务栏」。</li>' +
+        '<li><b>Mac（Safari）</b>：菜单「文件」→「添加到程序坞」。</li>' +
+        '<li>从 WhatsApp 点开的话，先按右上角选「用 Safari / Chrome 打开」再加。想一打开就是小窗：网址最后面加 <code>#widget</code> 再收藏。</li>',
+      undo:'撤销', today:'今天', tomorrow:'明天', late:n => '逾期 ' + n + ' 天', date:d => (d.getMonth()+1) + '月' + d.getDate() + '日',
+      handTo:'交给 ', example:'例子', undone:'改回未完成', markDone:'标记完成',
+      fText:'内容', fDate:'日期', fWho:'交给', fWhoPh:'谁来做', moveTo:'移到', del:'删除这件',
+      v0:'勾掉做完的事，这里会显示你的时间花在哪一格。', v1:'第二象限占得够多，节奏对了，继续保持。',
+      v2:'一半以上的时间在救火。明天第一件事，先做一件第二象限。', v3:'很多时间花在不重要的事。第三象限交出去，第四象限直接删。',
+      v4:'第二象限还可以多一点。每天先排一件。',
+      loading:'载入中…', hideDone:'收起已完成', showDone:n => '看已完成 ' + n + ' 件', clearQ:n => '这 ' + n + ' 件全部删掉？',
+      clearYes:'确定删掉', clearNo:'算了', clearAll:'全部删掉',
+      noSave:'这个浏览器存不了资料（可能是无痕模式），关掉页面会不见。',
+      added:q => '已加到「' + q + '」', moved:q => '已移到「' + q + '」', deleted:x => '已删除「' + x + '」',
+      exAdded:'放了几件例子，看完可以一键清除。', exCleared:'例子已清除', q4Cleared:'第四象限清空了', shortLen:14,
+      ex:['客户明天签 SPA，今天把文件准备好', '回银行要的贷款补件', '拍 3 条 TikTok 价值内容', '练熟逼单话术', '研究一个 AI 工具，每天省 1 小时',
+          '打印这周的 booking 表格', '把新 leads 整理进 Sheet', '刷别人的 LIVE 一小时', '开没有结论的长会议',
+          '写下这个月每周的目标', '处理客户的订金收据', '回一般询价 WhatsApp'],
+    },
+    en: {
+      title:'Priority Cross', appTitle:'Priority',
+      lede:'Do the important but not urgent work first, and the urgent stuff on your plate keeps getting smaller.',
+      sync:'Saved on this phone / computer only. Nobody else sees it.',
+      style:'Style', small:'Small window', full:'Full view', langBtn:'中文', langAria:'切换到中文',
+      pick:'Pick a style', pickH:'Pick your style', pickSub:'Only changes this device', done:'Done', colour:'Colour', font:'Font',
+      sk_classic:'Classic', sk_classic_sub:'Light or dark', sk_sakura:'Sakura', sk_lavender:'Lavender', sk_milktea:'Milk tea', sk_mist:'Mist blue', sk_navy:'Deep navy', sk_gold:'Black gold',
+      f_std:'Standard', f_std_sub:'The original', f_cute:'Cute', f_cute_sub:'Round and soft', f_power:'Power', f_power_sub:'Bold and strong', f_brush:'Brush', f_brush_sub:'Full of energy',
+      ph:'Write one thing to do, e.g. follow up the client\'s loan documents', phAria:'Task',
+      imp:'Important', nimp:'Not important', urg:'Urgent', nurg:'Not urgent', add:'Add',
+      hint:'Which box? Ask two questions. <b>Important</b>: will it bring a booking or income, or make the team stronger? <b>Urgent</b>: must it be done today or tomorrow, or is someone waiting on you?',
+      week:'Last 7 days', wk1:'Done in the last 7 days:', wk2:'tasks. Box 2 share:',
+      banner:'<b>Nothing here yet.</b> Write down everything on your mind, then ask two questions for each one: important? urgent?', exAdd:'Try it with examples',
+      q1:'Do now', q2:'Schedule', q3:'Hand off', q4:'Drop', pill:'Money zone',
+      ql1:'Box 1 · Important, urgent', ql2:'Box 2 · Important, not urgent', ql3:'Box 3 · Not important, urgent', ql4:'Box 4 · Not important, not urgent',
+      tip1:'Clear it today', tip2:'Book one in first every day. The fires get fewer.', tip3:'Write who takes it, then let go', tip4:'Nothing happens if you skip it',
+      qadd1:'Add one to Do now', qadd2:'Add one to Schedule', qadd3:'Add one to Hand off', qadd4:'Add one to Drop',
+      empty1:'No fires to fight. Nice.', empty2:'Still empty. Which task would make you more money three months from now?', empty3:'Nothing to hand off.', empty4:'Empty is best.',
+      foot:'Tap a task to change the text or date, hand it off, or move it to another box. On a computer you can drag it to another box.',
+      exClear:'Clear all examples', helpS:'Add it to your desktop or phone home screen',
+      helpL:'<li>What you write <b>stays on your own phone or computer</b>. Nobody else sees it. Each device keeps its own list, so a new phone, private mode or clearing browser data will lose it.</li>' +
+        '<li><b>iPhone / iPad</b>: open this page in Safari, tap Share, then <b>Add to Home Screen</b>.</li>' +
+        '<li><b>Android</b>: open this page in Chrome, tap the ⋮ menu, then <b>Add to Home screen</b> or <b>Install app</b>.</li>' +
+        '<li><b>Windows / Mac (Chrome)</b>: ⋮ menu, <b>Cast, save and share</b>, <b>Create shortcut</b>, and tick <b>Open as window</b>. Make the window small and park it at the side of your screen.</li>' +
+        '<li><b>Windows (Edge)</b>: ⋯ menu, <b>More tools</b>, <b>Pin to taskbar</b>.</li>' +
+        '<li><b>Mac (Safari)</b>: <b>File</b> menu, <b>Add to Dock</b>.</li>' +
+        '<li>Opened it from WhatsApp? Tap the top right menu and choose <b>Open in Safari / Chrome</b> first. To always open in small window mode, add <code>#widget</code> to the end of the link before you save it.</li>',
+      undo:'Undo', today:'Today', tomorrow:'Tomorrow', late:n => n + (n === 1 ? ' day' : ' days') + ' late',
+      date:d => d.getDate() + ' ' + ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getMonth()],
+      handTo:'To: ', example:'Example', undone:'Mark as not done', markDone:'Mark as done',
+      fText:'Task', fDate:'Date', fWho:'Hand off to', fWhoPh:'Who does it', moveTo:'Move to', del:'Delete this',
+      v0:'Tick off what you finish and this shows where your time went.', v1:'Plenty of Box 2. Right rhythm, keep it up.',
+      v2:'Over half your time is firefighting. Tomorrow, do one Box 2 task first.', v3:'A lot of time on things that don\'t matter. Hand off Box 3, drop Box 4.',
+      v4:'Room for more Box 2. Book one in first every day.',
+      loading:'Loading…', hideDone:'Hide done', showDone:n => 'Show ' + n + ' done', clearQ:n => 'Delete all ' + n + '?',
+      clearYes:'Delete', clearNo:'Cancel', clearAll:'Delete all',
+      noSave:'This browser can\'t save (private mode?). Your list will be gone when you close the page.',
+      added:q => 'Added to ' + q, moved:q => 'Moved to ' + q, deleted:x => 'Deleted "' + x + '"',
+      exAdded:'Added some examples. Clear them in one tap when you\'re done.', exCleared:'Examples cleared', q4Cleared:'Box 4 cleared', shortLen:24,
+      ex:['Client signs the SPA tomorrow, get the documents ready today', 'Send the bank the missing loan documents', 'Shoot 3 TikTok videos that teach something', 'Practise your closing lines', 'Learn one AI tool that saves you 1 hour a day',
+          'Print this week\'s booking forms', 'Put the new leads into the Sheet', 'Scroll other people\'s LIVEs for an hour', 'Long meetings with no decision',
+          'Write this month\'s weekly goals', 'Process the client\'s deposit receipt', 'Reply to general WhatsApp enquiries'],
+    },
+  };
+  let lang = 'zh';
+  function tr(k, a){ const v = (L[lang] && k in L[lang]) ? L[lang][k] : L.zh[k]; return typeof v === 'function' ? v(a) : (v == null ? k : v); }
+  const qn = q => tr('q' + q);
+
   const Q = {
-    1:{name:'马上做',   imp:true,  urg:true,  empty:'没有火要救，很好。'},
-    2:{name:'排时间做', imp:true,  urg:false, empty:'还空着。想一想：哪件事做了，三个月后会多赚钱？'},
-    3:{name:'交给别人', imp:false, urg:true,  empty:'没有要交出去的事。'},
-    4:{name:'删掉',     imp:false, urg:false, empty:'空的最好。'},
+    1:{imp:true,  urg:true},
+    2:{imp:true,  urg:false},
+    3:{imp:false, urg:true},
+    4:{imp:false, urg:false},
   };
   const LS_KEY = 'szj.tasks.v1';
   const DAY = 864e5;
@@ -458,7 +551,7 @@ html[data-font="brush"] .compact .qh h2{font-size:19px}
 
   const qOf = t => t.imp ? (t.urg ? 1 : 2) : (t.urg ? 3 : 4);
   const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const short = s => s.length > 14 ? s.slice(0, 14) + '…' : s;
+  const short = s => { const n = tr('shortLen'); return s.length > n ? s.slice(0, n) + '…' : s; };
   const newId = () => 't' + Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
 
   function todayStart(){ const d = new Date(); d.setHours(0,0,0,0); return d; }
@@ -467,10 +560,10 @@ html[data-font="brush"] .compact .qh h2{font-size:19px}
   function dueTag(s){
     if (!s) return null;
     const d = parseYmd(s), diff = Math.round((d - todayStart()) / DAY);
-    if (diff < 0) return {txt:'逾期 ' + (-diff) + ' 天', late:true};
-    if (diff === 0) return {txt:'今天'};
-    if (diff === 1) return {txt:'明天'};
-    return {txt:(d.getMonth()+1) + '月' + d.getDate() + '日'};
+    if (diff < 0) return {txt:tr('late', -diff), late:true};
+    if (diff === 0) return {txt:tr('today')};
+    if (diff === 1) return {txt:tr('tomorrow')};
+    return {txt:tr('date', d)};
   }
 
   function norm(id, x){
@@ -491,18 +584,18 @@ html[data-font="brush"] .compact .qh h2{font-size:19px}
     const now = Date.now(), day = n => ymd(new Date(todayStart().getTime() + n * DAY)), ago = h => now - h * 36e5;
     const stamp = now.toString(36);
     return [
-      {text:'客户明天签 SPA，今天把文件准备好', imp:true, urg:true, due:day(0)},
-      {text:'回银行要的贷款补件', imp:true, urg:true, due:day(1)},
-      {text:'拍 3 条 TikTok 价值内容', imp:true, urg:false, due:day(3)},
-      {text:'练熟逼单话术', imp:true, urg:false},
-      {text:'研究一个 AI 工具，每天省 1 小时', imp:true, urg:false},
-      {text:'打印这周的 booking 表格', imp:false, urg:true, who:'admin'},
-      {text:'把新 leads 整理进 Sheet', imp:false, urg:true, who:'tele caller'},
-      {text:'刷别人的 LIVE 一小时', imp:false, urg:false},
-      {text:'开没有结论的长会议', imp:false, urg:false},
-      {text:'写下这个月每周的目标', imp:true, urg:false, done:true, doneAt:ago(26)},
-      {text:'处理客户的订金收据', imp:true, urg:true, done:true, doneAt:ago(50)},
-      {text:'回一般询价 WhatsApp', imp:false, urg:true, done:true, doneAt:ago(30), who:'tele caller'},
+      {text:tr('ex')[0], imp:true, urg:true, due:day(0)},
+      {text:tr('ex')[1], imp:true, urg:true, due:day(1)},
+      {text:tr('ex')[2], imp:true, urg:false, due:day(3)},
+      {text:tr('ex')[3], imp:true, urg:false},
+      {text:tr('ex')[4], imp:true, urg:false},
+      {text:tr('ex')[5], imp:false, urg:true, who:'admin'},
+      {text:tr('ex')[6], imp:false, urg:true, who:'tele caller'},
+      {text:tr('ex')[7], imp:false, urg:false},
+      {text:tr('ex')[8], imp:false, urg:false},
+      {text:tr('ex')[9], imp:true, urg:false, done:true, doneAt:ago(26)},
+      {text:tr('ex')[10], imp:true, urg:true, done:true, doneAt:ago(50)},
+      {text:tr('ex')[11], imp:false, urg:true, done:true, doneAt:ago(30), who:'tele caller'},
     ].map((t, i) => norm('ex' + stamp + i, Object.assign({example:true, createdAt: now - (20 - i) * 6e4}, t)));
   }
 
@@ -514,7 +607,7 @@ html[data-font="brush"] .compact .qh h2{font-size:19px}
   let saveWarned = false;
   function save(){
     try { localStorage.setItem(LS_KEY, JSON.stringify(tasks)); }
-    catch (e) { if (!saveWarned) { saveWarned = true; toast('这个浏览器存不了资料（可能是无痕模式），关掉页面会不见。'); } }
+    catch (e) { if (!saveWarned) { saveWarned = true; toast(tr('noSave')); } }
   }
 
   function createTasks(list){ tasks.push(...list); render(); save(); }
@@ -539,31 +632,31 @@ html[data-font="brush"] .compact .qh h2{font-size:19px}
   function taskHTML(t){
     const q = qOf(t), open = openIds.has(t.id), due = dueTag(t.due), tags = [];
     if (due && !t.done) tags.push('<span class="tag' + (due.late ? ' late' : '') + '">' + esc(due.txt) + '</span>');
-    if (t.who) tags.push('<span class="tag">交给 ' + esc(t.who) + '</span>');
-    if (t.example) tags.push('<span class="tag ex">例子</span>');
+    if (t.who) tags.push('<span class="tag">' + esc(tr('handTo')) + esc(t.who) + '</span>');
+    if (t.example) tags.push('<span class="tag ex">' + esc(tr('example')) + '</span>');
     return '<li class="task' + (t.done ? ' is-done' : '') + (open ? ' is-open' : '') + '" data-id="' + esc(t.id) + '" draggable="' + (open ? 'false' : 'true') + '">' +
-      '<button type="button" class="chk" data-act="done" aria-pressed="' + t.done + '" aria-label="' + (t.done ? '改回未完成' : '标记完成') + '"></button>' +
+      '<button type="button" class="chk" data-act="done" aria-pressed="' + t.done + '" aria-label="' + (t.done ? tr('undone') : tr('markDone')) + '"></button>' +
       '<button type="button" class="tbody" data-act="open" aria-expanded="' + open + '"><span class="tt">' + esc(t.text) + '</span>' + (tags.length ? '<span class="tags">' + tags.join('') + '</span>' : '') + '</button>' +
       (open ? panelHTML(t, q) : '') + '</li>';
   }
   function panelHTML(t, q){
     const k = esc(t.id);
     return '<div class="panel">' +
-      '<label class="fld wide"><span>内容</span><input id="f-text-' + k + '" data-f="text" maxlength="200" value="' + esc(t.text) + '"></label>' +
-      '<label class="fld"><span>日期</span><input id="f-due-' + k + '" type="date" data-f="due" value="' + esc(t.due) + '"></label>' +
-      (q === 3 || t.who ? '<label class="fld"><span>交给</span><input id="f-who-' + k + '" data-f="who" maxlength="40" placeholder="谁来做" value="' + esc(t.who) + '"></label>' : '') +
-      '<div class="moves"><span>移到</span>' + [1,2,3,4].map(n => '<button type="button" data-act="move" data-q="' + n + '"' + (n === q ? ' disabled aria-current="true"' : '') + '>' + Q[n].name + '</button>').join('') + '</div>' +
-      '<button type="button" class="link danger" data-act="del">删除这件</button>' +
+      '<label class="fld wide"><span>' + tr('fText') + '</span><input id="f-text-' + k + '" data-f="text" maxlength="200" value="' + esc(t.text) + '"></label>' +
+      '<label class="fld"><span>' + tr('fDate') + '</span><input id="f-due-' + k + '" type="date" data-f="due" value="' + esc(t.due) + '"></label>' +
+      (q === 3 || t.who ? '<label class="fld"><span>' + tr('fWho') + '</span><input id="f-who-' + k + '" data-f="who" maxlength="40" placeholder="' + esc(tr('fWhoPh')) + '" value="' + esc(t.who) + '"></label>' : '') +
+      '<div class="moves"><span>' + tr('moveTo') + '</span>' + [1,2,3,4].map(n => '<button type="button" data-act="move" data-q="' + n + '"' + (n === q ? ' disabled aria-current="true"' : '') + '>' + qn(n) + '</button>').join('') + '</div>' +
+      '<button type="button" class="link danger" data-act="del">' + tr('del') + '</button>' +
       '</div>';
   }
 
   function verdict(n, total){
-    if (!total) return '勾掉做完的事，这里会显示你的时间花在哪一格。';
+    if (!total) return tr('v0');
     const p = q => n[q] / total;
-    if (p(2) >= .4) return '第二象限占得够多，节奏对了，继续保持。';
-    if (p(1) >= .5) return '一半以上的时间在救火。明天第一件事，先做一件第二象限。';
-    if (p(3) + p(4) >= .4) return '很多时间花在不重要的事。第三象限交出去，第四象限直接删。';
-    return '第二象限还可以多一点。每天先排一件。';
+    if (p(2) >= .4) return tr('v1');
+    if (p(1) >= .5) return tr('v2');
+    if (p(3) + p(4) >= .4) return tr('v3');
+    return tr('v4');
   }
   function renderWeek(weekAgo){
     const n = [0,0,0,0,0];
@@ -571,8 +664,8 @@ html[data-font="brush"] .compact .qh h2{font-size:19px}
     const total = n[1] + n[2] + n[3] + n[4];
     $('#wk-total').textContent = total;
     $('#wk-p2').textContent = (total ? Math.round(n[2] / total * 100) : 0) + '%';
-    $('#wk-bar').innerHTML = [1,2,3,4].filter(q => n[q]).map(q => '<span class="seg" data-q="' + q + '" style="flex:' + n[q] + '" title="' + Q[q].name + ' ' + n[q] + '"></span>').join('');
-    $('#wk-legend').innerHTML = [1,2,3,4].map(q => '<li data-q="' + q + '"><i></i>' + Q[q].name + '<b>' + n[q] + '</b></li>').join('');
+    $('#wk-bar').innerHTML = [1,2,3,4].filter(q => n[q]).map(q => '<span class="seg" data-q="' + q + '" style="flex:' + n[q] + '" title="' + qn(q) + ' ' + n[q] + '"></span>').join('');
+    $('#wk-legend').innerHTML = [1,2,3,4].map(q => '<li data-q="' + q + '"><i></i>' + qn(q) + '<b>' + n[q] + '</b></li>').join('');
     $('#wk-say').textContent = loaded ? verdict(n, total) : '';
   }
 
@@ -593,18 +686,18 @@ html[data-font="brush"] .compact .qh h2{font-size:19px}
       const done = mine.filter(t => t.done && (t.doneAt || 0) >= weekAgo).sort((x, y) => (y.doneAt || 0) - (x.doneAt || 0));
       el.querySelector('.qcount').textContent = loaded ? pending.filter(t => !t.example).length : '·';
       const list = el.querySelector('.list');
-      if (!loaded) list.innerHTML = '<li class="empty">载入中…</li>';
+      if (!loaded) list.innerHTML = '<li class="empty">' + tr('loading') + '</li>';
       else {
-        let html = pending.length ? pending.map(taskHTML).join('') : '<li class="empty">' + esc(Q[q].empty) + '</li>';
+        let html = pending.length ? pending.map(taskHTML).join('') : '<li class="empty">' + esc(tr('empty' + q)) + '</li>';
         if (showDone.has(q)) html += done.map(taskHTML).join('');
         list.innerHTML = html;
       }
       let f = '';
-      if (loaded && done.length) f += '<button type="button" class="link" data-act="showdone" aria-expanded="' + showDone.has(q) + '">' + (showDone.has(q) ? '收起已完成' : '看已完成 ' + done.length + ' 件') + '</button>';
+      if (loaded && done.length) f += '<button type="button" class="link" data-act="showdone" aria-expanded="' + showDone.has(q) + '">' + (showDone.has(q) ? tr('hideDone') : tr('showDone', done.length)) + '</button>';
       if (loaded && q === 4 && pending.length) {
         f += clearArmed
-          ? '<span class="arm">这 ' + pending.length + ' 件全部删掉？</span><button type="button" class="link danger" data-act="clear4">确定删掉</button><button type="button" class="link" data-act="clearcancel">算了</button>'
-          : '<button type="button" class="link" data-act="clear4arm">全部删掉</button>';
+          ? '<span class="arm">' + tr('clearQ', pending.length) + '</span><button type="button" class="link danger" data-act="clear4">' + tr('clearYes') + '</button><button type="button" class="link" data-act="clearcancel">' + tr('clearNo') + '</button>'
+          : '<button type="button" class="link" data-act="clear4arm">' + tr('clearAll') + '</button>';
       }
       const foot = el.querySelector('.qfoot');
       foot.innerHTML = f; foot.hidden = !f;
@@ -645,10 +738,10 @@ html[data-font="brush"] .compact .qh h2{font-size:19px}
   function setAdd(i, u){
     addImp = i; addUrg = u;
     const q = i ? (u ? 1 : 2) : (u ? 3 : 4);
-    tImp.setAttribute('aria-pressed', i); tImp.textContent = i ? '重要' : '不重要';
-    tUrg.setAttribute('aria-pressed', u); tUrg.textContent = u ? '紧急' : '不紧急';
+    tImp.setAttribute('aria-pressed', i); tImp.textContent = i ? tr('imp') : tr('nimp');
+    tUrg.setAttribute('aria-pressed', u); tUrg.textContent = u ? tr('urg') : tr('nurg');
     form.dataset.q = q;
-    $('#dest').textContent = '→ ' + Q[q].name;
+    $('#dest').textContent = '→ ' + qn(q);
   }
   tImp.addEventListener('click', () => setAdd(!addImp, addUrg));
   tUrg.addEventListener('click', () => setAdd(addImp, !addUrg));
@@ -659,12 +752,12 @@ html[data-font="brush"] .compact .qh h2{font-size:19px}
     const t = norm(newId(), {text:v, imp:addImp, urg:addUrg, createdAt:Date.now()});
     createTasks([t]);
     input.value = '';
-    toast('已加到「' + Q[qOf(t)].name + '」');
+    toast(tr('added', qn(qOf(t))));
     input.focus();
   });
 
-  $('#ex-add').addEventListener('click', () => { createTasks(exampleTasks()); toast('放了几件例子，看完可以一键清除。'); });
-  $('#ex-clear').addEventListener('click', () => removeTasks(tasks.filter(t => t.example), '例子已清除'));
+  $('#ex-add').addEventListener('click', () => { createTasks(exampleTasks()); toast(tr('exAdded')); });
+  $('#ex-clear').addEventListener('click', () => removeTasks(tasks.filter(t => t.example), tr('exCleared')));
 
   /* ---------- board interactions ---------- */
   board.addEventListener('click', e => {
@@ -685,11 +778,11 @@ html[data-font="brush"] .compact .qh h2{font-size:19px}
         break;
       case 'move': {
         const n = +b.dataset.q;
-        if (t) { patch(id, {imp:Q[n].imp, urg:Q[n].urg}); toast('已移到「' + Q[n].name + '」'); }
+        if (t) { patch(id, {imp:Q[n].imp, urg:Q[n].urg}); toast(tr('moved', qn(n))); }
         break;
       }
       case 'del':
-        if (t) removeTasks([t], '已删除「' + short(t.text) + '」');
+        if (t) removeTasks([t], tr('deleted', short(t.text)));
         break;
       case 'showdone':
         if (showDone.has(q)) showDone.delete(q); else showDone.add(q);
@@ -699,7 +792,7 @@ html[data-font="brush"] .compact .qh h2{font-size:19px}
       case 'clearcancel': clearArmed = false; render(); break;
       case 'clear4':
         clearArmed = false;
-        removeTasks(tasks.filter(x => qOf(x) === 4 && !x.done), '第四象限清空了');
+        removeTasks(tasks.filter(x => qOf(x) === 4 && !x.done), tr('q4Cleared'));
         break;
       case 'qadd': {
         const n = +b.dataset.q;
@@ -756,14 +849,14 @@ html[data-font="brush"] .compact .qh h2{font-size:19px}
     e.preventDefault();
     qd.classList.remove('over');
     const id = e.dataTransfer.getData('text/plain'), t = tasks.find(x => x.id === id), n = +qd.dataset.q;
-    if (t && qOf(t) !== n) { patch(id, {imp:Q[n].imp, urg:Q[n].urg}); toast('已移到「' + Q[n].name + '」'); }
+    if (t && qOf(t) !== n) { patch(id, {imp:Q[n].imp, urg:Q[n].urg}); toast(tr('moved', qn(n))); }
   });
 
   /* ---------- view mode (per device) ---------- */
   const VIEW_KEY = 'szj.view';
   function setView(compact, remember){
     document.body.classList.toggle('compact', compact);
-    $('#view-btn').textContent = compact ? '完整模式' : '小窗模式';
+    $('#view-btn').textContent = compact ? tr('full') : tr('small');
     if (remember) { try { localStorage.setItem(VIEW_KEY, compact ? 'compact' : 'full'); } catch (e) {} }
   }
   (function(){
@@ -787,7 +880,7 @@ html[data-font="brush"] .compact .qh h2{font-size:19px}
   ];
   const SKIN_KEY = 'szj.skin';
   const skinBtn = $('#skin-btn'), skinsEl = $('#skins'), skinGrid = $('#skin-grid');
-  skinGrid.innerHTML = SKINS.map(s => '<button type="button" class="skin" role="radio" data-skin="' + s[0] + '" aria-checked="false"><span class="mini" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>' + s[1] + '</span>' + (s[2] ? '<small>' + s[2] + '</small>' : '') + '</button>').join('');
+  skinGrid.innerHTML = SKINS.map(s => '<button type="button" class="skin" role="radio" data-skin="' + s[0] + '" aria-checked="false"><span class="mini" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span data-i="sk_' + s[0] + '"></span>' + (s[2] ? '<small data-i="sk_' + s[0] + '_sub"></small>' : '') + '</button>').join('');
   function syncThemeColor(){
     const c = getComputedStyle(document.documentElement).getPropertyValue('--paper').trim();
     if (c) $('#theme-color').setAttribute('content', c);
@@ -813,12 +906,12 @@ html[data-font="brush"] .compact .qh h2{font-size:19px}
   skinGrid.addEventListener('click', e => { const b = e.target.closest('.skin'); if (b) applySkin(b.dataset.skin, true); });
   const FONTS = [
     ['std', '标准', '原本的样子', ''],
-    ['cute', '可爱', '圆圆的', 'ZCOOL+KuaiLe'],
-    ['power', '力量', '粗又有劲', 'ZCOOL+QingKe+HuangYou'],
-    ['brush', '毛笔', '有气势', 'Ma+Shan+Zheng'],
+    ['cute', '可爱', '圆圆的', 'ZCOOL+KuaiLe&family=Fredoka:wght@400;600;700'],
+    ['power', '力量', '粗又有劲', 'ZCOOL+QingKe+HuangYou&family=Anton'],
+    ['brush', '毛笔', '有气势', 'Ma+Shan+Zheng&family=Kaushan+Script'],
   ];
   const FONT_KEY = 'szj.font', fontGrid = $('#font-grid');
-  fontGrid.innerHTML = FONTS.map(f => '<button type="button" class="skin" role="radio" data-fontpick="' + f[0] + '" aria-checked="false"><span class="fsample" data-font="' + f[0] + '" aria-hidden="true">马上做</span><span>' + f[1] + '</span><small>' + f[2] + '</small></button>').join('');
+  fontGrid.innerHTML = FONTS.map(f => '<button type="button" class="skin" role="radio" data-fontpick="' + f[0] + '" aria-checked="false"><span class="fsample" data-font="' + f[0] + '" aria-hidden="true" data-i="q1"></span><span data-i="f_' + f[0] + '"></span><small data-i="f_' + f[0] + '_sub"></small></button>').join('');
   function loadFont(k){
     const f = FONTS.find(x => x[0] === k);
     if (!f || !f[3] || document.querySelector('link[data-ff="' + k + '"]')) return;
@@ -856,6 +949,42 @@ html[data-font="brush"] .compact .qh h2{font-size:19px}
     try { k = localStorage.getItem(SKIN_KEY); f = localStorage.getItem(FONT_KEY); } catch (e) {}
     applySkin(k || 'classic', false);
     applyFont(f || 'std', false);
+  })();
+
+  /* ---------- language (per device) ---------- */
+  const LANG_KEY = 'szj.lang';
+  function applyLang(k, remember){
+    lang = k === 'en' ? 'en' : 'zh';
+    const root = document.documentElement;
+    root.setAttribute('lang', lang === 'en' ? 'en' : 'zh-CN');
+    document.title = tr('title');
+    document.querySelectorAll('[data-i]').forEach(el => { el.textContent = tr(el.dataset.i); });
+    document.querySelectorAll('[data-i-html]').forEach(el => { el.innerHTML = tr(el.dataset.iHtml); });
+    document.querySelectorAll('[data-i-ph]').forEach(el => { el.placeholder = tr(el.dataset.iPh); });
+    document.querySelectorAll('[data-i-aria]').forEach(el => { el.setAttribute('aria-label', tr(el.dataset.iAria)); });
+    const lb = $('#lang-btn');
+    lb.textContent = tr('langBtn');
+    lb.setAttribute('lang', lang === 'en' ? 'zh-CN' : 'en');
+    lb.setAttribute('aria-label', tr('langAria'));
+    const at = document.querySelector('meta[name="apple-mobile-web-app-title"]'); if (at) at.setAttribute('content', tr('appTitle'));
+    const mf = document.querySelector('link[rel="manifest"]'); if (mf) mf.setAttribute('href', lang === 'en' ? 'manifest-en.webmanifest' : 'manifest.webmanifest');
+    $('#view-btn').textContent = document.body.classList.contains('compact') ? tr('full') : tr('small');
+    setAdd(addImp, addUrg);
+    render();
+    if (remember) {
+      try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
+      try { fbq('trackCustom', 'MatrixLang', {lang}); } catch (e) {}
+    }
+  }
+  $('#lang-btn').addEventListener('click', () => {
+    applyLang(lang === 'en' ? 'zh' : 'en', true);
+    try { const u = new URL(location.href); if (u.searchParams.has('lang')) { u.searchParams.set('lang', lang); history.replaceState(null, '', u); } } catch (e) {}
+  });
+  (function(){
+    let k = null, fromUrl = false;
+    try { const m = location.search.match(/[?&]lang=(en|zh)/); if (m) { k = m[1]; fromUrl = true; } } catch (e) {}
+    if (!k) { try { k = localStorage.getItem(LANG_KEY); } catch (e) {} }
+    applyLang(k || 'zh', fromUrl);
   })();
 
   /* ---------- start ---------- */
