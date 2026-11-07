@@ -1,0 +1,16 @@
+{
+  "name": "十字架四象限",
+  "short_name": "四象限",
+  "description": "重要但不紧急的事先做完，手上的急事就会越来越少。",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#F2F4F3",
+  "theme_color": "#F2F4F3",
+  "lang": "zh-CN",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
