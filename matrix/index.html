@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-skin="classic">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -10,8 +10,8 @@
 <meta property="og:description" content="重要但不紧急的事先做完，手上的急事就会越来越少。">
 <meta property="og:url" content="https://fcgfelixcheng.com/matrix/">
 <meta property="og:image" content="https://fcgfelixcheng.com/matrix/icons/icon-512.png">
-<meta name="theme-color" content="#F2F4F3" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0F1519" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F2F4F3" id="theme-color">
+<script>try{var s=localStorage.getItem('szj.skin');if(s)document.documentElement.setAttribute('data-skin',s)}catch(e){}</script>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="四象限">
@@ -53,18 +53,56 @@ body{margin:0;padding:0}
   --f-body:"Noto Sans SC","PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
   --f-num:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,monospace;
 }
+/* Themes. Each one is a full palette keyed by data-skin, so it applies to the page (on <html>) and to each preview chip in the picker.
+   Every theme keeps the same meaning: q1 = red-ish (do now), q2 = the theme's hero colour (money zone), q3 = a third accent (hand off), q4 = grey (drop). */
+[data-skin="classic"]{
+  --paper:#F2F4F3; --card:#FFFFFF; --ink:#15212A; --muted:#5D6A72; --line:#D4DBD8; --axis:#15212A;
+  --hover:rgba(21,33,42,.05); --on:#FFFFFF; --toast-act:#7FE0B8;
+  --q1:#BF3F2B; --q1s:#FBECE8; --q2:#13755A; --q2s:#E4F2EC; --q3:#A2660E; --q3s:#FAF0DE; --q4:#717C85; --q4s:#ECEFF0;
+  color-scheme:light;
+}
 @media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
+  [data-skin="classic"]{
     --paper:#0F1519; --card:#172027; --ink:#E4EBE8; --muted:#94A2A9; --line:#2A363D; --axis:#C9D4D0;
     --hover:rgba(228,235,232,.06); --on:#0F1519; --toast-act:#13755A;
     --q1:#EC7560; --q1s:#2B1B18; --q2:#45C496; --q2s:#12271F; --q3:#E3A748; --q3s:#2A2214; --q4:#9BA6AD; --q4s:#1C2328;
     color-scheme:dark;
   }
 }
-:root[data-theme="dark"]{
-  --paper:#0F1519; --card:#172027; --ink:#E4EBE8; --muted:#94A2A9; --line:#2A363D; --axis:#C9D4D0;
-  --hover:rgba(228,235,232,.06); --on:#0F1519; --toast-act:#13755A;
-  --q1:#EC7560; --q1s:#2B1B18; --q2:#45C496; --q2s:#12271F; --q3:#E3A748; --q3s:#2A2214; --q4:#9BA6AD; --q4s:#1C2328;
+[data-skin="sakura"]{
+  --paper:#FBF1F3; --card:#FFFFFF; --ink:#3A2430; --muted:#7D5C68; --line:#F0D5DC; --axis:#4A2A3A;
+  --hover:rgba(192,64,122,.06); --on:#FFFFFF; --toast-act:#FFB3C8;
+  --q1:#C8402F; --q1s:#FCE6E2; --q2:#C0407A; --q2s:#FBE3EE; --q3:#A8621A; --q3s:#FAEEDD; --q4:#7E6B75; --q4s:#F3ECEF;
+  color-scheme:light;
+}
+[data-skin="lavender"]{
+  --paper:#F3F0FA; --card:#FFFFFF; --ink:#2B2340; --muted:#6B6282; --line:#DDD6EE; --axis:#2B2340;
+  --hover:rgba(106,75,196,.06); --on:#FFFFFF; --toast-act:#C9B6FF;
+  --q1:#C2415B; --q1s:#FBE6EA; --q2:#6A4BC4; --q2s:#ECE6FB; --q3:#A65E14; --q3s:#FAEEDD; --q4:#776F86; --q4s:#EEEBF3;
+  color-scheme:light;
+}
+[data-skin="milktea"]{
+  --paper:#F5EEE6; --card:#FFFCF8; --ink:#3B2C22; --muted:#7A6352; --line:#E6D8C8; --axis:#3B2C22;
+  --hover:rgba(59,44,34,.05); --on:#FFFFFF; --toast-act:#F2C28B;
+  --q1:#BF3A2E; --q1s:#F8E5DF; --q2:#8B5E3C; --q2s:#F1E4D6; --q3:#3F7F7A; --q3s:#E2F0EE; --q4:#7A695D; --q4s:#EFE8E1;
+  color-scheme:light;
+}
+[data-skin="mist"]{
+  --paper:#EEF2F7; --card:#FFFFFF; --ink:#1B2A3F; --muted:#5E6E84; --line:#D3DCE8; --axis:#1B2A3F;
+  --hover:rgba(27,42,63,.05); --on:#FFFFFF; --toast-act:#8CC2FF;
+  --q1:#C43D3D; --q1s:#FBE7E7; --q2:#2F62B8; --q2s:#E3ECFA; --q3:#A35F12; --q3s:#F8EEDD; --q4:#66758A; --q4s:#EAEEF3;
+  color-scheme:light;
+}
+[data-skin="navy"]{
+  --paper:#0B1424; --card:#12203A; --ink:#E6EDF7; --muted:#93A4BF; --line:#243756; --axis:#C7D6EC;
+  --hover:rgba(230,237,247,.06); --on:#0B1424; --toast-act:#1F5FC4;
+  --q1:#FF7A6B; --q1s:#2E1A24; --q2:#5AA9FF; --q2s:#0F2A52; --q3:#F2B455; --q3s:#2B2416; --q4:#8E9BB0; --q4s:#1A2640;
+  color-scheme:dark;
+}
+[data-skin="gold"]{
+  --paper:#0B0B0B; --card:#161513; --ink:#F4F2EE; --muted:#A39E96; --line:#2E2B26; --axis:#E4BC63;
+  --hover:rgba(244,242,238,.05); --on:#0B0B0B; --toast-act:#8A6A1F;
+  --q1:#F0705E; --q1s:#2A1714; --q2:#E4BC63; --q2s:#241D0F; --q3:#D98A4E; --q3s:#26190F; --q4:#8C877F; --q4s:#1D1C1A;
   color-scheme:dark;
 }
 [data-q="1"]{--qc:var(--q1);--qs:var(--q1s)}
@@ -190,6 +228,7 @@ h1{font-family:var(--f-display);font-weight:900;font-size:clamp(28px,5vw,42px);l
   .add-ctl{flex:1 1 100%}
   #add-btn{margin-left:auto}
   .panel{padding-left:0}
+  .sync{flex-basis:100%}
 }
 .top-r{display:flex;align-items:center;gap:8px 16px;flex-wrap:wrap}
 .viewbtn{border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:5px 12px;font-size:13px;font-weight:700;cursor:pointer}
@@ -234,6 +273,30 @@ h1{font-family:var(--f-display);font-weight:900;font-size:clamp(28px,5vw,42px);l
   .compact .qh{grid-template-columns:minmax(0,1fr) auto}
   .compact .qcount{display:none}
 }
+/* theme picker */
+.skinbtn{display:inline-flex;align-items:center;gap:7px}
+.skinbtn[aria-expanded="true"]{border-color:var(--ink)}
+.dots{display:grid;grid-template-columns:repeat(2,6px);gap:2px}
+.dots i,.mini i{display:block;border-radius:2px}
+.dots i{width:6px;height:6px}
+.dots i:nth-child(1),.mini i:nth-child(1){background:var(--q1)}
+.dots i:nth-child(2),.mini i:nth-child(2){background:var(--q2)}
+.dots i:nth-child(3),.mini i:nth-child(3){background:var(--q3)}
+.dots i:nth-child(4),.mini i:nth-child(4){background:var(--q4)}
+.skins{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px 14px;display:flex;flex-direction:column;gap:10px}
+.skins-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:13px;color:var(--muted)}
+.skins-h b{color:var(--ink);font-size:14px;margin-right:8px}
+.skins-h .link{white-space:nowrap;flex:none}
+.skin-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:8px}
+.skin{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:7px;padding:8px 8px 7px;border-radius:12px;background:var(--paper);border:2px solid var(--line);color:var(--ink);font-size:13px;font-weight:700;text-align:center;transition:transform .15s}
+.skin:hover{transform:translateY(-2px)}
+.skin:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.skin[aria-checked="true"]{border-color:var(--q2);box-shadow:0 0 0 1px var(--q2)}
+.mini{display:grid;grid-template-columns:1fr 1fr;gap:3px;padding:5px;border-radius:8px;background:var(--card);height:46px;position:relative}
+.mini::before,.mini::after{content:"";position:absolute;background:var(--axis)}
+.mini::before{left:50%;top:3px;bottom:3px;width:2px;transform:translateX(-50%)}
+.mini::after{top:50%;left:3px;right:3px;height:2px;transform:translateY(-50%)}
+.skin small{font-weight:500;font-size:11px;color:var(--muted);margin-top:-5px}
 @media (prefers-reduced-motion: reduce){ *{transition:none !important} }
 </style>
 </head>
@@ -247,9 +310,15 @@ h1{font-family:var(--f-display);font-weight:900;font-size:clamp(28px,5vw,42px);l
     </div>
     <div class="top-r">
       <div class="sync" id="sync" role="status"><i></i><span>只存在你这部手机 / 电脑，别人看不到</span></div>
+      <button class="viewbtn skinbtn" id="skin-btn" type="button" aria-expanded="false" aria-controls="skins"><span class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i></span>主题</button>
       <button class="viewbtn" id="view-btn" type="button">小窗模式</button>
     </div>
   </header>
+
+  <section class="skins" id="skins" aria-label="选主题" hidden>
+    <div class="skins-h"><span><b>选一个你喜欢的颜色</b>　只改你这部设备</span><button class="link" id="skins-close" type="button">好了</button></div>
+    <div class="skin-grid" id="skin-grid" role="radiogroup" aria-label="主题"></div>
+  </section>
 
   <form class="add" id="add" data-q="2" autocomplete="off">
     <input id="add-text" maxlength="200" placeholder="写下一件要做的事，例如：跟进客户的贷款文件" aria-label="要做的事">
@@ -678,6 +747,51 @@ h1{font-family:var(--f-display);font-weight:900;font-size:clamp(28px,5vw,42px);l
   })();
   $('#view-btn').addEventListener('click', () => setView(!document.body.classList.contains('compact'), true));
   window.addEventListener('hashchange', () => { const h = location.hash.slice(1); if (h === 'widget' || h === 'full') setView(h === 'widget', false); });
+
+  /* ---------- theme (per device) ---------- */
+  const SKINS = [
+    ['classic', '经典', '跟随深浅色'],
+    ['sakura', '樱花粉'],
+    ['lavender', '薰衣草'],
+    ['milktea', '奶茶'],
+    ['mist', '雾蓝'],
+    ['navy', '深海蓝'],
+    ['gold', '黑金'],
+  ];
+  const SKIN_KEY = 'szj.skin';
+  const skinBtn = $('#skin-btn'), skinsEl = $('#skins'), skinGrid = $('#skin-grid');
+  skinGrid.innerHTML = SKINS.map(s => '<button type="button" class="skin" role="radio" data-skin="' + s[0] + '" aria-checked="false"><span class="mini" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>' + s[1] + '</span>' + (s[2] ? '<small>' + s[2] + '</small>' : '') + '</button>').join('');
+  function syncThemeColor(){
+    const c = getComputedStyle(document.documentElement).getPropertyValue('--paper').trim();
+    if (c) $('#theme-color').setAttribute('content', c);
+  }
+  function applySkin(k, remember){
+    if (!SKINS.some(s => s[0] === k)) k = 'classic';
+    document.documentElement.setAttribute('data-skin', k);
+    skinGrid.querySelectorAll('.skin').forEach(b => b.setAttribute('aria-checked', b.dataset.skin === k));
+    syncThemeColor();
+    if (remember) {
+      try { localStorage.setItem(SKIN_KEY, k); } catch (e) {}
+      try { fbq('trackCustom', 'MatrixTheme', {skin:k}); } catch (e) {}
+    }
+  }
+  function showSkins(open){
+    skinsEl.hidden = !open;
+    skinBtn.setAttribute('aria-expanded', open);
+    if (open) { const cur = skinGrid.querySelector('[aria-checked="true"]'); if (cur) cur.focus({preventScroll:true}); }
+  }
+  skinBtn.addEventListener('click', () => showSkins(skinsEl.hidden));
+  $('#skins-close').addEventListener('click', () => { showSkins(false); skinBtn.focus(); });
+  skinGrid.addEventListener('click', e => { const b = e.target.closest('.skin'); if (b) applySkin(b.dataset.skin, true); });
+  skinGrid.addEventListener('keydown', e => {
+    const list = [...skinGrid.querySelectorAll('.skin')], i = list.indexOf(document.activeElement);
+    if (i < 0) return;
+    const step = {ArrowRight:1, ArrowDown:1, ArrowLeft:-1, ArrowUp:-1}[e.key];
+    if (step) { e.preventDefault(); const b = list[(i + step + list.length) % list.length]; b.focus(); applySkin(b.dataset.skin, true); }
+    if (e.key === 'Escape') { showSkins(false); skinBtn.focus(); }
+  });
+  try { matchMedia('(prefers-color-scheme: dark)').addEventListener('change', syncThemeColor); } catch (e) {}
+  (function(){ let k = null; try { k = localStorage.getItem(SKIN_KEY); } catch (e) {} applySkin(k || 'classic', false); })();
 
   /* ---------- start ---------- */
   // Another tab or the small window changed the list: show it here too.
