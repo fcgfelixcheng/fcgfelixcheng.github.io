@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://fcgfelixcheng.com/matrix/">
 <meta property="og:image" content="https://fcgfelixcheng.com/matrix/icons/icon-512.png">
 <meta name="theme-color" content="#F2F4F3" id="theme-color">
-<script>try{var s=localStorage.getItem('szj.skin');if(s)document.documentElement.setAttribute('data-skin',s)}catch(e){}</script>
+<script>try{var d=document.documentElement,s=localStorage.getItem('szj.skin'),f=localStorage.getItem('szj.font'),F={cute:'ZCOOL+KuaiLe',power:'ZCOOL+QingKe+HuangYou',brush:'Ma+Shan+Zheng'};if(s)d.setAttribute('data-skin',s);if(F[f]){d.setAttribute('data-font',f);var l=document.createElement('link');l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family='+F[f]+'&display=swap';l.setAttribute('data-ff',f);document.head.appendChild(l)}}catch(e){}</script>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="四象限">
@@ -52,6 +52,7 @@ body{margin:0;padding:0}
   --f-display:"Noto Serif SC","Songti SC","STSong",serif;
   --f-body:"Noto Sans SC","PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
   --f-num:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --w-display:900; --w-ax:700;
 }
 /* Themes. Each one is a full palette keyed by data-skin, so it applies to the page (on <html>) and to each preview chip in the picker.
    Every theme keeps the same meaning: q1 = red-ish (do now), q2 = the theme's hero colour (money zone), q3 = a third accent (hand off), q4 = grey (drop). */
@@ -117,7 +118,7 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--qc, var(--ink))
 
 /* header */
 .top{display:flex;justify-content:space-between;align-items:flex-end;gap:10px 24px;flex-wrap:wrap}
-h1{font-family:var(--f-display);font-weight:900;font-size:clamp(28px,5vw,42px);line-height:1.1;margin:0;letter-spacing:.04em;text-wrap:balance}
+h1{font-family:var(--f-display);font-weight:var(--w-display);font-size:clamp(28px,5vw,42px);line-height:1.1;margin:0;letter-spacing:.04em;text-wrap:balance}
 .lede{margin:8px 0 0;color:var(--muted);font-size:15px}
 .sync{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
 .sync i{width:8px;height:8px;border-radius:50%;background:var(--q2);flex:none}
@@ -153,7 +154,7 @@ h1{font-family:var(--f-display);font-weight:900;font-size:clamp(28px,5vw,42px);l
 
 /* the cross */
 .board{display:grid;grid-template-columns:34px minmax(0,1fr) minmax(0,1fr)}
-.ax{font-family:var(--f-display);font-weight:700;font-size:15px;letter-spacing:.35em;display:flex;align-items:center;justify-content:center;color:var(--ink)}
+.ax{font-family:var(--f-display);font-weight:var(--w-ax);font-size:15px;letter-spacing:.35em;display:flex;align-items:center;justify-content:center;color:var(--ink)}
 .ax-top{padding-bottom:10px}
 .ax-side{writing-mode:vertical-rl;padding-right:10px}
 .quad{background:var(--card);border-style:solid;padding:16px 18px 14px;display:flex;flex-direction:column;gap:10px;min-height:250px;min-width:0}
@@ -166,7 +167,7 @@ h1{font-family:var(--f-display);font-weight:900;font-size:clamp(28px,5vw,42px);l
 
 .qh{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:10px;align-items:start}
 .qlabel{font-size:12px;letter-spacing:.06em;color:var(--muted)}
-.qh h2{margin:2px 0 0;font-family:var(--f-display);font-weight:900;font-size:24px;line-height:1.2;color:var(--qc);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.qh h2{margin:2px 0 0;font-family:var(--f-display);font-weight:var(--w-display);font-size:24px;line-height:1.2;color:var(--qc);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .pill{font-family:var(--f-body);font-size:12px;font-weight:700;background:var(--qc);color:var(--on);padding:2px 8px;border-radius:999px;letter-spacing:.04em}
 .qtip{margin:2px 0 0;font-size:13px;color:var(--muted)}
 .qcount{font-family:var(--f-num);font-weight:700;font-size:26px;line-height:1;color:var(--qc);font-variant-numeric:tabular-nums;padding-top:6px;min-width:1.2ch;text-align:right}
@@ -273,6 +274,26 @@ h1{font-family:var(--f-display);font-weight:900;font-size:clamp(28px,5vw,42px);l
   .compact .qh{grid-template-columns:minmax(0,1fr) auto}
   .compact .qcount{display:none}
 }
+/* Fonts. Same trick as the colours: keyed by data-font on <html> and on each preview chip. */
+[data-font="std"]{--f-display:"Noto Serif SC","Songti SC","STSong",serif;--w-display:900;--w-ax:700}
+[data-font="cute"]{
+  --f-display:"ZCOOL KuaiLe","Noto Sans SC","PingFang SC",sans-serif;
+  --f-body:"ZCOOL KuaiLe","Noto Sans SC","PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --w-display:400; --w-ax:400;
+}
+[data-font="power"]{--f-display:"ZCOOL QingKe HuangYou","Noto Sans SC","PingFang SC",sans-serif;--w-display:400;--w-ax:400}
+[data-font="brush"]{--f-display:"Ma Shan Zheng","STKaiti","KaiTi","Noto Serif SC",serif;--w-display:400;--w-ax:400}
+/* these fonts have one weight: show it as drawn instead of a smeared fake bold */
+html[data-font="cute"],html[data-font="power"],html[data-font="brush"]{font-synthesis:none}
+html[data-font="cute"] .tt{font-size:16px}
+html[data-font="cute"] .compact .tt{font-size:14.5px}
+html[data-font="power"] .tog,html[data-font="power"] .dest{font-family:var(--f-display);font-weight:400;letter-spacing:.04em}
+html[data-font="power"] h1,html[data-font="power"] .qh h2{letter-spacing:.06em}
+html[data-font="brush"] h1{font-size:clamp(32px,6vw,50px)}
+html[data-font="brush"] .qh h2{font-size:28px}
+html[data-font="brush"] .compact h1{font-size:24px}
+html[data-font="brush"] .compact .qh h2{font-size:19px}
+
 /* theme picker */
 .skinbtn{display:inline-flex;align-items:center;gap:7px}
 .skinbtn[aria-expanded="true"]{border-color:var(--ink)}
@@ -296,6 +317,9 @@ h1{font-family:var(--f-display);font-weight:900;font-size:clamp(28px,5vw,42px);l
 .mini::before,.mini::after{content:"";position:absolute;background:var(--axis)}
 .mini::before{left:50%;top:3px;bottom:3px;width:2px;transform:translateX(-50%)}
 .mini::after{top:50%;left:3px;right:3px;height:2px;transform:translateY(-50%)}
+.skins-t{margin:4px 0 -2px;font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--muted)}
+#font-grid{grid-template-columns:repeat(auto-fill,minmax(72px,1fr))}
+.fsample{font-family:var(--f-display);font-weight:var(--w-display);font-size:clamp(17px,4.6vw,24px);line-height:1.25;color:var(--ink);background:var(--card);border-radius:8px;padding:9px 4px 7px;overflow:hidden;white-space:nowrap}
 .skin small{font-weight:500;font-size:11px;color:var(--muted);margin-top:-5px}
 @media (prefers-reduced-motion: reduce){ *{transition:none !important} }
 </style>
@@ -316,8 +340,11 @@ h1{font-family:var(--f-display);font-weight:900;font-size:clamp(28px,5vw,42px);l
   </header>
 
   <section class="skins" id="skins" aria-label="选主题" hidden>
-    <div class="skins-h"><span><b>选一个你喜欢的颜色</b>　只改你这部设备</span><button class="link" id="skins-close" type="button">好了</button></div>
-    <div class="skin-grid" id="skin-grid" role="radiogroup" aria-label="主题"></div>
+    <div class="skins-h"><span><b>挑你的风格</b>只改你这部设备</span><button class="link" id="skins-close" type="button">好了</button></div>
+    <p class="skins-t" id="skins-t1">颜色</p>
+    <div class="skin-grid" id="skin-grid" role="radiogroup" aria-labelledby="skins-t1"></div>
+    <p class="skins-t" id="skins-t2">字体</p>
+    <div class="skin-grid" id="font-grid" role="radiogroup" aria-labelledby="skins-t2"></div>
   </section>
 
   <form class="add" id="add" data-q="2" autocomplete="off">
@@ -776,6 +803,7 @@ h1{font-family:var(--f-display);font-weight:900;font-size:clamp(28px,5vw,42px);l
     }
   }
   function showSkins(open){
+    if (open) FONTS.forEach(f => loadFont(f[0]));
     skinsEl.hidden = !open;
     skinBtn.setAttribute('aria-expanded', open);
     if (open) { const cur = skinGrid.querySelector('[aria-checked="true"]'); if (cur) cur.focus({preventScroll:true}); }
@@ -783,15 +811,52 @@ h1{font-family:var(--f-display);font-weight:900;font-size:clamp(28px,5vw,42px);l
   skinBtn.addEventListener('click', () => showSkins(skinsEl.hidden));
   $('#skins-close').addEventListener('click', () => { showSkins(false); skinBtn.focus(); });
   skinGrid.addEventListener('click', e => { const b = e.target.closest('.skin'); if (b) applySkin(b.dataset.skin, true); });
-  skinGrid.addEventListener('keydown', e => {
-    const list = [...skinGrid.querySelectorAll('.skin')], i = list.indexOf(document.activeElement);
-    if (i < 0) return;
+  const FONTS = [
+    ['std', '标准', '原本的样子', ''],
+    ['cute', '可爱', '圆圆的', 'ZCOOL+KuaiLe'],
+    ['power', '力量', '粗又有劲', 'ZCOOL+QingKe+HuangYou'],
+    ['brush', '毛笔', '有气势', 'Ma+Shan+Zheng'],
+  ];
+  const FONT_KEY = 'szj.font', fontGrid = $('#font-grid');
+  fontGrid.innerHTML = FONTS.map(f => '<button type="button" class="skin" role="radio" data-fontpick="' + f[0] + '" aria-checked="false"><span class="fsample" data-font="' + f[0] + '" aria-hidden="true">马上做</span><span>' + f[1] + '</span><small>' + f[2] + '</small></button>').join('');
+  function loadFont(k){
+    const f = FONTS.find(x => x[0] === k);
+    if (!f || !f[3] || document.querySelector('link[data-ff="' + k + '"]')) return;
+    const l = document.createElement('link');
+    l.rel = 'stylesheet'; l.href = 'https://fonts.googleapis.com/css2?family=' + f[3] + '&display=swap';
+    l.setAttribute('data-ff', k);
+    document.head.appendChild(l);
+  }
+  function applyFont(k, remember){
+    if (!FONTS.some(f => f[0] === k)) k = 'std';
+    loadFont(k);
+    document.documentElement.setAttribute('data-font', k);
+    fontGrid.querySelectorAll('.skin').forEach(b => b.setAttribute('aria-checked', b.dataset.fontpick === k));
+    if (remember) {
+      try { localStorage.setItem(FONT_KEY, k); } catch (e) {}
+      try { fbq('trackCustom', 'MatrixFont', {font:k}); } catch (e) {}
+    }
+  }
+  fontGrid.addEventListener('click', e => { const b = e.target.closest('.skin'); if (b) applyFont(b.dataset.fontpick, true); });
+  skinsEl.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { showSkins(false); skinBtn.focus(); return; }
+    const grid = e.target.closest && e.target.closest('.skin-grid');
+    if (!grid) return;
+    const list = [...grid.querySelectorAll('.skin')], i = list.indexOf(document.activeElement);
     const step = {ArrowRight:1, ArrowDown:1, ArrowLeft:-1, ArrowUp:-1}[e.key];
-    if (step) { e.preventDefault(); const b = list[(i + step + list.length) % list.length]; b.focus(); applySkin(b.dataset.skin, true); }
-    if (e.key === 'Escape') { showSkins(false); skinBtn.focus(); }
+    if (i < 0 || !step) return;
+    e.preventDefault();
+    const b = list[(i + step + list.length) % list.length];
+    b.focus();
+    if (grid === fontGrid) applyFont(b.dataset.fontpick, true); else applySkin(b.dataset.skin, true);
   });
   try { matchMedia('(prefers-color-scheme: dark)').addEventListener('change', syncThemeColor); } catch (e) {}
-  (function(){ let k = null; try { k = localStorage.getItem(SKIN_KEY); } catch (e) {} applySkin(k || 'classic', false); })();
+  (function(){
+    let k = null, f = null;
+    try { k = localStorage.getItem(SKIN_KEY); f = localStorage.getItem(FONT_KEY); } catch (e) {}
+    applySkin(k || 'classic', false);
+    applyFont(f || 'std', false);
+  })();
 
   /* ---------- start ---------- */
   // Another tab or the small window changed the list: show it here too.
